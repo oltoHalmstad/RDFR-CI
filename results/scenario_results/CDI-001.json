@@ -1,0 +1,61 @@
+{
+  "scenario_id": "CDI-001",
+  "risk_dimensions": {
+    "E": 0.3,
+    "D": 0.1,
+    "A": 0.08,
+    "F": 0.08,
+    "C": 0.25
+  },
+  "weights": {
+    "E": 0.2,
+    "D": 0.2,
+    "A": 0.15,
+    "F": 0.2,
+    "C": 0.25
+  },
+  "beta_vector": {
+    "H": 0.3,
+    "V": 0.25,
+    "K": 0.2,
+    "T": 0.1,
+    "R_c": 0.15
+  },
+  "composite_score": 0.1705,
+  "provisional_authority": "Bounded automation",
+  "gate_results": {
+    "G_S": "pass",
+    "G_V": "pass",
+    "G_FA": "pass",
+    "G_A": "pass",
+    "G_H": "pass"
+  },
+  "gate_caps": {
+    "G_S": 1,
+    "G_V": 1,
+    "G_FA": 2,
+    "G_A": 3,
+    "G_H": 2
+  },
+  "final_authority": "Bounded automation",
+  "binding_constraint": "Score",
+  "boundary_margin": 0.0295,
+  "uncertainty": {
+    "p_bounded": 0.9005,
+    "p_human_approved": 0.0995,
+    "p_assisted": 0.0,
+    "p_shadow": 0.0,
+    "p_rollback": 0.0,
+    "p_point_state": 0.9005,
+    "p_state_change": 0.09950000000000003
+  },
+  "assumptions": [
+    "Illustrative demonstration input; not a measured sector risk level.",
+    "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+  ],
+  "evidence_status": "synthetic/illustrative governance scenario",
+  "illustrative_or_empirical": "illustrative",
+  "evidence_references": [],
+  "timestamp": "2026-09-05T14:56:40.660208+00:00",
+  "software_version": "1.0.0"
+}

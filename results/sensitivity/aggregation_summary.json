@@ -1,0 +1,10 @@
+{
+  "changed_under_at_least_one": 21,
+  "total": 30,
+  "operator_change_counts": {
+    "power_mean_rho_2": 7,
+    "power_mean_rho_3": 18,
+    "worst_30pct_blend": 19
+  },
+  "interpretation": "Sensitivity analysis only; no operator is claimed to be universally correct."
+}

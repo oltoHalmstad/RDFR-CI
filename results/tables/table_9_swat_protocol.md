@@ -1,0 +1,12 @@
+| Element            | Primary design                                                                              | Purpose / sensitivity                                     |
+|:-------------------|:--------------------------------------------------------------------------------------------|:----------------------------------------------------------|
+| Dataset            | SWaT A1/A2 Dec 2015 historian/process data                                                  | Official iTrust distribution; raw data not redistributed  |
+| Training           | First 80% of normal period, chronological                                                   | Fit model/preprocessing without attack leakage            |
+| Normal calibration | Remaining 20% of normal period                                                              | Estimate FPR and false alarms per hour                    |
+| Attack split       | Attack-scenario-wise calibration/test split                                                 | Prevent correlated windows from same attack on both sides |
+| Temporal window    | 60 s                                                                                        | Sensitivity at 30 s and 120 s                             |
+| Detectors          | Isolation Forest; reconstruction autoencoder                                                | Simple reproducible baseline plus reconstruction model    |
+| FPR budgets phi    | 0.01, 0.05, 0.10                                                                            | Strict, primary and relaxed operational budgets           |
+| Primary metrics    | PR-AUC, ROC-AUC, precision, recall, F1, event detection rate, median TTD, false alarms/hour | Separate statistical performance from operational burden  |
+| RDFR-CI output     | D(phi), R_CI, boundary margin, P(authority state)                                           | Connect measured detection to deployment authority        |
+| Uncertainty        | 10,000 attack-episode bootstrap resamples                                                   | Report authority as distribution rather than point state  |

@@ -1,0 +1,28 @@
+{
+  "title": "RDFR-CI: Reference Implementation, Scenario Library and Evaluation Harness",
+  "description": "Supplementary and reproducibility package for the RDFR-CI paper. Includes the core governance equations, a 30-scenario illustrative library, uncertainty and sensitivity analyses, multi-agent authority demonstrations, publication figures and a pre-specified SWaT validation pipeline. SWaT raw data are not redistributed.",
+  "upload_type": "software",
+  "license": "mit-license",
+  "version": "1.0.0",
+  "publication_date": "2026-09-05",
+  "creators": [
+    {
+      "name": "Torstensson, Olga",
+      "affiliation": "Halmstad University"
+    },
+    {
+      "name": "Prokopovych-Tkachenko, Dmytro",
+      "affiliation": "University of Customs and Finance"
+    }
+  ],
+  "keywords": [
+    "critical infrastructure",
+    "OT",
+    "ICS",
+    "AI governance",
+    "forensic readiness",
+    "autonomous cyber defense"
+  ],
+  "related_identifiers": [],
+  "notes": "ARTICLE DOI: pending; SOFTWARE DOI: pending. Add identifiers only after assignment. Replace GitHub URL placeholders before public release."
+}

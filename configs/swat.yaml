@@ -1,0 +1,21 @@
+dataset: SWaT A1/A2 December 2015
+data_dir: data/private/swat
+normal_training_fraction: 0.80
+normal_calibration_fraction: 0.20
+attack_split: attack-scenario-wise
+windows_seconds: [60, 30, 120]
+primary_window_seconds: 60
+models:
+  primary: isolation_forest
+  secondary: reconstruction_autoencoder
+false_positive_budgets: [0.01, 0.05, 0.10]
+primary_false_positive_budget: 0.05
+point_adjustment_primary: false
+bootstrap_attack_episodes: 10000
+water_context:
+  E: 0.55
+  A: 0.30
+  F: 0.25
+  C: 0.90
+  formula: R_CI(tau) = 0.430 + 0.20*D(tau)
+raw_data_redistribution: prohibited_by_repository_policy

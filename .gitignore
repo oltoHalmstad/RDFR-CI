@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+build/
+dist/
+*.egg-info/
+
+# Restricted/private datasets and local models
+data/private/*
+!data/private/.gitkeep
+*.ckpt
+*.pt
+*.pth
+
+# Local SWaT outputs are not tracked by default
+results/swat/

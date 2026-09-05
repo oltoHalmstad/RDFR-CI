@@ -1,0 +1,7 @@
+C,R_min = w_C*C,Best reachable state,Interpretation
+0.25,0.0625,Bounded automation,Full range of deployment states available
+0.5,0.125,Bounded automation,Ceiling not yet binding
+0.75,0.1875,Bounded automation,Ceiling approaching; small margin remains
+0.8,0.2,Human-approved intervention,Threshold at which bounded automation is lost
+0.9,0.225,Human-approved intervention,Autonomous action permanently excluded
+0.95,0.2375,Human-approved intervention,Assurance investment cannot change the band

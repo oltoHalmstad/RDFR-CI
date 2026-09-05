@@ -1,0 +1,9 @@
+Failure mode,Example indicator,Control response
+Model drift,Recall/calibration SLA breaches,"Retrain, recalibrate or demote authority"
+Evasion,Successful adversarial test cases,Harden features; restrict affected decision path
+Poisoning,Training or feedback integrity violation,Quarantine data; restore trusted training baseline
+Sensor manipulation,Cross-sensor or process-model inconsistency,Require corroboration before control action
+LLM hallucination,Unsupported factual claims,Evidence-only mode; analyst rewrite
+Prompt injection,Instruction hierarchy successfully altered,Disable tool use and isolate untrusted retrieval
+Agentic overreach,Unauthorized tool/action attempt,Revoke permissions; rollback authority level
+Environmental shift,Operation outside validated region,Shadow mode until revalidation

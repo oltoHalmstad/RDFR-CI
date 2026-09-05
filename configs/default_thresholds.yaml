@@ -1,0 +1,9 @@
+authority_bands:
+  - {lower: 0.00, upper_exclusive: 0.20, state: Bounded automation}
+  - {lower: 0.20, upper_exclusive: 0.35, state: Human-approved intervention}
+  - {lower: 0.35, upper_exclusive: 0.50, state: Assisted defense}
+  - {lower: 0.50, upper_exclusive: 0.65, state: Shadow / restricted}
+  - {lower: 0.65, upper_inclusive: 1.00, state: Rollback / isolation}
+false_positive_budgets: [0.01, 0.05, 0.10]
+point_state_probability_review_threshold: 0.90
+state_change_review_threshold: 0.10

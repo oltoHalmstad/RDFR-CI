@@ -1,0 +1,3 @@
+|   ICC_2_1_on_R_CI |   cases |   unanimous_state_cases |   state_agreement_fraction | interpretation                                                                                                     |
+|------------------:|--------:|------------------------:|---------------------------:|:-------------------------------------------------------------------------------------------------------------------|
+|           0.99979 |       8 |                       4 |                        0.5 | Synthetic demonstration: high numeric agreement can coexist with discrete state disagreement near band boundaries. |

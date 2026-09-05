@@ -1,0 +1,17 @@
+| Condition                                       | Required response                                                  |
+|:------------------------------------------------|:-------------------------------------------------------------------|
+| Recall below critical-asset SLA                 | Demote deployment state; investigate detector failure              |
+| Significant feature/process drift               | Freeze promotion; reassess operating region                        |
+| Successful adversarial manipulation             | Disable affected model or action path                              |
+| Successful prompt injection or policy bypass    | Disable tool-using mode until corrected                            |
+| Privilege violation                             | Revoke delegated privilege and isolate affected branch             |
+| Forensic accountability below floor             | Block destructive automation; preserve or record exception         |
+| Repeated human overrides                        | Revalidate model, policy and escalation thresholds                 |
+| Failed rollback                                 | Suspend relevant playbook and require manual recovery plan         |
+| Safety-envelope violation                       | Immediate automation stop                                          |
+| Unexpected process deviation after cyber action | Rollback where safe and escalate                                   |
+| Operation outside validated model region        | Return to shadow or advisory mode                                  |
+| Score within one elicitation step of band edge  | Freeze promotion; gather evidence                                  |
+| Assessors disagree on deployment state          | Reconcile elicitation before acting on score                       |
+| Excessive cross-agent propagation               | Isolate delegated branch and re-evaluate agent trust boundaries    |
+| Missing independent witness logs                | Block privilege-bearing automation until witness coverage restored |

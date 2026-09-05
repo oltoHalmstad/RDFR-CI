@@ -1,0 +1,31 @@
+scenario_id,arithmetic_score,power_mean_rho_2_score,power_mean_rho_3_score,worst_30pct_blend_score,arithmetic_state,power_mean_rho_2_state,power_mean_rho_3_state,worst_30pct_blend_state,changed_under_any_alternative
+CDI-001,0.17049999999999998,0.1945893111144597,0.21316043662755738,0.20934999999999998,Bounded automation,Bounded automation,Human-approved intervention,Human-approved intervention,True
+MFG-001,0.3055,0.3509202188532317,0.3856087519104811,0.37885,Human-approved intervention,Assisted defense,Assisted defense,Assisted defense,True
+SUB-001,0.3385,0.4340564479419699,0.49949435548629334,0.46195,Human-approved intervention,Assisted defense,Assisted defense,Assisted defense,True
+RAIL-001,0.3705,0.4688123291894103,0.5480819691085483,0.51435,Assisted defense,Assisted defense,Shadow / restricted,Shadow / restricted,True
+HOSP-001,0.4195,0.47852377161432635,0.5227566255385167,0.5036499999999999,Assisted defense,Assisted defense,Shadow / restricted,Shadow / restricted,True
+WATER-001,0.5,0.5599107071667767,0.6138226312364522,0.6200000000000001,Shadow / restricted,Shadow / restricted,Shadow / restricted,Shadow / restricted,False
+POWER-001,0.4645645,0.4801645095000254,0.4959071675069725,0.52741285,Assisted defense,Assisted defense,Assisted defense,Shadow / restricted,True
+BUILD-001,0.6072121500000001,0.6445362847746821,0.6761685329735774,0.684512505,Shadow / restricted,Shadow / restricted,Rollback / isolation,Rollback / isolation,True
+SUB-002,0.3772133,0.46896886756692074,0.5449625774246691,0.5319481100000001,Assisted defense,Assisted defense,Shadow / restricted,Shadow / restricted,True
+WATER-002,0.30486965,0.3615725451699147,0.40543009962839055,0.403646255,Human-approved intervention,Assisted defense,Assisted defense,Assisted defense,True
+WW-001,0.33709785,0.4005871841552723,0.45381726720106164,0.465350295,Human-approved intervention,Assisted defense,Assisted defense,Assisted defense,True
+WW-002,0.4890578,0.526226947768736,0.5548861853202836,0.55330046,Assisted defense,Shadow / restricted,Shadow / restricted,Shadow / restricted,True
+RAIL-002,0.58539855,0.6220373255702989,0.660876618449175,0.703493085,Shadow / restricted,Shadow / restricted,Rollback / isolation,Rollback / isolation,True
+ROAD-001,0.42321465,0.47658549509531867,0.526089815935047,0.5313779550000001,Assisted defense,Assisted defense,Shadow / restricted,Shadow / restricted,True
+ROAD-002,0.4632187,0.5016394625842349,0.527749445202592,0.5384197900000001,Assisted defense,Shadow / restricted,Shadow / restricted,Shadow / restricted,True
+HEALTH-001,0.34336544999999996,0.37252571111783683,0.3991028077708735,0.42118801499999997,Human-approved intervention,Assisted defense,Assisted defense,Assisted defense,True
+HEALTH-002,0.35095095,0.4343798874583744,0.505435371789081,0.481130865,Assisted defense,Assisted defense,Shadow / restricted,Assisted defense,True
+HOSP-002,0.63645795,0.6392085939783272,0.6418710618012627,0.656063565,Shadow / restricted,Shadow / restricted,Shadow / restricted,Rollback / isolation,True
+MFG-002,0.29303045000000005,0.3496272141566643,0.38470686999524256,0.36266901500000004,Human-approved intervention,Human-approved intervention,Assisted defense,Assisted defense,True
+CHEM-001,0.2614148,0.32852904358823437,0.3674570115730375,0.34031336,Human-approved intervention,Human-approved intervention,Assisted defense,Human-approved intervention,True
+CHEM-002,0.42054615,0.4837966198269166,0.5212749425572518,0.500416005,Assisted defense,Assisted defense,Shadow / restricted,Shadow / restricted,True
+OIL-001,0.6061799999999999,0.6260734515701812,0.6448057573592028,0.671928,Shadow / restricted,Shadow / restricted,Shadow / restricted,Rollback / isolation,True
+OIL-002,0.24436865000000002,0.26234977895292766,0.2757083619102304,0.282328055,Human-approved intervention,Human-approved intervention,Human-approved intervention,Human-approved intervention,False
+TEL-001,0.5725143,0.5895769357841265,0.6055951154870445,0.63753261,Shadow / restricted,Shadow / restricted,Shadow / restricted,Shadow / restricted,False
+TEL-002,0.30029625,0.3310438142111252,0.34996446686193816,0.343607175,Human-approved intervention,Human-approved intervention,Human-approved intervention,Human-approved intervention,False
+CDI-002,0.3934272,0.4119024160841983,0.4251018582814716,0.44120664,Assisted defense,Assisted defense,Assisted defense,Assisted defense,False
+DC-001,0.56396775,0.5827787422894302,0.6030825827452465,0.646703325,Shadow / restricted,Shadow / restricted,Shadow / restricted,Shadow / restricted,False
+PA-001,0.4136884,0.4292777539577377,0.44332611768958474,0.45367798000000004,Assisted defense,Assisted defense,Assisted defense,Assisted defense,False
+FOOD-001,0.54214945,0.5793365254030252,0.6039147849665,0.623933815,Shadow / restricted,Shadow / restricted,Shadow / restricted,Shadow / restricted,False
+LOG-001,0.40889865000000003,0.4311851365254257,0.45063300222761943,0.46293115500000004,Assisted defense,Assisted defense,Assisted defense,Assisted defense,False

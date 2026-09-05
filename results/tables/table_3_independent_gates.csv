@@ -1,0 +1,6 @@
+Gate,Decision question,Authority cap on failure,Operational response
+G_S: Safety,Could the response violate a defined safety envelope?,Human-approved intervention (default; stricter action-specific cap permitted),Block autonomous process-affecting action; require approval or stricter cap
+G_V: Availability,Could the response exceed maximum tolerable service disruption?,Human-approved intervention,Require operational approval or alternative action
+G_FA: Forensic accountability,"Is evidence complete, independently witnessed, attributable and replayable?",Assisted defense,Preserve first or document emergency exception
+G_A: AI assurance,Is the model within its validated operating region and security policy?,Shadow / restricted,Demote authority; revalidate or retrain
+G_H: Human authority,"Does policy, regulation or safety case require qualified human authorization?",Assisted defense,Recommendation only until approval

@@ -1,0 +1,8 @@
+| Showcase                        |    E |    D |    A |    F |    C |   R_CI |   w_C_times_C |   boundary_margin |   P_point_state | binding_constraint   | final_authority     |
+|:--------------------------------|-----:|-----:|-----:|-----:|-----:|-------:|--------------:|------------------:|----------------:|:---------------------|:--------------------|
+| Critical digital infrastructure | 0.3  | 0.1  | 0.08 | 0.08 | 0.25 | 0.1705 |        0.0625 |            0.0295 |          0.9005 | Score                | Bounded automation  |
+| Smart manufacturing             | 0.4  | 0.22 | 0.16 | 0.1  | 0.55 | 0.3055 |        0.1375 |            0.0445 |          0.9766 | G_H                  | Assisted defense    |
+| Electric-grid substation        | 0.45 | 0.15 | 0.1  | 0.08 | 0.75 | 0.3385 |        0.1875 |            0.0115 |          0.6924 | G_H                  | Assisted defense    |
+| Rail / traffic control          | 0.35 | 0.2  | 0.12 | 0.15 | 0.85 | 0.3705 |        0.2125 |            0.0205 |          0.8209 | Score                | Assisted defense    |
+| Hospital infrastructure         | 0.7  | 0.25 | 0.18 | 0.2  | 0.65 | 0.4195 |        0.1625 |            0.0695 |          0.9989 | Score                | Assisted defense    |
+| Water treatment                 | 0.55 | 0.35 | 0.3  | 0.25 | 0.9  | 0.5    |        0.225  |            0      |          0.4933 | Score                | Shadow / restricted |

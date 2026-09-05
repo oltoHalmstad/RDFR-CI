@@ -1,0 +1,1836 @@
+{
+  "schema_version": "1.0",
+  "notice": "Illustrative demonstration inputs — not measured sector risk levels.",
+  "scenarios": [
+    {
+      "scenario_id": "CDI-001",
+      "title": "Critical digital infrastructure DDoS response",
+      "sector": "cloud/digital infrastructure",
+      "asset_type": "edge routing and scrubbing service",
+      "attack_description": "Volumetric and application-layer denial of service",
+      "defensive_action": "Rate limiting, traffic scrubbing and bounded route changes",
+      "reversibility": "high",
+      "blast_radius": "low",
+      "physical_process_effect": "primarily network-level",
+      "E": 0.3,
+      "D": 0.1,
+      "A": 0.08,
+      "F": 0.08,
+      "C": 0.25,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.25,
+        "V": 0.25,
+        "K": 0.25,
+        "T": 0.25,
+        "R_c": 0.25
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Bounded automation",
+      "final_authority": "Bounded automation",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.0295,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "MFG-001",
+      "title": "Smart manufacturing supply-chain compromise",
+      "sector": "smart manufacturing",
+      "asset_type": "engineering workstation and PLC management plane",
+      "attack_description": "Signed update contains malicious functionality and begins PLC-management communication",
+      "defensive_action": "Quarantine package, block C2, revoke credentials; PLC logic change remains approval-gated",
+      "reversibility": "medium",
+      "blast_radius": "medium",
+      "physical_process_effect": "production-line effect possible",
+      "E": 0.4,
+      "D": 0.22,
+      "A": 0.16,
+      "F": 0.1,
+      "C": 0.55,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.55,
+        "V": 0.55,
+        "K": 0.55,
+        "T": 0.55,
+        "R_c": 0.55
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "fail"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "G_H",
+      "boundary_margin": 0.0445,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "SUB-001",
+      "title": "Electric-grid substation anomalous remote commands",
+      "sector": "substations",
+      "asset_type": "protection and control equipment",
+      "attack_description": "Abnormal remote commands consistent with lateral movement and manipulation",
+      "defensive_action": "Preserve evidence and segment malicious sessions; trip/switch commands require qualified approval",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "protection-state change possible",
+      "E": 0.45,
+      "D": 0.15,
+      "A": 0.1,
+      "F": 0.08,
+      "C": 0.75,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.75,
+        "V": 0.75,
+        "K": 0.75,
+        "T": 0.75,
+        "R_c": 0.75
+      },
+      "gate_states": {
+        "G_S": "fail",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "fail"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "G_H",
+      "boundary_margin": 0.0115,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "RAIL-001",
+      "title": "Rail signalling anomaly response",
+      "sector": "rail",
+      "asset_type": "signalling controller and traffic-management network",
+      "attack_description": "Anomalous signalling/control messages",
+      "defensive_action": "Preserve evidence, simulate containment and recommend operator action",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "unsafe service disruption possible",
+      "E": 0.35,
+      "D": 0.2,
+      "A": 0.12,
+      "F": 0.15,
+      "C": 0.85,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.85,
+        "V": 0.85,
+        "K": 0.85,
+        "T": 0.85,
+        "R_c": 0.85
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "fail"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.0205,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "HOSP-001",
+      "title": "Hospital ransomware containment",
+      "sector": "hospitals",
+      "asset_type": "identity, endpoint and clinical-support infrastructure",
+      "attack_description": "Credential compromise develops into lateral movement and ransomware behavior",
+      "defensive_action": "Terminate clearly malicious sessions and preserve evidence; clinical isolation requires operational review",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "care delivery disruption possible",
+      "E": 0.7,
+      "D": 0.25,
+      "A": 0.18,
+      "F": 0.2,
+      "C": 0.65,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.65,
+        "V": 0.65,
+        "K": 0.65,
+        "T": 0.65,
+        "R_c": 0.65
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "fail",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.0695,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "WATER-001",
+      "title": "Water-treatment sensor manipulation",
+      "sector": "water treatment",
+      "asset_type": "PLC, engineering interface and process sensors",
+      "attack_description": "Manipulated observations and attempted setpoint changes",
+      "defensive_action": "Evidence collection and corroboration only; no autonomous setpoint change",
+      "reversibility": "low",
+      "blast_radius": "high",
+      "physical_process_effect": "unsafe treatment state possible",
+      "E": 0.55,
+      "D": 0.35,
+      "A": 0.3,
+      "F": 0.25,
+      "C": 0.9,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.9,
+        "V": 0.9,
+        "K": 0.9,
+        "T": 0.9,
+        "R_c": 0.9
+      },
+      "gate_states": {
+        "G_S": "fail",
+        "G_V": "fail",
+        "G_FA": "fail",
+        "G_A": "fail",
+        "G_H": "fail"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.0,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "POWER-001",
+      "title": "Electric power EMS credential misuse",
+      "sector": "electric power",
+      "asset_type": "energy management system",
+      "attack_description": "Privileged credential misuse triggers anomalous dispatch requests",
+      "defensive_action": "Revoke session and isolate management channel",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "dispatch degradation possible",
+      "E": 0.326356,
+      "D": 0.674059,
+      "A": 0.50271,
+      "F": 0.473775,
+      "C": 0.37728,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.37728,
+        "V": 0.37728,
+        "K": 0.37728,
+        "T": 0.37728,
+        "R_c": 0.37728
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "fail",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "G_A",
+      "boundary_margin": 0.035435,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "BUILD-001",
+      "title": "Building automation remote-access compromise",
+      "sector": "building automation",
+      "asset_type": "building management system gateway",
+      "attack_description": "External compromise creates unauthorized HVAC and controls maintenance path",
+      "defensive_action": "Block remote path and preserve gateway evidence",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "building service and occupancy impact possible",
+      "E": 0.341045,
+      "D": 0.838075,
+      "A": 0.372391,
+      "F": 0.86488,
+      "C": 0.570214,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.570214,
+        "V": 0.570214,
+        "K": 0.570214,
+        "T": 0.570214,
+        "R_c": 0.570214
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.042788,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "SUB-002",
+      "title": "Substation relay configuration drift",
+      "sector": "substations",
+      "asset_type": "protective relay configuration",
+      "attack_description": "Configuration differs from approved baseline after suspicious access",
+      "defensive_action": "Freeze remote write access and request engineer validation",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "incorrect relay state could affect protection",
+      "E": 0.053918,
+      "D": 0.892996,
+      "A": 0.250705,
+      "F": 0.361925,
+      "C": 0.311359,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.311359,
+        "V": 0.311359,
+        "K": 0.311359,
+        "T": 0.311359,
+        "R_c": 0.311359
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "fail",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "G_A",
+      "boundary_margin": 0.027213,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "WATER-002",
+      "title": "Water historian poisoning",
+      "sector": "water treatment",
+      "asset_type": "historian and anomaly-detection feed",
+      "attack_description": "Poisoned telemetry biases security analytics",
+      "defensive_action": "Quarantine data feed and revert to trusted baseline",
+      "reversibility": "high",
+      "blast_radius": "low",
+      "physical_process_effect": "indirect process-decision effect",
+      "E": 0.314886,
+      "D": 0.634125,
+      "A": 0.08153,
+      "F": 0.099616,
+      "C": 0.331659,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.331659,
+        "V": 0.331659,
+        "K": 0.331659,
+        "T": 0.331659,
+        "R_c": 0.331659
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Human-approved intervention",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.04513,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "WW-001",
+      "title": "Wastewater internet-facing PLC compromise",
+      "sector": "wastewater",
+      "asset_type": "pump-station PLC",
+      "attack_description": "Internet-exposed PLC is accessed using stolen credentials",
+      "defensive_action": "Disable remote access and switch to local/manual monitoring",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "pump control and overflow risk",
+      "E": 0.197566,
+      "D": 0.076648,
+      "A": 0.764606,
+      "F": 0.309997,
+      "C": 0.422259,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.422259,
+        "V": 0.422259,
+        "K": 0.422259,
+        "T": 0.422259,
+        "R_c": 0.422259
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "fail"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "G_H",
+      "boundary_margin": 0.012902,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "WW-002",
+      "title": "Wastewater HMI ransomware",
+      "sector": "wastewater",
+      "asset_type": "operator HMI",
+      "attack_description": "Ransomware encrypts operator workstation",
+      "defensive_action": "Isolate HMI and fail over to known-good station",
+      "reversibility": "medium",
+      "blast_radius": "medium",
+      "physical_process_effect": "loss of visibility/control possible",
+      "E": 0.256523,
+      "D": 0.547281,
+      "A": 0.66486,
+      "F": 0.26384,
+      "C": 0.7032,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.7032,
+        "V": 0.7032,
+        "K": 0.7032,
+        "T": 0.7032,
+        "R_c": 0.7032
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.010942,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "RAIL-002",
+      "title": "Rail maintenance VPN compromise",
+      "sector": "rail",
+      "asset_type": "maintenance VPN and engineering laptop",
+      "attack_description": "Compromised maintenance path reaches signalling support network",
+      "defensive_action": "Terminate VPN and isolate engineering endpoint",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "maintenance outage; no direct signalling write",
+      "E": 0.979047,
+      "D": 0.473422,
+      "A": 0.649268,
+      "F": 0.475149,
+      "C": 0.409939,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.409939,
+        "V": 0.409939,
+        "K": 0.409939,
+        "T": 0.409939,
+        "R_c": 0.409939
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.064601,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "ROAD-001",
+      "title": "Traffic-signal command injection",
+      "sector": "road/traffic management",
+      "asset_type": "intersection controller",
+      "attack_description": "Unauthorized command messages target signal timing",
+      "defensive_action": "Block source and freeze remote timing changes",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "traffic-safety disruption possible",
+      "E": 0.413882,
+      "D": 0.3275,
+      "A": 0.234974,
+      "F": 0.218762,
+      "C": 0.783759,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.783759,
+        "V": 0.783759,
+        "K": 0.783759,
+        "T": 0.783759,
+        "R_c": 0.783759
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "fail",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "G_A",
+      "boundary_margin": 0.073215,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "ROAD-002",
+      "title": "Traffic-management sensor spoofing",
+      "sector": "road/traffic management",
+      "asset_type": "roadside sensors and control center",
+      "attack_description": "Spoofed sensor streams distort congestion response",
+      "defensive_action": "Quarantine sensor source and retain advisory-only mode",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "misrouting and congestion possible",
+      "E": 0.331217,
+      "D": 0.713889,
+      "A": 0.107438,
+      "F": 0.543994,
+      "C": 0.517132,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.517132,
+        "V": 0.517132,
+        "K": 0.517132,
+        "T": 0.517132,
+        "R_c": 0.517132
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.036781,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "HEALTH-001",
+      "title": "Healthcare identity anomaly",
+      "sector": "healthcare",
+      "asset_type": "regional healthcare identity service",
+      "attack_description": "Credential stuffing and impossible-travel activity",
+      "defensive_action": "Revoke suspicious tokens and require step-up authentication",
+      "reversibility": "high",
+      "blast_radius": "low",
+      "physical_process_effect": "limited direct patient-care effect",
+      "E": 0.246589,
+      "D": 0.165758,
+      "A": 0.602774,
+      "F": 0.453996,
+      "C": 0.318723,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.318723,
+        "V": 0.318723,
+        "K": 0.318723,
+        "T": 0.318723,
+        "R_c": 0.318723
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "fail",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "G_FA",
+      "boundary_margin": 0.006635,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "HEALTH-002",
+      "title": "Medical IoT network anomaly",
+      "sector": "healthcare",
+      "asset_type": "networked medical devices",
+      "attack_description": "Lateral scanning and anomalous device communication",
+      "defensive_action": "Micro-segment suspicious source after device-class validation",
+      "reversibility": "medium",
+      "blast_radius": "medium",
+      "physical_process_effect": "device availability risk",
+      "E": 0.121545,
+      "D": 0.264944,
+      "A": 0.267041,
+      "F": 0.18688,
+      "C": 0.784884,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.784884,
+        "V": 0.784884,
+        "K": 0.784884,
+        "T": 0.784884,
+        "R_c": 0.784884
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.000951,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "HOSP-002",
+      "title": "Hospital backup compromise",
+      "sector": "hospitals",
+      "asset_type": "backup and recovery infrastructure",
+      "attack_description": "Attacker attempts backup deletion before ransomware",
+      "defensive_action": "Block destructive credentials and preserve immutable snapshots",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "recovery-time consequence",
+      "E": 0.70181,
+      "D": 0.694157,
+      "A": 0.544255,
+      "F": 0.576934,
+      "C": 0.640958,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.640958,
+        "V": 0.640958,
+        "K": 0.640958,
+        "T": 0.640958,
+        "R_c": 0.640958
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.013542,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "MFG-002",
+      "title": "PLC logic integrity mismatch",
+      "sector": "smart manufacturing",
+      "asset_type": "PLC program and engineering station",
+      "attack_description": "PLC program hash differs from approved baseline",
+      "defensive_action": "Block further writes and require engineer diff/restore",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "production or safety effect possible",
+      "E": 0.130857,
+      "D": 0.525159,
+      "A": 0.019239,
+      "F": 0.209232,
+      "C": 0.46838,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.46838,
+        "V": 0.46838,
+        "K": 0.46838,
+        "T": 0.46838,
+        "R_c": 0.46838
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "fail",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "G_A",
+      "boundary_margin": 0.05697,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "CHEM-001",
+      "title": "Chemical process remote-command anomaly",
+      "sector": "chemical industry",
+      "asset_type": "distributed control system",
+      "attack_description": "Unexpected remote commands target process controller",
+      "defensive_action": "Restrict network path and require process engineer approval",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "process-safety consequence possible",
+      "E": 0.483828,
+      "D": 0.045365,
+      "A": 0.52441,
+      "F": 0.038586,
+      "C": 0.27679,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.27679,
+        "V": 0.27679,
+        "K": 0.27679,
+        "T": 0.27679,
+        "R_c": 0.27679
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Human-approved intervention",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.061415,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "CHEM-002",
+      "title": "Safety-instrumented-system access anomaly",
+      "sector": "chemical industry",
+      "asset_type": "SIS engineering interface",
+      "attack_description": "Unauthorized access attempt reaches SIS management plane",
+      "defensive_action": "Disable remote account and preserve forensic image",
+      "reversibility": "high",
+      "blast_radius": "high",
+      "physical_process_effect": "safety system availability risk",
+      "E": 0.109992,
+      "D": 0.686779,
+      "A": 0.111365,
+      "F": 0.458076,
+      "C": 0.611488,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.611488,
+        "V": 0.611488,
+        "K": 0.611488,
+        "T": 0.611488,
+        "R_c": 0.611488
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.070546,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "OIL-001",
+      "title": "Pipeline compressor station intrusion",
+      "sector": "oil and gas",
+      "asset_type": "compressor station PLC",
+      "attack_description": "Remote maintenance compromise produces abnormal control traffic",
+      "defensive_action": "Block remote session and transition to approved fallback",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "pressure/flow consequence possible",
+      "E": 0.503015,
+      "D": 0.82534,
+      "A": 0.386285,
+      "F": 0.74941,
+      "C": 0.530737,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.530737,
+        "V": 0.530737,
+        "K": 0.530737,
+        "T": 0.530737,
+        "R_c": 0.530737
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.04382,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "OIL-002",
+      "title": "Pipeline leak-detection data poisoning",
+      "sector": "oil and gas",
+      "asset_type": "leak detection analytics",
+      "attack_description": "Manipulated telemetry suppresses anomaly evidence",
+      "defensive_action": "Quarantine suspect feed and use redundant sensors",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "delayed detection consequence",
+      "E": 0.3709,
+      "D": 0.289295,
+      "A": 0.084102,
+      "F": 0.158798,
+      "C": 0.271819,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.271819,
+        "V": 0.271819,
+        "K": 0.271819,
+        "T": 0.271819,
+        "R_c": 0.271819
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "fail"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "G_H",
+      "boundary_margin": 0.044369,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "TEL-001",
+      "title": "Telecommunications core DDoS",
+      "sector": "telecommunications",
+      "asset_type": "core network service",
+      "attack_description": "High-rate traffic degrades control-plane service",
+      "defensive_action": "Rate limit and scrub traffic under pre-authorized policy",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "service availability effect",
+      "E": 0.42744,
+      "D": 0.789242,
+      "A": 0.380018,
+      "F": 0.581466,
+      "C": 0.623528,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.623528,
+        "V": 0.623528,
+        "K": 0.623528,
+        "T": 0.623528,
+        "R_c": 0.623528
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.072514,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "TEL-002",
+      "title": "5G management-plane credential compromise",
+      "sector": "telecommunications",
+      "asset_type": "5G management/orchestration",
+      "attack_description": "Privileged credentials used for suspicious configuration access",
+      "defensive_action": "Revoke token and freeze config writes",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "regional service impact possible",
+      "E": 0.207358,
+      "D": 0.07155,
+      "A": 0.444666,
+      "F": 0.383955,
+      "C": 0.404095,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.404095,
+        "V": 0.404095,
+        "K": 0.404095,
+        "T": 0.404095,
+        "R_c": 0.404095
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Human-approved intervention",
+      "final_authority": "Human-approved intervention",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.049704,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "CDI-002",
+      "title": "Cloud control-plane identity compromise",
+      "sector": "cloud/digital infrastructure",
+      "asset_type": "cloud IAM and orchestration",
+      "attack_description": "Compromised privileged identity attempts resource changes",
+      "defensive_action": "Revoke token, freeze destructive API methods, preserve logs",
+      "reversibility": "high",
+      "blast_radius": "medium",
+      "physical_process_effect": "multi-tenant service impact possible",
+      "E": 0.552692,
+      "D": 0.420825,
+      "A": 0.139745,
+      "F": 0.396779,
+      "C": 0.393625,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.393625,
+        "V": 0.393625,
+        "K": 0.393625,
+        "T": 0.393625,
+        "R_c": 0.393625
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "fail",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "G_A",
+      "boundary_margin": 0.043427,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "DC-001",
+      "title": "Data-center cooling control anomaly",
+      "sector": "data centers",
+      "asset_type": "building/cooling management",
+      "attack_description": "Suspicious commands target cooling setpoints",
+      "defensive_action": "Block remote write and hold deterministic safe setpoints",
+      "reversibility": "medium",
+      "blast_radius": "high",
+      "physical_process_effect": "thermal availability consequence",
+      "E": 0.4755,
+      "D": 0.430643,
+      "A": 0.474122,
+      "F": 0.839753,
+      "C": 0.574681,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.574681,
+        "V": 0.574681,
+        "K": 0.574681,
+        "T": 0.574681,
+        "R_c": 0.574681
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.063968,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "PA-001",
+      "title": "Public administration identity compromise",
+      "sector": "public administration",
+      "asset_type": "citizen-services identity platform",
+      "attack_description": "Credential compromise and anomalous administrative access",
+      "defensive_action": "Revoke sessions and rotate privileged credentials",
+      "reversibility": "high",
+      "blast_radius": "low",
+      "physical_process_effect": "digital service disruption",
+      "E": 0.265517,
+      "D": 0.358427,
+      "A": 0.318148,
+      "F": 0.546987,
+      "C": 0.52712,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.52712,
+        "V": 0.52712,
+        "K": 0.52712,
+        "T": 0.52712,
+        "R_c": 0.52712
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.063688,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "FOOD-001",
+      "title": "Cold-chain warehouse control anomaly",
+      "sector": "food supply",
+      "asset_type": "refrigeration controller",
+      "attack_description": "Unauthorized setpoint changes target cold storage",
+      "defensive_action": "Freeze remote changes and require local verification",
+      "reversibility": "medium",
+      "blast_radius": "medium",
+      "physical_process_effect": "product safety/spoilage risk",
+      "E": 0.657278,
+      "D": 0.170363,
+      "A": 0.814764,
+      "F": 0.558112,
+      "C": 0.571137,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.571137,
+        "V": 0.571137,
+        "K": 0.571137,
+        "T": 0.571137,
+        "R_c": 0.571137
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Shadow / restricted",
+      "final_authority": "Shadow / restricted",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.042149,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    },
+    {
+      "scenario_id": "LOG-001",
+      "title": "Logistics warehouse automation compromise",
+      "sector": "logistics",
+      "asset_type": "warehouse control and robotics",
+      "attack_description": "Compromised control service issues abnormal task commands",
+      "defensive_action": "Pause affected zone and isolate command source",
+      "reversibility": "medium",
+      "blast_radius": "medium",
+      "physical_process_effect": "operational delay and equipment risk",
+      "E": 0.265277,
+      "D": 0.371243,
+      "A": 0.232854,
+      "F": 0.497074,
+      "C": 0.589007,
+      "weights": {
+        "E": 0.2,
+        "D": 0.2,
+        "A": 0.15,
+        "F": 0.2,
+        "C": 0.25
+      },
+      "beta_vector": {
+        "H": 0.3,
+        "V": 0.25,
+        "K": 0.2,
+        "T": 0.1,
+        "R_c": 0.15
+      },
+      "consequence_components": {
+        "H": 0.589007,
+        "V": 0.589007,
+        "K": 0.589007,
+        "T": 0.589007,
+        "R_c": 0.589007
+      },
+      "gate_states": {
+        "G_S": "pass",
+        "G_V": "pass",
+        "G_FA": "pass",
+        "G_A": "pass",
+        "G_H": "pass"
+      },
+      "gate_caps": {
+        "G_S": 1,
+        "G_V": 1,
+        "G_FA": 2,
+        "G_A": 3,
+        "G_H": 2
+      },
+      "provisional_authority": "Assisted defense",
+      "final_authority": "Assisted defense",
+      "binding_constraint": "Score",
+      "boundary_margin": 0.058899,
+      "assumptions": [
+        "Illustrative demonstration input; not a measured sector risk level.",
+        "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+      ],
+      "evidence_status": "synthetic/illustrative governance scenario",
+      "illustrative_or_empirical": "illustrative"
+    }
+  ]
+}

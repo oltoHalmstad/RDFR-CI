@@ -1,0 +1,9 @@
+{
+  "scenarios": 30,
+  "sectors": 18,
+  "score_binding": 20,
+  "gate_binding": 10,
+  "most_common_gate_binding": "G_A",
+  "uncertainty_sigma": 0.05,
+  "simulations_per_scenario": 10000
+}

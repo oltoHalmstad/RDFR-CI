@@ -1,0 +1,6 @@
+seed: 42
+sigma: 0.05
+simulations: 10000
+weight_sensitivity:
+  draws: 5000
+  dirichlet_concentration: 120.0

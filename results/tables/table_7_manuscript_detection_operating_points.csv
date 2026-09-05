@@ -1,0 +1,7 @@
+Quantity,Global F1 optimum,Authority optimum (phi = 0.05)
+Detection threshold,0.72,0.5
+Global F1,0.698,0.346
+"Recall, safety-instrumented systems",0.333,0.667
+Detection capability gap D,0.514,0.202
+Composite score R_CI,0.427,0.364
+Provisional state,Assisted defense,Assisted defense

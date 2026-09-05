@@ -1,0 +1,18 @@
+authority_rank_convention:
+  0: Bounded automation
+  1: Human-approved intervention
+  2: Assisted defense
+  3: Shadow / restricted
+  4: Rollback / isolation
+failure_caps:
+  G_S: 1
+  G_V: 1
+  G_FA: 2
+  G_A: 3
+  G_H: 2
+statuses:
+  - pass
+  - fail
+  - not_evaluated
+  - not_applicable
+note: Unevaluated gates are treated conservatively as failed; not_applicable imposes no cap.

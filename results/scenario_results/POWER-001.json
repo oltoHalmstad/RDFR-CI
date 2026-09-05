@@ -1,0 +1,61 @@
+{
+  "scenario_id": "POWER-001",
+  "risk_dimensions": {
+    "E": 0.326356,
+    "D": 0.674059,
+    "A": 0.50271,
+    "F": 0.473775,
+    "C": 0.37728
+  },
+  "weights": {
+    "E": 0.2,
+    "D": 0.2,
+    "A": 0.15,
+    "F": 0.2,
+    "C": 0.25
+  },
+  "beta_vector": {
+    "H": 0.3,
+    "V": 0.25,
+    "K": 0.2,
+    "T": 0.1,
+    "R_c": 0.15
+  },
+  "composite_score": 0.46456450000000005,
+  "provisional_authority": "Assisted defense",
+  "gate_results": {
+    "G_S": "pass",
+    "G_V": "pass",
+    "G_FA": "pass",
+    "G_A": "fail",
+    "G_H": "pass"
+  },
+  "gate_caps": {
+    "G_S": 1,
+    "G_V": 1,
+    "G_FA": 2,
+    "G_A": 3,
+    "G_H": 2
+  },
+  "final_authority": "Shadow / restricted",
+  "binding_constraint": "G_A",
+  "boundary_margin": 0.03543549999999995,
+  "uncertainty": {
+    "p_bounded": 0.0,
+    "p_human_approved": 0.0,
+    "p_assisted": 0.9414,
+    "p_shadow": 0.0586,
+    "p_rollback": 0.0,
+    "p_point_state": 0.9414,
+    "p_state_change": 0.058599999999999985
+  },
+  "assumptions": [
+    "Illustrative demonstration input; not a measured sector risk level.",
+    "C decomposition is a neutral equal-component reproduction of the manuscript-level C score; operational use requires elicitation of H, V, K, T and R_c."
+  ],
+  "evidence_status": "synthetic/illustrative governance scenario",
+  "illustrative_or_empirical": "illustrative",
+  "evidence_references": [],
+  "timestamp": "2026-09-05T14:56:40.670517+00:00",
+  "software_version": "1.0.0"
+}
