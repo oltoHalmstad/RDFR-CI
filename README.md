@@ -31,7 +31,7 @@ The package contains:
 - synthetic inter-rater and multi-agent demonstrations;
 - reproducible publication figures and machine-readable tables;
 - a pre-specified SWaT A1/A2 pipeline that refuses to run when authorized data are absent;
-- an executed SWaT A11 normal-operation threshold-transfer experiment plus a clearly labeled synthetic perturbation challenge for D(phi) and authority propagation.
+- an optional workflow for external-data validation; derived SWaT outputs are not part of this unrestricted repository checkout.
 
 ## Reproducibility classification
 
@@ -42,7 +42,7 @@ The repository separates four evidence classes and never merges them:
 3. **External dataset protocol** — the SWaT validation workflow is implemented and ready to execute after authorized data access.
 4. **Future empirical validation** — labeled attack validation, real practitioner elicitation, broader multi-testbed validation, and forensic-readiness field measurement remain future work.
 
-An additional external-data class is reported for SWaT A11: empirical **normal-only** threshold transfer. Synthetic perturbation event metrics are kept separate and are not described as attack performance.
+Any separately generated SWaT A11 normal-only threshold-transfer evidence must be reported as an external-data result. Synthetic perturbation event metrics must remain separate and must not be described as attack performance.
 
 See `paper/claims_ledger.csv` for claim-level provenance.
 
@@ -137,7 +137,7 @@ python experiments/swat/run_swat_experiment.py \
 
 When official files are absent, the A1/A2 program terminates and explicitly states that no empirical attack metrics were generated. See `data/README_SWAT.md` and `docs/swat_protocol.md`.
 
-For the February 2026 A11 normal-operation captures, see `docs/swat_a11_normal_challenge.md` and run `experiments/swat_a11/run_a11_normal_challenge.py`. This experiment reports empirical next-day normal threshold transfer and a separate synthetic perturbation challenge. The raw A11 files are not redistributed.
+SWaT-derived outputs are not included in this checkout. Use only authorized official data with the implemented SWaT workflow; raw SWaT files must never be committed or redistributed.
 
 ## Tests
 

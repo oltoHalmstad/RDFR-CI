@@ -36,7 +36,10 @@ def main(mode='full'):
     swat_results=ROOT/'results/swat'
     add('No labeled SWaT A1/A2 attack outputs in unrestricted release',not swat_results.exists() or not any(swat_results.iterdir()))
     a11=ROOT/'results/swat_a11'
-    add('SWaT A11 normal-transfer derived outputs',(a11/'normal_threshold_transfer.csv').exists() and (a11/'synthetic_challenge_metrics.csv').exists() and (a11/'bootstrap_authority.csv').exists())
+    a11_outputs=[a11/'normal_threshold_transfer.csv',a11/'synthetic_challenge_metrics.csv',a11/'bootstrap_authority.csv']
+    a11_present=[p.exists() for p in a11_outputs]
+    # External-data derivatives are optional in the unrestricted checkout, but a partial bundle is invalid.
+    add('SWaT A11 output bundle consistency',not any(a11_present) or all(a11_present))
     add('SWaT pipeline implemented',(ROOT/'experiments/swat/run_swat_experiment.py').exists())
     add('Zenodo metadata ready',(ROOT/'.zenodo.json').exists())
     add('Reproducibility manifest',(ROOT/'results/reproducibility_manifest.json').exists())
@@ -55,8 +58,13 @@ def main(mode='full'):
     lines.append(f"Core RDFR-CI equations: {'PASS' if core_ok else 'FAIL'}")
     for key in ['30-scenario library','Six showcases','Authority ceiling','Decision uncertainty','Aggregation sensitivity','Weight sensitivity','Agent authority demonstrations','Figures regenerated','Tables regenerated','Unit tests','SWaT pipeline implemented']:
         ok=next(v for n,v in checks if n==key); lines.append(f"{friendly[key]}: {'PASS' if ok else 'FAIL'}")
-    lines.append('SWaT A11 normal-only threshold transfer: PASS — derived outputs included; authorized raw files required for from-scratch reproduction')
-    lines.append('SWaT A11 synthetic perturbation challenge: PASS / ILLUSTRATIVE ONLY')
+    if all(a11_present):
+        lines.append('SWaT A11 normal-only threshold transfer: PASS — complete derived-output bundle included')
+        lines.append('SWaT A11 synthetic perturbation challenge: PASS / ILLUSTRATIVE ONLY')
+    elif any(a11_present):
+        lines.append('SWaT A11 derived-output bundle: FAIL — incomplete bundle')
+    else:
+        lines.append('SWaT A11 derived-output bundle: NOT INCLUDED — authorized data required')
     lines.append('SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release')
     for key in ['Restricted data excluded from working tree','Zenodo metadata ready']:
         ok=next(v for n,v in checks if n==key); lines.append(f"{friendly[key]}: {'PASS' if ok else 'FAIL'}")
@@ -66,8 +74,13 @@ def main(mode='full'):
 
     print('REPRODUCIBILITY STATUS')
     for m,ok in checks: print(f'{m}: {"PASS" if ok else "FAIL"}')
-    print('SWaT A11 normal-only transfer: DERIVED OUTPUTS INCLUDED')
-    print('SWaT A11 synthetic challenge: ILLUSTRATIVE ONLY')
+    if all(a11_present):
+        print('SWaT A11 normal-only transfer: DERIVED OUTPUTS INCLUDED')
+        print('SWaT A11 synthetic challenge: ILLUSTRATIVE ONLY')
+    elif any(a11_present):
+        print('SWaT A11 derived-output bundle: INCOMPLETE')
+    else:
+        print('SWaT A11 derived-output bundle: NOT INCLUDED (authorized data required)')
     print('SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release')
     if failed:
         print('\nFailed checks:',*failed,sep='\n- '); return 1

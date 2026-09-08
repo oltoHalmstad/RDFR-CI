@@ -15,8 +15,7 @@ Figures regenerated: PASS
 Tables regenerated: PASS
 Unit tests: PASS
 SWaT pipeline implemented: PASS
-SWaT A11 normal-only threshold transfer: PASS — derived outputs included; authorized raw files required for from-scratch reproduction
-SWaT A11 synthetic perturbation challenge: PASS / ILLUSTRATIVE ONLY
+SWaT A11 derived-output bundle: NOT INCLUDED — authorized data required
 SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release
 Restricted data excluded from Git/working tree: PASS
 Zenodo metadata ready: PASS
@@ -25,4 +24,4 @@ Verification mode: full
 Pytest: ..............................                                           [100%]
 30 passed in 4.75s
 
-Scientific classification: RDFR-CI computational outputs are reproduced; SWaT A11 contributes empirical normal-only threshold-transfer evidence plus a separately labeled synthetic challenge; labeled attack validation remains pre-specified.
+Scientific classification: RDFR-CI computational outputs are reproduced; SWaT-derived numerical validation is not included in this unrestricted checkout and remains external-data work.
