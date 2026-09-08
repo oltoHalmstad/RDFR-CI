@@ -30,7 +30,8 @@ The package contains:
 - weight and aggregation sensitivity analyses;
 - synthetic inter-rater and multi-agent demonstrations;
 - reproducible publication figures and machine-readable tables;
-- a pre-specified SWaT A1/A2 pipeline that refuses to run when authorized data are absent.
+- a pre-specified SWaT A1/A2 pipeline that refuses to run when authorized data are absent;
+- an executed SWaT A11 normal-operation threshold-transfer experiment plus a clearly labeled synthetic perturbation challenge for D(phi) and authority propagation.
 
 ## Reproducibility classification
 
@@ -39,7 +40,9 @@ The repository separates four evidence classes and never merges them:
 1. **Reproduced computational results** — deterministic results generated directly by repository code.
 2. **Illustrative scenario results** — synthetic governance demonstrations, including the 30-scenario library and six showcases.
 3. **External dataset protocol** — the SWaT validation workflow is implemented and ready to execute after authorized data access.
-4. **Future empirical validation** — operational calibration, real practitioner elicitation, broader multi-testbed validation, and forensic-readiness field measurement remain future work.
+4. **Future empirical validation** — labeled attack validation, real practitioner elicitation, broader multi-testbed validation, and forensic-readiness field measurement remain future work.
+
+An additional external-data class is reported for SWaT A11: empirical **normal-only** threshold transfer. Synthetic perturbation event metrics are kept separate and are not described as attack performance.
 
 See `paper/claims_ledger.csv` for claim-level provenance.
 
@@ -132,7 +135,9 @@ python experiments/swat/run_swat_experiment.py \
   --data-dir data/private/swat
 ```
 
-When official files are absent, the program terminates and explicitly states that no empirical SWaT metrics were generated. See `data/README_SWAT.md` and `docs/swat_protocol.md`.
+When official files are absent, the A1/A2 program terminates and explicitly states that no empirical attack metrics were generated. See `data/README_SWAT.md` and `docs/swat_protocol.md`.
+
+For the February 2026 A11 normal-operation captures, see `docs/swat_a11_normal_challenge.md` and run `experiments/swat_a11/run_a11_normal_challenge.py`. This experiment reports empirical next-day normal threshold transfer and a separate synthetic perturbation challenge. The raw A11 files are not redistributed.
 
 ## Tests
 
@@ -148,13 +153,21 @@ Tests cover the equations, exact band boundaries, gate monotonicity, non-transit
 
 RDFR-CI **does not certify or guarantee legal or regulatory compliance**. It can support, map to, complement, or provide operational evidence for governance processes.
 
+## Reproducibility-aligned release v1.2.1
+
+This release is aligned with the corrected MDPI submission master updated 8 September 2026; the reproducibility corrections themselves were completed on 6 September 2026. It resolves manuscript/repository consistency issues identified during reproducibility review: Figures A1-A3 in the manuscript are now the exact repository-generated outputs; Table 7 is regenerated directly from the same detector sweep used for Figure A3; the decision-stability text now reports the shipped result of **9/30 scenarios** with P(state change) > 0.10; and unsupported numerical cross-sector exposure/slope claims were removed from the manuscript.
+
+The underlying experimental data and algorithms are unchanged from v1.2.0; v1.2.1 is a reproducibility-consistency correction. Raw SWaT data remain excluded.
+
+A detailed manuscript-to-artifact consistency record is available in `paper/manuscript_reproducibility_alignment.md`.
+
 ## Citation and release status
 
-- Software version: **1.0.0**
-- Manuscript version aligned: **5 September 2026**
+- Software version: **1.2.1**
+- Manuscript version aligned: **8 September 2026 (reproducibility-aligned final submission master with SWaT A11 experiment and exact A1-A3/Table 7 regeneration)**
 - Article DOI: **pending**
-- Software/Zenodo DOI: **pending**
-- GitHub URL: **TODO / INPUT REQUIRED**
+- Software/Zenodo DOI: **10.5281/zenodo.22662284** (https://doi.org/10.5281/zenodo.22662284)
+- GitHub URL: **https://github.com/oltoHalmstad/RDFR-CI**
 
 See `CITATION.cff`, `.zenodo.json`, and `docs/release_checklist.md`.
 

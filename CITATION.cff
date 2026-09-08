@@ -9,9 +9,10 @@ authors:
   - family-names: Prokopovych-Tkachenko
     given-names: Dmytro
     affiliation: University of Customs and Finance
-version: 1.0.0
-date-released: 2026-09-05
-repository-code: "https://github.com/TODO/RDFR-CI"
+version: 1.2.1
+date-released: 2026-09-08
+doi: "10.5281/zenodo.22662284"
+repository-code: "https://github.com/oltoHalmstad/RDFR-CI"
 license: MIT
 keywords:
   - critical infrastructure
@@ -21,4 +22,6 @@ keywords:
   - forensic readiness
   - autonomous cyber defense
   - AI governance
-notes: "ARTICLE DOI: pending; SOFTWARE DOI: pending"
+  - SWaT
+  - reproducibility
+notes: "ARTICLE DOI: pending; SOFTWARE DOI: 10.5281/zenodo.22662284. SWaT raw data are not redistributed."

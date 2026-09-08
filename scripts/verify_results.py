@@ -34,7 +34,9 @@ def main(mode='full'):
     private=[p for p in (ROOT/'data/private').rglob('*') if p.is_file() and p.name!='.gitkeep']
     add('Restricted data excluded from working tree',not private)
     swat_results=ROOT/'results/swat'
-    add('No SWaT empirical outputs in unrestricted release',not swat_results.exists() or not any(swat_results.iterdir()))
+    add('No labeled SWaT A1/A2 attack outputs in unrestricted release',not swat_results.exists() or not any(swat_results.iterdir()))
+    a11=ROOT/'results/swat_a11'
+    add('SWaT A11 normal-transfer derived outputs',(a11/'normal_threshold_transfer.csv').exists() and (a11/'synthetic_challenge_metrics.csv').exists() and (a11/'bootstrap_authority.csv').exists())
     add('SWaT pipeline implemented',(ROOT/'experiments/swat/run_swat_experiment.py').exists())
     add('Zenodo metadata ready',(ROOT/'.zenodo.json').exists())
     add('Reproducibility manifest',(ROOT/'results/reproducibility_manifest.json').exists())
@@ -43,7 +45,7 @@ def main(mode='full'):
     add('Unit tests',t.returncode==0)
 
     failed=[m for m,ok in checks if not ok]
-    lines=['# REPRODUCIBILITY STATUS','']
+    lines=['# REPRODUCIBILITY STATUS','','Release: v1.2.1','Manuscript alignment: 8 September 2026','']
     friendly={
       '30-scenario library':'30-scenario library','Six showcases':'Six showcases','Authority ceiling':'Authority ceiling',
       'Decision uncertainty':'Decision uncertainty','Aggregation sensitivity':'Aggregation sensitivity','Weight sensitivity':'Weight sensitivity',
@@ -53,16 +55,20 @@ def main(mode='full'):
     lines.append(f"Core RDFR-CI equations: {'PASS' if core_ok else 'FAIL'}")
     for key in ['30-scenario library','Six showcases','Authority ceiling','Decision uncertainty','Aggregation sensitivity','Weight sensitivity','Agent authority demonstrations','Figures regenerated','Tables regenerated','Unit tests','SWaT pipeline implemented']:
         ok=next(v for n,v in checks if n==key); lines.append(f"{friendly[key]}: {'PASS' if ok else 'FAIL'}")
-    lines.append('SWaT empirical results: NOT RUN — authorized official data were not supplied')
+    lines.append('SWaT A11 normal-only threshold transfer: PASS — derived outputs included; authorized raw files required for from-scratch reproduction')
+    lines.append('SWaT A11 synthetic perturbation challenge: PASS / ILLUSTRATIVE ONLY')
+    lines.append('SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release')
     for key in ['Restricted data excluded from working tree','Zenodo metadata ready']:
         ok=next(v for n,v in checks if n==key); lines.append(f"{friendly[key]}: {'PASS' if ok else 'FAIL'}")
     lines += ['',f'Verification mode: {mode}',f'Pytest: {t.stdout.strip() or t.stderr.strip()}','',
-              'Scientific classification: unrestricted computational and illustrative outputs are reproduced; SWaT remains a pre-specified external-data protocol.']
+              'Scientific classification: RDFR-CI computational outputs are reproduced; SWaT A11 contributes empirical normal-only threshold-transfer evidence plus a separately labeled synthetic challenge; labeled attack validation remains pre-specified.']
     (ROOT/'results/REPRODUCIBILITY_STATUS.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
     print('REPRODUCIBILITY STATUS')
     for m,ok in checks: print(f'{m}: {"PASS" if ok else "FAIL"}')
-    print('SWaT empirical results: NOT RUN unless authorized official data were supplied')
+    print('SWaT A11 normal-only transfer: DERIVED OUTPUTS INCLUDED')
+    print('SWaT A11 synthetic challenge: ILLUSTRATIVE ONLY')
+    print('SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release')
     if failed:
         print('\nFailed checks:',*failed,sep='\n- '); return 1
     return 0
