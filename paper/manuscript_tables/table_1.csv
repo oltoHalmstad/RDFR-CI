@@ -1,0 +1,6 @@
+Prior contribution,What RDFR-CI retains,Action-specific extension examined here
+AI-SOC risk and forensic-readiness framework [15],"Threat exposure, detection gap, AI risk, forensic readiness; score and gate governance.","Cyber-physical consequence, explicit prohibitions and scope, conditional score floors. No comparative superiority is claimed."
+"Process-aware detection and OT risk [1,19–26]","Telemetry, detection evidence, physical-process context.",A measured detector outcome informs a provisional policy score; it does not authorize a response by itself.
+"Human-verified and agentic security [16–18,29–35]","Human review, trust boundaries, scoped tool use, distinction between reasoning and execution.","A child action is capped by parent authority, its own local risk, its gates, and capability intersection."
+OT DFIR and HANSARD [42–45],"Preservation, provenance, independently controlled capture and replay.",Forensic evidence enters the action assessment and its gate. Independent witnessing itself is inherited prior work.
+"AI-risk governance and safety [8,36–38,46]","Lifecycle assurance, uncertainty and operational constraints.","A common five-state scale with PASS, UNKNOWN, documented N/A, and priority stopping of prohibited actions."

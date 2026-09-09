@@ -1,0 +1,7 @@
+Action context,Provisional → final,Limiting assumption
+Bounded digital-network mitigation,4 → 4,Score; applicable gates assumed to permit level 4
+Manufacturing controller intervention,3 → 2,Required human approval unresolved: GH = 2
+Substation process intervention,3 → 2,Safety evidence and human approval unresolved: GS = GH = 2
+Rail/traffic-control isolation,2 → 2,Score; no stricter gate assumed
+Clinical-infrastructure isolation,2 → 2,Score; no stricter gate assumed
+Water-treatment setpoint intervention,1 → 1,Score and illustrative assurance restriction: GA = 1

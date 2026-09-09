@@ -1,0 +1,6 @@
+Composite score,Code and provisional state,Permitted role of the assessed AI action path
+RCI < 0.20,4 — Bounded automation,"Execute only pre-authorized, bounded actions inside validated scope and limits, with monitoring, expiry, and rollback conditions."
+0.20 ≤ RCI < 0.35,3 — Human-approved intervention,"Execute only the specific action covered by valid qualified-human approval, after all other execution conditions are satisfied."
+0.35 ≤ RCI < 0.50,2 — Assisted defense,Provide analysis and recommendations; no AI execution of the assessed effectful response action.
+0.50 ≤ RCI < 0.65,1 — Shadow/restricted,Log and evaluate outputs without allowing the assessed AI path to control the process or drive live response.
+RCI ≥ 0.65,0 — Rollback/isolation,Remove or disable the implicated AI decision/action path pending recovery and revalidation; preserve independent safety and monitoring functions.

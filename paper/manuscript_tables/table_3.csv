@@ -1,0 +1,6 @@
+Gate / evidence,Established failure or prohibition,Missing or expired evidence,Satisfied / inapplicable
+GS: safety envelope,Proven safety violation: stop the assessed action (0).,UNKNOWN: Assisted defense (2).,PASS: up to 4. N/A requires documented absence of relevant physical effects.
+GV: service continuity,Proven intolerable interruption: stop (0).,UNKNOWN: Assisted defense (2).,PASS: up to 4. N/A requires documented absence of relevant service effects.
+GFA: forensic accountability,Required forensic capability absent: Assisted defense (2).,UNKNOWN: Assisted defense (2).,PASS: up to 4. N/A requires policy justification; ordinary logging does not establish witnessing.
+GA: AI assurance,Assurance failure: Shadow/restricted (1). Compromised enforcement: stop (0).,UNKNOWN: Shadow/restricted (1).,PASS: up to 4 within the validated region. N/A only when the action does not rely on the assessed AI.
+GH: human authority,Action expressly prohibited: stop (0).,Required action-bound approval missing: Assisted defense (2).,Valid required approval: cap 3. No per-action requirement: up to 4 with documented policy basis.
