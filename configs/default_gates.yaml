@@ -1,18 +1,33 @@
-authority_rank_convention:
-  0: Bounded automation
-  1: Human-approved intervention
+authority_scale:
+  0: Rollback / isolation
+  1: Shadow / restricted
   2: Assisted defense
-  3: Shadow / restricted
-  4: Rollback / isolation
-failure_caps:
-  G_S: 1
-  G_V: 1
-  G_FA: 2
-  G_A: 3
-  G_H: 2
+  3: Human-approved intervention
+  4: Bounded automation
 statuses:
   - pass
-  - fail
-  - not_evaluated
+  - unknown
   - not_applicable
-note: Unevaluated gates are treated conservatively as failed; not_applicable imposes no cap.
+  - fail
+unknown_caps:
+  G_S: 2
+  G_V: 2
+  G_FA: 2
+  G_A: 1
+  G_H: 2
+failure_caps:
+  G_S: 0
+  G_V: 0
+  G_FA: 2
+  G_A: 1
+  G_H: 0
+priority_stop:
+  - demonstrated_safety_violation
+  - intolerable_service_interruption
+  - prohibited_capability_scope
+  - compromised_execution_enforcement
+notes:
+  - PASS requires current evidence for the assessed action and context.
+  - UNKNOWN is missing or expired evidence and cannot support promotion.
+  - NOT_APPLICABLE imposes no cap only with documented rationale.
+  - A valid required human approval caps that action at level 3; no per-action requirement may permit up to level 4 if all other conditions pass.

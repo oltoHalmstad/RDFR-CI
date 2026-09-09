@@ -1,0 +1,8 @@
+Condition,Required policy response
+"Demonstrated safety violation, intolerable service interruption, prohibited scope, or compromised execution enforcement",Direct level 0 for the implicated AI action path. Preserve independent deterministic safety and monitoring. Recovery requires a separately authorized safe procedure.
+"Performance requirement breached, operating region invalid, or assurance unknown","GA ≤ 1; withhold promotion, investigate and revalidate. A nominal calibration budget is insufficient after target-period budget failure."
+Safety/service evidence or required action approval missing,Cap at 2 pending the missing assessment or valid action-bound approval.
+Forensic requirements not demonstrated,GFA ≤ 2; use a separately authorized emergency procedure only where applicable and record the evidence exception.
+Unexpected process effect or failed rollback,Suspend the affected playbook; independently assess recovery safety and evidence preservation.
+"Near-boundary score, assessor disagreement, repeated overrides","Withhold promotion pending review of inputs, evidence, thresholds, and human factors; no automatic one-rung rule."
+"Expired approval, changed target, widened scope, or changed process state","Invalidate the prior authorization; reassess local risk, gates and capability intersection."

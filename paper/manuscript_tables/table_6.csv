@@ -1,0 +1,7 @@
+Layer,Examples,Forensic requirement
+Evidence,"Packets, logs, sensor values, PLC logic, process state",Preserve original and integrity metadata
+Context,"Asset criticality, topology, dependencies, CTI","Record source, version, and retrieval time"
+Interpretation,"Anomaly scores, LLM explanation, reconstructed hypothesis",Label as AI-generated; cite supporting artifacts
+Recommendation,"Proposed action, confidence, uncertainty, alternatives",Store rationale and policy basis
+Authorization,Human approval or pre-authorized policy decision,"Record actor, time, scope, and exceptions"
+Action and verification,"Firewall change, isolation, rollback, process validation","Record exact change, outcome, and before/after evidence"

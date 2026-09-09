@@ -1,14 +1,14 @@
 from rdfr_ci.authority import AuthorityState
-from rdfr_ci.agent_authority import child_authority
+from rdfr_ci.agent_authority import child_authority, capability_intersection
+PASS={k:'pass' for k in ('G_S','G_V','G_FA','G_A','G_H')}
 
-PASS={'G_S':'pass','G_V':'pass','G_FA':'pass','G_A':'pass','G_H':'pass'}
+def test_child_is_capped_by_parent_local_risk_and_scope():
+    assert child_authority(4,3,4,PASS)[0] == AuthorityState.HUMAN_APPROVED
+    assert child_authority(4,4,2,PASS)[0] == AuthorityState.ASSISTED_DEFENSE
+    assert child_authority(3,4,4,PASS)[0] == AuthorityState.HUMAN_APPROVED
 
-def test_child_never_exceeds_parent_or_scope():
-    final,_=child_authority(AuthorityState.HUMAN_APPROVED,AuthorityState.BOUNDED_AUTOMATION,PASS)
-    assert int(final)>=int(AuthorityState.HUMAN_APPROVED)
-    final,_=child_authority(AuthorityState.BOUNDED_AUTOMATION,AuthorityState.ASSISTED_DEFENSE,PASS)
-    assert final==AuthorityState.ASSISTED_DEFENSE
+def test_capability_intersection_is_explicit():
+    assert capability_intersection({'search','simulate','block'},{'simulate','block','plc_write'},{'search','simulate'}) == frozenset({'simulate'})
 
-def test_ai_gate_revokes_authority():
-    final,_=child_authority(0,0,{**PASS,'G_A':'fail'})
-    assert final==AuthorityState.SHADOW_RESTRICTED
+def test_scope_failure_is_priority_stop():
+    final,binding=child_authority(4,4,4,PASS,capability_scope_authorized=False); assert final==AuthorityState.ROLLBACK_ISOLATION and binding=='Capability scope'

@@ -1,0 +1,8 @@
+Quantity,Global F₁ optimum,Gap-minimizing point (φ = 0.05)
+Detection threshold,0.510,0.385
+Global F₁,0.924,0.887
+False-positive rate,0.000,0.037
+Criticality-weighted recall,0.714,0.876
+Detection capability gap D,0.286,0.124
+Composite score RCI,0.381,0.349
+Provisional state,Assisted defense,Human-approved intervention

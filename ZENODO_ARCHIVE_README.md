@@ -1,18 +1,9 @@
-# RDFR-CI v1.2.1 Zenodo Archive
+# RDFR-CI v1.3.0 Zenodo archive
 
-This archive is the reproducibility-aligned supplementary/software release supporting the RDFR-CI manuscript.
+This package is the manuscript-aligned supplementary/software release supporting the RDFR-CI article.
 
-## Reproducibility alignment
+v1.3.0 aligns the reference implementation with the revised policy specification: canonical authority codes 0-4, PASS/UNKNOWN/documented-N/A gate states, priority prohibition/capability-scope stop, child-local risk in Equation (12), and explicit capability intersection.
 
-Version 1.2.1 corrects manuscript-to-repository drift found during final submission QA. In the final manuscript, Appendix Figures A1-A3 are the exact outputs shipped under `results/figures/`; manuscript Table 7 is regenerated from the same detector-threshold sweep as Figure A3; Section 5.6 reports the shipped decision-stability result (9 of 30 scenarios with P(state change) > 0.10); and two unsupported numerical claims from an earlier draft were removed. See `paper/manuscript_reproducibility_alignment.md` for the detailed record and SHA-256 hashes.
+Raw SWaT files are not redistributed. Labeled A1/A2 attack validation remains unexecuted. Aggregate A11 values reported in the manuscript must remain clearly separated from real-attack performance claims.
 
-## Data restriction
-
-SWaT raw files are not redistributed. Authorized researchers must obtain them from the official provider and place them under the ignored private-data paths described in `data/README_SWAT.md`. Derived A11 normal-threshold-transfer results and clearly labeled synthetic-challenge outputs are included. Labeled A1/A2 attack results are not claimed in this release.
-
-## Integrity
-
-Run `python scripts/verify_results.py --full` from a configured environment. The v1.2.1 release passes 30 unit tests and the repository verification checks.
-
-Article DOI: pending.
-Software DOI: 10.5281/zenodo.22662284 (https://doi.org/10.5281/zenodo.22662284); reserved for this v1.2.1 deposit and activated when the Zenodo record is published.
+The previous v1.2.1 release is `10.5281/zenodo.22662284`. A **new version-specific DOI must be reserved for v1.3.0** before final manuscript publication. Do not reuse the v1.2.1 DOI as the v1.3.0 DOI.

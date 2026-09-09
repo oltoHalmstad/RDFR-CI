@@ -1,66 +1,68 @@
-
-"""Independent deployment gates (Manuscript Section 3.8, Eq. 10)."""
+"""Independent deployment gates for manuscript Section 3.8 / Equation (10)."""
 from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
-from typing import Mapping
+from typing import Mapping, Any
 from .authority import AuthorityState, label
 
 class GateStatus(str, Enum):
     PASS = "pass"
     FAIL = "fail"
-    NOT_EVALUATED = "not_evaluated"
+    UNKNOWN = "unknown"
     NOT_APPLICABLE = "not_applicable"
 
-DEFAULT_GATE_CAPS = {
-    "G_S": AuthorityState.HUMAN_APPROVED,
-    "G_V": AuthorityState.HUMAN_APPROVED,
-    "G_FA": AuthorityState.ASSISTED_DEFENSE,
-    "G_A": AuthorityState.SHADOW_RESTRICTED,
-    "G_H": AuthorityState.ASSISTED_DEFENSE,
-}
+DEFAULT_UNKNOWN_CAPS = {"G_S":2,"G_V":2,"G_FA":2,"G_A":1,"G_H":2}
+DEFAULT_FAILURE_CAPS = {"G_S":0,"G_V":0,"G_FA":2,"G_A":1,"G_H":0}
 
 @dataclass(frozen=True)
 class GateDecision:
     name: str
-    status: GateStatus
-    cap: AuthorityState
+    status: GateStatus | str
+    cap: AuthorityState | int | None = None
+    prohibited: bool = False
     rationale: str = ""
     evidence_reference: str = ""
 
-def _status(value) -> GateStatus:
-    return value if isinstance(value, GateStatus) else GateStatus(str(value))
+def _status(value: Any) -> GateStatus:
+    if isinstance(value,GateStatus): return value
+    text=str(value).strip().lower()
+    if text=="not_evaluated": text="unknown"
+    return GateStatus(text)
 
-def final_authority(provisional: AuthorityState | int, gate_states: Mapping[str, str | GateStatus],
-                    gate_caps: Mapping[str, int | AuthorityState] | None = None):
-    """Apply gate caps without allowing any gate to increase authority.
+def _decision(name: str, value: Any, legacy_caps=None) -> GateDecision:
+    if isinstance(value,GateDecision):
+        return value if value.name==name else GateDecision(name,value.status,value.cap,value.prohibited,value.rationale,value.evidence_reference)
+    st=_status(value); cap=None
+    # Legacy callers pass a gate_caps dictionary. In v1.3 those values are used
+    # only for unresolved/failed gates; PASS must not silently become a cap.
+    if legacy_caps and name in legacy_caps and st in (GateStatus.UNKNOWN,GateStatus.FAIL):
+        cap=AuthorityState(int(legacy_caps[name]))
+    return GateDecision(name,st,cap)
 
-    The manuscript writes Authority_final = min(...) on an authority/permissiveness
-    scale. This implementation stores states as *restriction ranks* where 0 is the most
-    permissive and 4 the most restrictive, as specified in the supplement instructions.
-    Therefore the mathematically equivalent operation is max(restriction ranks).
+def _cap_for(d: GateDecision) -> AuthorityState:
+    st=_status(d.status)
+    if st==GateStatus.PASS:
+        return AuthorityState.BOUNDED_AUTOMATION if d.cap is None else AuthorityState(int(d.cap))
+    if st==GateStatus.NOT_APPLICABLE:
+        return AuthorityState.BOUNDED_AUTOMATION
+    if st==GateStatus.UNKNOWN:
+        return AuthorityState(int(d.cap)) if d.cap is not None else AuthorityState(DEFAULT_UNKNOWN_CAPS[d.name])
+    return AuthorityState(int(d.cap)) if d.cap is not None else AuthorityState(DEFAULT_FAILURE_CAPS[d.name])
 
-    PASS and NOT_APPLICABLE impose no cap. FAIL and NOT_EVALUATED impose the
-    configured cap; unevaluated is conservative by design.
-    """
-    provisional = AuthorityState(int(provisional))
-    caps = dict(DEFAULT_GATE_CAPS)
-    if gate_caps:
-        caps.update({k: AuthorityState(int(v)) for k,v in gate_caps.items()})
-    candidates = [(int(provisional), "Score")]
+def final_authority(provisional, gate_states: Mapping[str,Any], gate_caps=None, *, priority_prohibition=False, capability_scope_authorized=True):
+    """Apply the priority stop and then the minimum in Equation (10)."""
+    provisional=AuthorityState(int(provisional))
+    if priority_prohibition: return AuthorityState.ROLLBACK_ISOLATION,"Priority prohibition"
+    if not capability_scope_authorized: return AuthorityState.ROLLBACK_ISOLATION,"Capability scope"
+    candidates=[(int(provisional),"Score")]
     for name in ("G_S","G_V","G_FA","G_A","G_H"):
-        st = _status(gate_states.get(name, GateStatus.NOT_EVALUATED))
-        if st in (GateStatus.FAIL, GateStatus.NOT_EVALUATED):
-            candidates.append((int(caps[name]), name))
-    max_rank = max(v for v,_ in candidates)
-    # Prefer Score when a gate only ties the provisional state; this keeps the
-    # manuscript's binding-constraint convention for the water showcase.
-    if int(provisional) == max_rank:
-        binding = "Score"
-    else:
-        binding = next(name for v,name in candidates if v == max_rank and name != "Score")
-    return AuthorityState(max_rank), binding
+        d=_decision(name,gate_states.get(name,GateDecision(name,GateStatus.UNKNOWN)),gate_caps)
+        if d.prohibited: return AuthorityState.ROLLBACK_ISOLATION,name
+        candidates.append((int(_cap_for(d)),name))
+    min_level=min(v for v,_ in candidates)
+    binding="Score" if int(provisional)==min_level else next(n for v,n in candidates if v==min_level and n!="Score")
+    return AuthorityState(min_level),binding
 
-def gate_audit(provisional, gate_states, gate_caps=None):
-    final, binding = final_authority(provisional, gate_states, gate_caps)
-    return {"provisional": label(provisional), "final": label(final), "binding_constraint": binding}
+def gate_audit(provisional,gate_states,gate_caps=None,**kwargs):
+    final,binding=final_authority(provisional,gate_states,gate_caps,**kwargs)
+    return {"provisional":label(provisional),"final":label(final),"binding_constraint":binding}

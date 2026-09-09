@@ -1,0 +1,7 @@
+C (fixed action/context),Rmin = wC·C,Best provisional state,Interpretation under the stated weights and thresholds
+0.25,0.0625,4 — Bounded automation,Score floor does not exclude level 4; gates remain applicable.
+0.50,0.1250,4 — Bounded automation,Other risk inputs must still fit below the 0.20 threshold.
+0.75,0.1875,4 — Bounded automation,Only 0.0125 of score headroom remains below the level-4 threshold.
+0.80,0.2000,3 — Human-approved intervention,Level 4 is excluded at equality by the half-open band convention.
+0.90,0.2250,3 — Human-approved intervention,"Level 4 is excluded while this action, C, and policy remain fixed."
+0.95,0.2375,3 — Human-approved intervention,Improving the other inputs cannot remove this conditional floor.

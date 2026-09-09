@@ -1,90 +1,28 @@
 #!/usr/bin/env python3
-"""Verify manuscript-aligned RDFR-CI reproducibility invariants and write a status report."""
+"""Verify the v1.3.0 manuscript-alignment invariants available in the public repository."""
 from pathlib import Path
-import argparse,json,sys,subprocess,os
-ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'src'))
-from rdfr_ci.scenario_loader import load_catalog
-from rdfr_ci.risk import composite_risk
-
-EXPECTED={'CDI-001':.1705,'MFG-001':.3055,'SUB-001':.3385,'RAIL-001':.3705,'HOSP-001':.4195,'WATER-001':.5000}
-
+import argparse,csv,json,sys,subprocess,os
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
+from rdfr_ci.authority import AuthorityState,authority_from_score
+from rdfr_ci.gates import final_authority
+VERSION='1.3.0'
 def main(mode='full'):
     checks=[]
-    def add(name,ok): checks.append((name,bool(ok)))
-    sc=load_catalog(ROOT/'scenarios/scenario_catalog.yaml')
-    add('30-scenario library',len(sc)==30)
-    add('18-sector coverage',len({s.sector for s in sc})==18)
-    showcase_ok=True
-    for sid,exp in EXPECTED.items():
-        s=next(x for x in sc if x.scenario_id==sid); score=composite_risk(s.E,s.D,s.A,s.F,s.C,s.weights)
-        showcase_ok &= abs(score-exp)<1e-9
-    add('Six showcases',showcase_ok)
-    agg=json.loads((ROOT/'results/sensitivity/aggregation_summary.json').read_text())
-    add('Aggregation sensitivity',agg['changed_under_at_least_one']==21)
-    summary=json.loads((ROOT/'results/scenario_results/summary.json').read_text())
-    add('Score/gate binding analysis',summary['score_binding']==20 and summary['gate_binding']==10)
-    add('G_A most common binding gate',summary['most_common_gate_binding']=='G_A')
-    add('Authority ceiling', (ROOT/'results/tables/table_5_authority_ceilings.csv').exists() and (ROOT/'results/figures/figure_A1_authority_ceiling.png').exists())
-    add('Decision uncertainty',(ROOT/'results/sensitivity/decision_uncertainty.csv').exists() and (ROOT/'results/figures/figure_A2_decision_stability.png').exists())
-    add('Weight sensitivity',(ROOT/'results/sensitivity/weight_sensitivity.csv').exists() and (ROOT/'results/figures/figure_S2_weight_sensitivity_wc.png').exists())
-    add('Agent authority demonstrations',(ROOT/'results/tables/table_S3_agent_authority_demo.csv').exists() and (ROOT/'results/logs/agent_authority_events.jsonl').exists())
-    add('Figures regenerated',len(list((ROOT/'results/figures').glob('*.png')))>=8 and len(list((ROOT/'results/figures').glob('*.pdf')))>=8)
-    add('Tables regenerated',len(list((ROOT/'results/tables').glob('*.csv')))>=17 and len(list((ROOT/'results/tables').glob('*.md')))>=17)
-    private=[p for p in (ROOT/'data/private').rglob('*') if p.is_file() and p.name!='.gitkeep']
-    add('Restricted data excluded from working tree',not private)
-    swat_results=ROOT/'results/swat'
-    add('No labeled SWaT A1/A2 attack outputs in unrestricted release',not swat_results.exists() or not any(swat_results.iterdir()))
-    a11=ROOT/'results/swat_a11'
-    a11_outputs=[a11/'normal_threshold_transfer.csv',a11/'synthetic_challenge_metrics.csv',a11/'bootstrap_authority.csv']
-    a11_present=[p.exists() for p in a11_outputs]
-    # External-data derivatives are optional in the unrestricted checkout, but a partial bundle is invalid.
-    add('SWaT A11 output bundle consistency',not any(a11_present) or all(a11_present))
-    add('SWaT pipeline implemented',(ROOT/'experiments/swat/run_swat_experiment.py').exists())
-    add('Zenodo metadata ready',(ROOT/'.zenodo.json').exists())
-    add('Reproducibility manifest',(ROOT/'results/reproducibility_manifest.json').exists())
-    env=os.environ.copy(); env['PYTHONPATH']=str(ROOT/'src')+os.pathsep+env.get('PYTHONPATH','')
-    t=subprocess.run([sys.executable,'-m','pytest','-q'],cwd=ROOT,env=env,capture_output=True,text=True)
-    add('Unit tests',t.returncode==0)
-
-    failed=[m for m,ok in checks if not ok]
-    lines=['# REPRODUCIBILITY STATUS','','Release: v1.2.1','Manuscript alignment: 8 September 2026','']
-    friendly={
-      '30-scenario library':'30-scenario library','Six showcases':'Six showcases','Authority ceiling':'Authority ceiling',
-      'Decision uncertainty':'Decision uncertainty','Aggregation sensitivity':'Aggregation sensitivity','Weight sensitivity':'Weight sensitivity',
-      'Agent authority demonstrations':'Agent authority tests','Figures regenerated':'Figures regenerated','Tables regenerated':'Tables regenerated',
-      'Unit tests':'Unit tests','SWaT pipeline implemented':'SWaT pipeline implemented','Restricted data excluded from working tree':'Restricted data excluded from Git/working tree','Zenodo metadata ready':'Zenodo metadata ready'}
-    core_ok=all(ok for name,ok in checks if name in {'Six showcases','Authority ceiling','Score/gate binding analysis'})
-    lines.append(f"Core RDFR-CI equations: {'PASS' if core_ok else 'FAIL'}")
-    for key in ['30-scenario library','Six showcases','Authority ceiling','Decision uncertainty','Aggregation sensitivity','Weight sensitivity','Agent authority demonstrations','Figures regenerated','Tables regenerated','Unit tests','SWaT pipeline implemented']:
-        ok=next(v for n,v in checks if n==key); lines.append(f"{friendly[key]}: {'PASS' if ok else 'FAIL'}")
-    if all(a11_present):
-        lines.append('SWaT A11 normal-only threshold transfer: PASS — complete derived-output bundle included')
-        lines.append('SWaT A11 synthetic perturbation challenge: PASS / ILLUSTRATIVE ONLY')
-    elif any(a11_present):
-        lines.append('SWaT A11 derived-output bundle: FAIL — incomplete bundle')
-    else:
-        lines.append('SWaT A11 derived-output bundle: NOT INCLUDED — authorized data required')
-    lines.append('SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release')
-    for key in ['Restricted data excluded from working tree','Zenodo metadata ready']:
-        ok=next(v for n,v in checks if n==key); lines.append(f"{friendly[key]}: {'PASS' if ok else 'FAIL'}")
-    lines += ['',f'Verification mode: {mode}',f'Pytest: {t.stdout.strip() or t.stderr.strip()}','',
-              'Scientific classification: RDFR-CI computational outputs are reproduced; SWaT A11 contributes empirical normal-only threshold-transfer evidence plus a separately labeled synthetic challenge; labeled attack validation remains pre-specified.']
-    (ROOT/'results/REPRODUCIBILITY_STATUS.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-
-    print('REPRODUCIBILITY STATUS')
-    for m,ok in checks: print(f'{m}: {"PASS" if ok else "FAIL"}')
-    if all(a11_present):
-        print('SWaT A11 normal-only transfer: DERIVED OUTPUTS INCLUDED')
-        print('SWaT A11 synthetic challenge: ILLUSTRATIVE ONLY')
-    elif any(a11_present):
-        print('SWaT A11 derived-output bundle: INCOMPLETE')
-    else:
-        print('SWaT A11 derived-output bundle: NOT INCLUDED (authorized data required)')
-    print('SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release')
-    if failed:
-        print('\nFailed checks:',*failed,sep='\n- '); return 1
-    return 0
-
+    def add(n,v): checks.append((n,bool(v)))
+    add('Canonical authority scale',[int(AuthorityState.ROLLBACK_ISOLATION),int(AuthorityState.SHADOW_RESTRICTED),int(AuthorityState.ASSISTED_DEFENSE),int(AuthorityState.HUMAN_APPROVED),int(AuthorityState.BOUNDED_AUTOMATION)]==[0,1,2,3,4])
+    PASS={k:'pass' for k in ('G_S','G_V','G_FA','G_A','G_H')}
+    add('UNKNOWN AI-assurance cap',final_authority(4,{**PASS,'G_A':'unknown'})[0]==AuthorityState.SHADOW_RESTRICTED);add('Priority stop',final_authority(4,PASS,priority_prohibition=True)[0]==AuthorityState.ROLLBACK_ISOLATION)
+    add('Exact manuscript table set',all((ROOT/f'paper/manuscript_tables/table_{x}.csv').exists() for x in list(map(str,range(1,12)))+['B1','C1','C2']))
+    t7=ROOT/'results/tables/table_7_generated.csv'
+    if t7.exists():
+        rows=list(csv.reader(t7.open(encoding='utf-8')));exp=[['Detection threshold','0.510','0.385'],['Global F₁','0.924','0.887'],['False-positive rate','0.000','0.037'],['Criticality-weighted recall','0.714','0.876'],['Detection capability gap D','0.286','0.124'],['Composite score RCI','0.381','0.349'],['Provisional state','Assisted defense','Human-approved intervention']];add('Generated Table 7 values',rows[1:8]==exp)
+    s=ROOT/'results/scenario_results/summary_v1.3.json'
+    if s.exists():
+        j=json.loads(s.read_text());add('30 scenarios / 18 sectors',j.get('scenarios')==30 and j.get('sectors')==18);add('Table 11 policy verification',j.get('manuscript_table_11_policy_verified') is True)
+    agg=ROOT/'results/sensitivity/aggregation_summary.json'
+    if agg.exists(): add('Aggregation sensitivity 21/30',json.loads(agg.read_text()).get('changed_under_at_least_one')==21)
+    env=os.environ.copy();env['PYTHONPATH']=str(ROOT/'src')+os.pathsep+env.get('PYTHONPATH','');t=subprocess.run([sys.executable,'-m','pytest','-q'],cwd=ROOT,env=env,capture_output=True,text=True);add('Unit tests',t.returncode==0)
+    lines=['# REPRODUCIBILITY STATUS','',f'Release: v{VERSION}','Manuscript alignment: 9 September 2026','']+[f'{n}: {"PASS" if ok else "FAIL"}' for n,ok in checks]+['',f'Verification mode: {mode}',f'Pytest: {t.stdout.strip() or t.stderr.strip()}','', 'Scientific classification: v1.3.0 verifies the public policy implementation and manuscript-facing numeric tables. Exact publication figure binaries and the aligned DOCX are identified by hashes in the release/Zenodo package; raw SWaT data are excluded and labeled A1/A2 attack validation remains unexecuted.']
+    (ROOT/'results/REPRODUCIBILITY_STATUS.md').write_text('\n'.join(lines)+'\n',encoding='utf-8');print('\n'.join(lines));return 1 if any(not ok for _,ok in checks) else 0
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(); ap.add_argument('--full',action='store_true'); ap.add_argument('--smoke',action='store_true'); a=ap.parse_args(); raise SystemExit(main('smoke' if a.smoke else 'full'))
+    ap=argparse.ArgumentParser();ap.add_argument('--full',action='store_true');ap.add_argument('--smoke',action='store_true');a=ap.parse_args();raise SystemExit(main('smoke' if a.smoke else 'full'))

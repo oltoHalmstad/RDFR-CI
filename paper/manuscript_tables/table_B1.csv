@@ -1,0 +1,10 @@
+Element,Prospective specification,Required control / output
+Dataset,SWaT A1/A2 December 2015; authorized local files.,Publish release identifiers and permitted derived outputs; no raw redistribution.
+Training / reference calibration,"First 80% / last 20% of normal period, chronological.",Fit preprocessing on training only; specify and purge overlap across boundaries.
+Attack partition,Separate complete episodes for calibration and test.,Freeze exact episode IDs before observing test outcomes.
+Models and windows,"Isolation Forest; reconstruction autoencoder; primary 60 s, sensitivity 30/120 s.","Declare seeds, features, hyperparameters and tuning budget."
+Operating points,"Global F₁ comparator and D-minimizing thresholds under φ = 0.01, 0.05, 0.10.",Choose on calibration only; report test feasibility independently.
+Criticality weights,Document consequence rubric and assignments before testing.,Report equal-weight and alternative-weight sensitivity.
+Metrics,"Pointwise and event-level precision/recall, AUCs, delay, alarm episodes/hour.",No primary point adjustment; declare event-matching and alarm-grouping rules.
+Governance mapping,"D at each fixed threshold, RCI, boundary margin, provisional bands.",Apply gates separately; no performance-only promotion.
+Uncertainty,Complete-episode resampling; temporal blocks for reference alarms.,"Specify estimands, resampling scheme, interval method and decision criteria before test analysis."

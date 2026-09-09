@@ -1,0 +1,10 @@
+Dimension,Example metrics,Primary framework element
+Detection,"Recall by asset class at a declared FPR budget, precision, PR-AUC, latency, calibration",D
+Threat and loss,"Frequency, ALE, VaR, Tail-VaR, adversary activity",E
+AI assurance,"Drift, evasion success, prompt-injection success, policy violations",A / GA
+Cyber-physical,"Process deviation, safety event probability, outage duration, cascade",C / GS / GV
+Forensics,"Evidence completeness, provenance, witness coverage, replay success",F / GFA
+Automation,"Action success, rollback success, blast radius, unauthorized attempts",Authority / stop conditions
+Human factors,"Override rate, disagreement, review latency, uncertainty visibility",GH
+Decision stability,"Boundary margin, P(state), flip probability under declared input and weight uncertainty",Band assignment
+Elicitation reliability,Inter-rater ICC on values; agreement on the resulting deployment state,All five dimensions
