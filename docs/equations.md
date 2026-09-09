@@ -1,73 +1,29 @@
-# Equations and Implementation Map
+# RDFR-CI v1.3.0 equations and authority semantics
 
-## Composite deployment risk
+The publication source of truth is `paper/equations.csv`. Equations (1)-(13) are reproduced there exactly as rendered in the aligned manuscript.
 
-`R_CI = w_E*E + w_D*D + w_A*A + w_F*F + w_C*C`
+## Authority scale
 
-Implementation: `src/rdfr_ci/risk.py`
+All v1.3.0 code uses the same scale as manuscript Table 4:
 
-Default illustrative weights: `(0.20, 0.20, 0.15, 0.20, 0.25)`.
+- `0` — Rollback / isolation
+- `1` — Shadow / restricted
+- `2` — Assisted defense
+- `3` — Human-approved intervention
+- `4` — Bounded automation
 
-## Threat exposure
+Higher codes therefore mean more permitted AI action. This replaces the inverse restriction-rank convention used by v1.2.1.
 
-`E = min(1, TailVaR95 / RiskAppetite)`
+## Equation (10): gates and priority stop
 
-Implementation: `src/rdfr_ci/exposure.py`
+For an action that is not explicitly prohibited and whose capability scope is authorized:
 
-A normalized scenario-based alternative is included for organizations without financial tail-risk modeling.
+`Authority_final = min(Authority_R, G_S, G_V, G_FA, G_A, G_H)`.
 
-## Detection capability gap
+The priority prohibition/scope check precedes this minimum. `UNKNOWN` is missing/expired evidence and applies the conservative Table 3 cap; documented `N/A` imposes no cap.
 
-`D = 1 - sum(q_i * Recall_i) / sum(q_i)`
+## Equation (12): delegated authority
 
-Operationally, the threshold is selected under `FPR <= phi`, with `phi` explicitly declared.
+`Authority_child = min(Authority_parent, Authority_R,child, S_child, G_S,child, G_V,child, G_FA,child, G_A,child, G_H,child)`.
 
-Implementation: `src/rdfr_ci/detection.py`
-
-## AI-specific risk
-
-`A = alpha1*B + alpha2*P + alpha3*G + alpha4*U`
-
-Implementation: `src/rdfr_ci/ai_risk.py`
-
-Hard events such as successful prompt injection, action-policy bypass or privilege violation can fail `G_A` directly instead of being averaged away.
-
-## Forensic readiness
-
-`Q_F = eta1*EC + eta2*PC + eta3*TI + eta4*CC + eta5*RW`
-
-`F = 1 - Q_F`
-
-Implementation: `src/rdfr_ci/forensic.py`
-
-## Cyber-physical consequence
-
-`C = beta1*H + beta2*V + beta3*K + beta4*T + beta5*R_c`
-
-Implementation: `src/rdfr_ci/consequence.py`
-
-The beta vector must accompany every operational calculation. In the illustrative 30-scenario catalog, the manuscript-level C values are preserved with a neutral equal-component decomposition solely to make the supplied C score reproducible; this is not an empirical decomposition.
-
-## Independent gate cap
-
-Paper form: `Authority_final = min(Authority_R, G_S, G_V, G_FA, G_A, G_H)` on a permissiveness scale.
-
-Software stores a **restriction rank** where `0` is most permissive and `4` most restrictive. The equivalent operation is therefore the maximum rank among the provisional state and applicable gate caps.
-
-Implementation: `src/rdfr_ci/gates.py`
-
-## Authority ceiling
-
-`R_CI >= w_C*C`
-
-`R_min = w_C*C`
-
-Implementation: `src/rdfr_ci/authority.py`
-
-With `w_C = 0.25`, bounded automation becomes unreachable when `C >= 0.80`, because the best possible composite score is then at least `0.20`.
-
-## Agentic/multi-agent authority
-
-Paper form: `Authority_child = min(Authority_parent, S_child, G_S, G_V, G_FA, G_A, G_H)` on a permissiveness scale.
-
-Implementation: `src/rdfr_ci/agent_authority.py` using the software restriction-rank convention.
+`Authority_R,child` is recomputed from the child's local action, target, state, and evidence. Tool permission is additionally constrained to the intersection of parent-delegable capabilities, child-requested capabilities, and policy-allowed capabilities.

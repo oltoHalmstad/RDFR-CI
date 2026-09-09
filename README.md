@@ -1,176 +1,69 @@
-# RDFR-CI
+# RDFR-CI v1.3.0
 
 **Risk-Driven Deployment and Forensic Readiness for Governing AI Authority in Critical Infrastructure Protection**
 
-Reference implementation, scenario library, evaluation harness, and supplementary materials for the RDFR-CI paper by Olga Torstensson and Dmytro Prokopovych-Tkachenko.
+Reference implementation, scenario library, evaluation harness, and manuscript-aligned supplementary materials for the RDFR-CI article.
 
-> **Scientific status.** The cross-sector scenario values are illustrative demonstration inputs and must not be interpreted as measured risk levels for the corresponding sectors or organizations.
->
-> **SWaT restriction.** This repository does not redistribute the Secure Water Treatment (SWaT) dataset. SWaT-derived results must be generated using an independently obtained authorized copy of the official iTrust/SUTD dataset.
+> **Scientific status.** The 30 cross-sector scenario values and the six showcased action contexts are illustrative governance inputs, not measured risk levels for sectors or organizations. The SWaT A11 materials distributed here are aggregate derived outputs plus a separately labeled constructed-event challenge; raw SWaT telemetry is not redistributed. Labeled SWaT A1/A2 attack validation remains unexecuted.
 
-## What this repository supports
+## What changed in v1.3.0
 
-RDFR-CI converts five measurable governance dimensions into a provisional AI-authority decision and then applies independent safety, availability, forensic-accountability, AI-assurance, and human-authority gates:
+v1.3.0 is the manuscript-alignment release. It removes the remaining semantic drift between the Clean manuscript and the v1.2.1 implementation:
 
-\[
-R_{CI}=w_EE+w_DD+w_AA+w_FF+w_CC.
-\]
+- the software now uses the **canonical manuscript authority scale**: `0=Rollback/isolation`, `1=Shadow/restricted`, `2=Assisted defense`, `3=Human-approved intervention`, `4=Bounded automation`;
+- gate evidence distinguishes **PASS**, **UNKNOWN**, documented **NOT_APPLICABLE**, and established failure/prohibition;
+- a **priority prohibition / capability-scope stop** precedes Equation (10);
+- child authority in Equation (12) now includes the child's **own local provisional risk** and an explicit capability intersection;
+- manuscript Tables **1-11, B1, C1, C2** and Figures **1-3, A1-A4** are tracked as publication artifacts and checked against the aligned manuscript;
+- Table 7 uses the detector sweep values threshold `0.510/0.385`, D `0.286/0.124`, and R_CI `0.381/0.349`;
+- the claims ledger and manuscript-to-repository mapping use the final Sections 1-8 / Appendices A-C structure.
 
-The default illustrative weights are `E=0.20`, `D=0.20`, `A=0.15`, `F=0.20`, and `C=0.25`. These weights and all authority thresholds are configurable governance parameters, not universal constants.
+## Core score
 
-The package contains:
+`R_CI = w_E E + w_D D + w_A A + w_F F + w_C C`
 
-- the core equations for exposure, detection gap, AI-specific risk, forensic readiness, consequence and cascading risk;
-- independent deployment gates and half-open authority bands;
-- the consequence-driven authority ceiling `R_min = w_C * C`;
-- non-transitive authority for agentic and multi-agent workflows;
-- a 30-scenario library spanning 18 critical-infrastructure sectors;
-- the six manuscript showcases;
-- 10,000-draw elicitation-uncertainty analysis;
-- weight and aggregation sensitivity analyses;
-- synthetic inter-rater and multi-agent demonstrations;
-- reproducible publication figures and machine-readable tables;
-- a pre-specified SWaT A1/A2 pipeline that refuses to run when authorized data are absent;
-- an optional workflow for external-data validation; derived SWaT outputs are not part of this unrestricted repository checkout.
+with illustrative default weights `0.20, 0.20, 0.15, 0.20, 0.25`. The score assigns a provisional level. Independent safety, availability, forensic-accountability, AI-assurance, and human-authority constraints can only maintain or reduce permission; explicit prohibitions and unauthorized capability scope select level 0 for the implicated AI action path.
 
-## Reproducibility classification
+## Canonical authority bands
 
-The repository separates four evidence classes and never merges them:
+| Composite score | Code | Provisional state |
+|---|---:|---|
+| `R_CI < 0.20` | 4 | Bounded automation |
+| `0.20 <= R_CI < 0.35` | 3 | Human-approved intervention |
+| `0.35 <= R_CI < 0.50` | 2 | Assisted defense |
+| `0.50 <= R_CI < 0.65` | 1 | Shadow / restricted |
+| `R_CI >= 0.65` | 0 | Rollback / isolation |
 
-1. **Reproduced computational results** — deterministic results generated directly by repository code.
-2. **Illustrative scenario results** — synthetic governance demonstrations, including the 30-scenario library and six showcases.
-3. **External dataset protocol** — the SWaT validation workflow is implemented and ready to execute after authorized data access.
-4. **Future empirical validation** — labeled attack validation, real practitioner elicitation, broader multi-testbed validation, and forensic-readiness field measurement remain future work.
+The intervals are half-open exactly. The numerical thresholds are illustrative governance parameters, not empirically established safety limits.
 
-Any separately generated SWaT A11 normal-only threshold-transfer evidence must be reported as an external-data result. Synthetic perturbation event metrics must remain separate and must not be described as attack performance.
+## Gate semantics
 
-See `paper/claims_ledger.csv` for claim-level provenance.
+For actions that clear the priority stop and capability-scope check, Equation (10) is implemented as the minimum of the provisional code and applicable gate caps. Default UNKNOWN caps are `G_S=2`, `G_V=2`, `G_FA=2`, `G_A=1`, `G_H=2`. A valid required human approval caps the approved action at level 3; no per-action approval requirement may permit up to level 4 if all other conditions pass.
 
-## Quick start
+## Agentic / multi-agent authority
 
-```bash
-git clone <repository>
-cd RDFR-CI
+Delegation is non-transitive. Equation (12) caps a child by parent authority, the child's own local provisional risk, child scope, and child-local gates. Actual tools must also lie in `parent_delegable ∩ child_requested ∩ policy_allowed`.
 
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-pip install -e .
+## Evidence classes
 
-python experiments/run_all.py
-```
+1. **Reproduced computational results** — equations, score bands, detector calculations, scenario sensitivity and policy checks.
+2. **Illustrative governance inputs** — 30 scenarios across 18 sector labels and six action contexts.
+3. **External-data aggregate evidence** — reported A11 threshold transfer plus constructed-event/bootstrap summaries; raw SWaT data are excluded.
+4. **Future empirical validation** — labeled A1/A2 attacks, practitioner reliability, controlled defensive actions, field forensic readiness and broader testbeds.
 
-Equivalent shell entry point:
+See `paper/claims_ledger.csv` for claim-level provenance and `paper/manuscript_to_repository_mapping.md` for the one-to-one map.
 
-```bash
-bash scripts/reproduce_all.sh
-```
+## Release / citation status
 
-For a fast CI-style run:
+- Software version: **1.3.0**
+- Manuscript alignment date: **9 September 2026**
+- Article DOI: pending
+- v1.3.0 Zenodo DOI: **pending reservation**
+- Previous archived release v1.2.1: **10.5281/zenodo.22662284**
+- GitHub: https://github.com/oltoHalmstad/RDFR-CI
 
-```bash
-python experiments/run_all.py --smoke
-```
-
-## Main outputs
-
-Generated unrestricted outputs are written to:
-
-```text
-results/tables/
-results/figures/
-results/scenario_results/
-results/sensitivity/
-results/logs/
-```
-
-Every major result table is emitted as CSV and Markdown. Figures are emitted as PNG and PDF. Scenario audits are JSON.
-
-## Core authority bands
-
-| Composite score | Provisional state |
-|---|---|
-| `R_CI < 0.20` | Bounded automation |
-| `0.20 <= R_CI < 0.35` | Human-approved intervention |
-| `0.35 <= R_CI < 0.50` | Assisted defense |
-| `0.50 <= R_CI < 0.65` | Shadow / restricted |
-| `R_CI >= 0.65` | Rollback / isolation |
-
-The intervals are implemented as half-open bands exactly. Every scenario report includes the distance to the nearest authority boundary.
-
-## Gate semantics and rank convention
-
-The paper expresses final authority as the minimum of the provisional authority and all applicable gate caps on an authority/permissiveness scale. The software stores **restriction rank** as specified in the supplement design: `0 = Bounded automation` and `4 = Rollback / isolation`. Therefore the equivalent implementation takes the maximum restriction rank. A gate can maintain or reduce authority; it can never increase it.
-
-`not_evaluated` is conservative and imposes the configured failure cap. `not_applicable` imposes no cap.
-
-## Agentic and multi-agent authority
-
-Delegation does not imply privilege escalation. A child agent is restricted by parent authority, its own scope, action policy, and every applicable gate. Synthetic demonstrations are provided for:
-
-- a high-capability agent with low authorization;
-- individually compliant agents whose combined workflow fails a system-level safety gate;
-- authority revocation after an AI-assurance failure.
-
-All demonstrations produce an independent witness-style JSONL event log.
-
-## SWaT external validation
-
-The pre-specified SWaT workflow uses:
-
-- first 80% of the normal period for training;
-- remaining 20% of normal data for FPR calibration;
-- attack-episode-aware evaluation;
-- 60 s primary windows, with 30 s and 120 s sensitivity settings documented;
-- Isolation Forest as the primary baseline;
-- a reconstruction autoencoder as a secondary baseline;
-- FPR budgets of 0.01, 0.05 and 0.10;
-- pointwise and event-level metrics;
-- 10,000 attack-episode bootstrap resamples where feasible.
-
-To run it after obtaining authorized files:
-
-```bash
-python experiments/swat/run_swat_experiment.py \
-  --data-dir data/private/swat
-```
-
-When official files are absent, the A1/A2 program terminates and explicitly states that no empirical attack metrics were generated. See `data/README_SWAT.md` and `docs/swat_protocol.md`.
-
-SWaT-derived outputs are not included in this checkout. Use only authorized official data with the implemented SWaT workflow; raw SWaT files must never be committed or redistributed.
-
-## Tests
-
-```bash
-pytest -q
-```
-
-Tests cover the equations, exact band boundaries, gate monotonicity, non-transitive child authority, forensic-risk complement, authority ceiling, conservative unevaluated gates, non-applicable gates, scenario validation, and deterministic uncertainty simulation.
-
-## Regulatory mapping
-
-`docs/regulatory_mapping.md` provides a conceptual mapping to NIST CSF 2.0, NIST SP 800-82 Rev. 3, NIST AI RMF, NIST Generative AI Profile, the NIST adversarial-ML taxonomy, NISTIR 8428, NIS2, the Critical Entities Resilience Directive, the EU AI Act, the Cyber Resilience Act, and IEC 62443 principles.
-
-RDFR-CI **does not certify or guarantee legal or regulatory compliance**. It can support, map to, complement, or provide operational evidence for governance processes.
-
-## Reproducibility-aligned release v1.2.1
-
-This release is aligned with the corrected MDPI submission master updated 8 September 2026; the reproducibility corrections themselves were completed on 6 September 2026. It resolves manuscript/repository consistency issues identified during reproducibility review: Figures A1-A3 in the manuscript are now the exact repository-generated outputs; Table 7 is regenerated directly from the same detector sweep used for Figure A3; the decision-stability text now reports the shipped result of **9/30 scenarios** with P(state change) > 0.10; and unsupported numerical cross-sector exposure/slope claims were removed from the manuscript.
-
-The underlying experimental data and algorithms are unchanged from v1.2.0; v1.2.1 is a reproducibility-consistency correction. Raw SWaT data remain excluded.
-
-A detailed manuscript-to-artifact consistency record is available in `paper/manuscript_reproducibility_alignment.md`.
-
-## Citation and release status
-
-- Software version: **1.2.1**
-- Manuscript version aligned: **8 September 2026 (reproducibility-aligned final submission master with SWaT A11 experiment and exact A1-A3/Table 7 regeneration)**
-- Article DOI: **pending**
-- Software/Zenodo DOI: **10.5281/zenodo.22662284** (https://doi.org/10.5281/zenodo.22662284)
-- GitHub URL: **https://github.com/oltoHalmstad/RDFR-CI**
-
-See `CITATION.cff`, `.zenodo.json`, and `docs/release_checklist.md`.
+Do not cite `10.5281/zenodo.22662284` as the v1.3.0 software DOI. Reserve a new version DOI in Zenodo, then replace the pending DOI field in the manuscript and release metadata before final publication.
 
 ## License
 
-Code is released under the MIT License. Dataset licenses and access terms remain with their original providers; the MIT License does not grant rights to restricted third-party datasets.
+Code is MIT licensed. Dataset licenses/access terms remain with their original providers; the MIT License does not grant rights to restricted third-party data.

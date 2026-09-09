@@ -1,22 +1,9 @@
-# Independent Deployment Gates
+# RDFR-CI v1.3.0 deployment gates
 
-The arithmetic score is compensatory, so RDFR-CI carries non-compensable constraints in explicit gates.
+This document mirrors manuscript Section 3.8 and Table 3.
 
-| Gate | Question | Default failure cap |
-|---|---|---|
-| `G_S` | Could the response violate a defined safety envelope? | Human-approved intervention; stricter action-specific cap permitted |
-| `G_V` | Could the response exceed maximum tolerable service disruption? | Human-approved intervention |
-| `G_FA` | Is evidence complete, independently witnessed, attributable and replayable? | Assisted defense |
-| `G_A` | Is the model within its validated operating region and security policy? | Shadow / restricted |
-| `G_H` | Does policy, regulation or the safety case require qualified human authorization? | Assisted defense |
+Gate records distinguish `PASS`, `UNKNOWN`, `NOT_APPLICABLE`, and established failure/prohibition. `UNKNOWN` means required evidence is missing or expired; it is not evidence that a violation has occurred. `NOT_APPLICABLE` is allowed only with a recorded rationale.
 
-## Status semantics
+Default UNKNOWN caps are: `G_S=2`, `G_V=2`, `G_FA=2`, `G_A=1`, and `G_H=2`. Established safety or intolerable-continuity prohibitions select level 0. A forensic-capability failure caps at 2. An AI-assurance failure caps at 1 unless execution enforcement itself is compromised, in which case the priority stop selects 0. A valid required human approval permits only the approved action and caps that action at level 3; when no per-action approval is required, `G_H` may permit up to 4 with documented policy basis.
 
-- `pass`: no additional restriction.
-- `fail`: apply the configured failure cap.
-- `not_evaluated`: treated conservatively like a failure.
-- `not_applicable`: no cap is imposed.
-
-The software does not compound simultaneous gate failures by default. It selects the most restrictive applicable cap. Organizations can implement an additional compounding policy if desired, but that is outside the reference implementation.
-
-Every operational gate decision should carry a rationale and evidence reference. The synthetic catalog stores statuses and caps; real deployments must populate evidence references from their own audit trail.
+Changed target, widened scope, changed process state, expired evidence, or expired approval invalidates reuse of the earlier decision.

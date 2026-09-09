@@ -1,0 +1,14 @@
+equation,expression
+1,RCI = wE·E + wD·D + wA·A + wF·F + wC·C
+2,"(wE, wD, wA, wF, wC) = (0.20, 0.20, 0.15, 0.20, 0.25)"
+3,"E = min(1, TailVaR95 / RiskAppetite)"
+4,D = 1 − [∑ qi · Recalli / ∑ qi]
+5,"D(φ) = 1 − [∑ qi · Recalli(τ*) / ∑ qi],  τ* = arg minτ D(τ),  subject to FPR(τ) ≤ φ"
+6,A = α₁·B + α₂·P + α₃·G + α₄·U
+7,QF = η₁·EC + η₂·PC + η₃·TI + η₄·CC + η₅·RW
+8,F = 1 − QF
+9,C = β₁·H + β₂·V + β₃·K + β₄·T + β₅·Rc
+10,"Authorityfinal = min(AuthorityR, GS, GV, GFA, GA, GH), provided the priority prohibition check is clear and scope conditions hold."
+11,"RCI ≥ wC · C, with equality when E = D = A = F = 0"
+12,"Authoritychild = min(Authorityparent, AuthorityR,child, Schild, GS,child, GV,child, GFA,child, GA,child, GH,child)"
+13,RCI(τ) = 0.430 + 0.20 D(τ)

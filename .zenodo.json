@@ -1,28 +1,20 @@
 {
   "title": "RDFR-CI: Reference Implementation, Scenario Library and Evaluation Harness",
-  "description": "Supplementary and reproducibility package for the RDFR-CI paper. Includes the core governance equations, a 30-scenario illustrative library, uncertainty and sensitivity analyses, multi-agent authority demonstrations, publication figures and a pre-specified SWaT validation pipeline. SWaT raw data are not redistributed.",
+  "description": "Version 1.3.0 is the manuscript-alignment release for RDFR-CI. It aligns the canonical five-state authority scale, explicit PASS/UNKNOWN/N/A gate semantics and priority stop, child-local delegation controls, manuscript-facing tables and figures, and claim/equation mappings. Raw SWaT files are not redistributed; labeled A1/A2 attack performance is not claimed.",
   "upload_type": "software",
-  "license": "mit-license",
-  "version": "1.0.0",
-  "publication_date": "2026-09-05",
+  "license": "mit",
+  "version": "1.3.0",
+  "publication_date": "2026-09-09",
+  "access_right": "open",
+  "language": "eng",
   "creators": [
-    {
-      "name": "Torstensson, Olga",
-      "affiliation": "Halmstad University"
-    },
-    {
-      "name": "Prokopovych-Tkachenko, Dmytro",
-      "affiliation": "University of Customs and Finance"
-    }
+    {"name": "Torstensson, Olga", "affiliation": "Halmstad University"},
+    {"name": "Prokopovych-Tkachenko, Dmytro", "affiliation": "University of Customs and Finance"}
   ],
-  "keywords": [
-    "critical infrastructure",
-    "OT",
-    "ICS",
-    "AI governance",
-    "forensic readiness",
-    "autonomous cyber defense"
+  "keywords": ["critical infrastructure", "operational technology", "industrial control systems", "artificial intelligence", "AI governance", "forensic readiness", "autonomous cyber defense", "SWaT", "reproducibility"],
+  "related_identifiers": [
+    {"identifier": "https://github.com/oltoHalmstad/RDFR-CI", "relation": "isDerivedFrom", "scheme": "url"},
+    {"identifier": "10.5281/zenodo.22662284", "relation": "isNewVersionOf", "scheme": "doi"}
   ],
-  "related_identifiers": [],
-  "notes": "ARTICLE DOI: pending; SOFTWARE DOI: pending. Add identifiers only after assignment. Replace GitHub URL placeholders before public release."
+  "notes": "ARTICLE DOI: pending. Reserve the version-specific v1.3.0 Zenodo DOI before final manuscript submission. This release supersedes v1.2.1 for manuscript alignment."
 }
