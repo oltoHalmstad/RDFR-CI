@@ -1,7 +1,7 @@
 # Aligned manuscript reference — RDFR-CI v1.3.0
 
 - **File:** `RDFR-CI_Information_v1.3.0_aligned.docx` (distributed with the release/Zenodo submission package; SHA below)
-- **SHA-256:** `1ae14a5fc71013c5558c7ecfe06ee9e2b8143372b4a42fde975b42edce72309c`
+- **SHA-256:** `5e7dfb1328130ae592f3d3435a52ab420526a333cceb64b0c08ef995359db173`
 - **Title:** RDFR-CI: Risk-Driven Deployment and Forensic Readiness for Governing AI Authority in Critical Infrastructure Protection
 - **Authors:** Olga Torstensson; Dmytro Prokopovych-Tkachenko; Muhammad Ahsan Rasool; Kostiantyn Babenko
 - **Alignment date:** 9 September 2026
