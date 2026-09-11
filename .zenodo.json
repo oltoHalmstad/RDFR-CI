@@ -16,5 +16,5 @@
     {"identifier": "https://github.com/oltoHalmstad/RDFR-CI", "relation": "isDerivedFrom", "scheme": "url"},
     {"identifier": "10.5281/zenodo.22662284", "relation": "isNewVersionOf", "scheme": "doi"}
   ],
-  "notes": "ARTICLE DOI: pending. Reserve the version-specific v1.3.0 Zenodo DOI before final manuscript submission. This release supersedes v1.2.1 for manuscript alignment."
+  "notes": "ARTICLE DOI: pending. RDFR-CI v1.3.0 ZENODO DOI: 10.5281/zenodo.22682447. This release supersedes v1.2.1 for manuscript alignment."
 }

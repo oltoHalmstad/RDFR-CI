@@ -11,6 +11,7 @@ authors:
     affiliation: University of Customs and Finance
 version: 1.3.0
 date-released: 2026-09-09
+doi: "10.5281/zenodo.22682447"
 repository-code: "https://github.com/oltoHalmstad/RDFR-CI"
 license: MIT
 keywords:
@@ -23,4 +24,4 @@ keywords:
   - AI governance
   - SWaT
   - reproducibility
-notes: "ARTICLE DOI: pending. RDFR-CI v1.3.0 ZENODO DOI: pending reservation. Previous v1.2.1 DOI: 10.5281/zenodo.22662284. Raw SWaT data are not redistributed."
+notes: "ARTICLE DOI: pending. RDFR-CI v1.3.0 ZENODO DOI: 10.5281/zenodo.22682447. Previous v1.2.1 DOI: 10.5281/zenodo.22662284. Raw SWaT data are not redistributed."

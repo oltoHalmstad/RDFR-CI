@@ -22,47 +22,18 @@ v1.3.0 is the manuscript-alignment release. It removes the remaining semantic dr
 
 `R_CI = w_E E + w_D D + w_A A + w_F F + w_C C`
 
-with illustrative default weights `0.20, 0.20, 0.15, 0.20, 0.25`. The score assigns a provisional level. Independent safety, availability, forensic-accountability, AI-assurance, and human-authority constraints can only maintain or reduce permission; explicit prohibitions and unauthorized capability scope select level 0 for the implicated AI action path.
-
-## Canonical authority bands
-
-| Composite score | Code | Provisional state |
-|---|---:|---|
-| `R_CI < 0.20` | 4 | Bounded automation |
-| `0.20 <= R_CI < 0.35` | 3 | Human-approved intervention |
-| `0.35 <= R_CI < 0.50` | 2 | Assisted defense |
-| `0.50 <= R_CI < 0.65` | 1 | Shadow / restricted |
-| `R_CI >= 0.65` | 0 | Rollback / isolation |
-
-The intervals are half-open exactly. The numerical thresholds are illustrative governance parameters, not empirically established safety limits.
-
-## Gate semantics
-
-For actions that clear the priority stop and capability-scope check, Equation (10) is implemented as the minimum of the provisional code and applicable gate caps. Default UNKNOWN caps are `G_S=2`, `G_V=2`, `G_FA=2`, `G_A=1`, `G_H=2`. A valid required human approval caps the approved action at level 3; no per-action approval requirement may permit up to level 4 if all other conditions pass.
-
-## Agentic / multi-agent authority
-
-Delegation is non-transitive. Equation (12) caps a child by parent authority, the child's own local provisional risk, child scope, and child-local gates. Actual tools must also lie in `parent_delegable ∩ child_requested ∩ policy_allowed`.
-
-## Evidence classes
-
-1. **Reproduced computational results** — equations, score bands, detector calculations, scenario sensitivity and policy checks.
-2. **Illustrative governance inputs** — 30 scenarios across 18 sector labels and six action contexts.
-3. **External-data aggregate evidence** — reported A11 threshold transfer plus constructed-event/bootstrap summaries; raw SWaT data are excluded.
-4. **Future empirical validation** — labeled A1/A2 attacks, practitioner reliability, controlled defensive actions, field forensic readiness and broader testbeds.
-
-See `paper/claims_ledger.csv` for claim-level provenance and `paper/manuscript_to_repository_mapping.md` for the one-to-one map.
+with illustrative default weights `0.20, 0.20, 0.15, 0.20, 0.25`.
 
 ## Release / citation status
 
 - Software version: **1.3.0**
 - Manuscript alignment date: **9 September 2026**
 - Article DOI: pending
-- v1.3.0 Zenodo DOI: **pending reservation**
+- v1.3.0 Zenodo DOI: **10.5281/zenodo.22682447**
 - Previous archived release v1.2.1: **10.5281/zenodo.22662284**
 - GitHub: https://github.com/oltoHalmstad/RDFR-CI
 
-Do not cite `10.5281/zenodo.22662284` as the v1.3.0 software DOI. Reserve a new version DOI in Zenodo, then replace the pending DOI field in the manuscript and release metadata before final publication.
+Cite `10.5281/zenodo.22682447` for the v1.3.0 software/supplementary release. `10.5281/zenodo.22662284` identifies the previous v1.2.1 release.
 
 ## License
 
