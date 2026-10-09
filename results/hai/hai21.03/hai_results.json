@@ -1,0 +1,3636 @@
+{
+ "meta": {
+  "seed": 42,
+  "variables": 79,
+  "features": 171,
+  "window_s": 60,
+  "step_s": 5,
+  "training_windows": 34549,
+  "calibration_windows": 8629,
+  "median_train": 0.42917300663173635,
+  "mad_train": 0.01744515617713413,
+  "held_out_start": "2020-07-13T12:00:01",
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "sklearn": "1.9.1",
+  "file_sha256": {
+   "train1": "fdd0162315b32817ba665e2cc8990eb09c47c4edc29683a86b11dc9df062b3a9",
+   "test1": "532de41bed372206941609d05b763958f59abecfd63c8c123649f823452e445e",
+   "test2": "c5572e0ed19906107ceb56c4b4f40e165153fc7ba87b3506230d53d2478c29bb",
+   "test3": "bff835894baff0c73871bc01ece4f5cf759d455a049e808b012128767420caaf",
+   "test4": "51380fd28fd985b94a10cae3d8b80926becb3af9f233f2d3a38ab8be9482a482",
+   "test5": "f0d59308b167ed95d0e81fb3e27c906682c9b21d3dba0ab4c4d696565df35179"
+  }
+ },
+ "partitions": [
+  {
+   "partition": "training",
+   "first": "2020-07-11T00:00:00",
+   "last": "2020-07-12T23:59:59",
+   "rows": 172800,
+   "hours": 48.0,
+   "windows": 34549,
+   "first_window_end": "2020-07-11T00:00:59",
+   "last_window_end": "2020-07-12T23:59:59",
+   "attack_seconds": 0,
+   "attack_episodes": 0,
+   "timestamps_shared_with_train1": null,
+   "identical_rows_shared_with_train1": null
+  },
+  {
+   "partition": "calibration",
+   "first": "2020-07-13T00:00:00",
+   "last": "2020-07-13T12:00:00",
+   "rows": 43201,
+   "hours": 12.000277777777777,
+   "windows": 8629,
+   "first_window_end": "2020-07-13T00:00:59",
+   "last_window_end": "2020-07-13T11:59:59",
+   "attack_seconds": 0,
+   "attack_episodes": 0,
+   "timestamps_shared_with_train1": null,
+   "identical_rows_shared_with_train1": null
+  },
+  {
+   "partition": "test3_overlap_excluded",
+   "first": "2020-07-13T00:00:00",
+   "last": "2020-07-13T12:00:00",
+   "rows": 43201,
+   "hours": 12.000277777777777,
+   "windows": 8629,
+   "first_window_end": "2020-07-13T00:00:59",
+   "last_window_end": "2020-07-13T11:59:59",
+   "attack_seconds": 0,
+   "attack_episodes": 0,
+   "timestamps_shared_with_train1": 43201,
+   "identical_rows_shared_with_train1": 43201
+  },
+  {
+   "partition": "heldout_test3",
+   "first": "2020-07-13T12:00:01",
+   "last": "2020-07-14T06:00:00",
+   "rows": 64800,
+   "hours": 18.0,
+   "windows": 12949,
+   "first_window_end": "2020-07-13T12:01:00",
+   "last_window_end": "2020-07-14T06:00:00",
+   "attack_seconds": 1535,
+   "attack_episodes": 8,
+   "timestamps_shared_with_train1": 0,
+   "identical_rows_shared_with_train1": 0
+  },
+  {
+   "partition": "f1sel_test1",
+   "first": "2020-07-07T15:00:00",
+   "last": "2020-07-08T03:00:00",
+   "rows": 43201,
+   "hours": 12.000277777777777,
+   "windows": 8629,
+   "first_window_end": "2020-07-07T15:00:59",
+   "last_window_end": "2020-07-08T02:59:59",
+   "attack_seconds": 629,
+   "attack_episodes": 5,
+   "timestamps_shared_with_train1": 0,
+   "identical_rows_shared_with_train1": 0
+  },
+  {
+   "partition": "f1sel_test2",
+   "first": "2020-07-09T15:00:00",
+   "last": "2020-07-10T23:59:59",
+   "rows": 118800,
+   "hours": 33.0,
+   "windows": 23749,
+   "first_window_end": "2020-07-09T15:00:59",
+   "last_window_end": "2020-07-10T23:59:59",
+   "attack_seconds": 3449,
+   "attack_episodes": 20,
+   "timestamps_shared_with_train1": 0,
+   "identical_rows_shared_with_train1": 0
+  },
+  {
+   "partition": "heldout_test4",
+   "first": "2020-07-28T12:00:00",
+   "last": "2020-07-28T23:00:00",
+   "rows": 39601,
+   "hours": 11.000277777777777,
+   "windows": 7909,
+   "first_window_end": "2020-07-28T12:00:59",
+   "last_window_end": "2020-07-28T22:59:59",
+   "attack_seconds": 1157,
+   "attack_episodes": 5,
+   "timestamps_shared_with_train1": 0,
+   "identical_rows_shared_with_train1": 0
+  },
+  {
+   "partition": "heldout_test5",
+   "first": "2020-07-30T10:50:00",
+   "last": "2020-07-31T12:30:00",
+   "rows": 92401,
+   "hours": 25.666944444444443,
+   "windows": 18469,
+   "first_window_end": "2020-07-30T10:50:59",
+   "last_window_end": "2020-07-31T12:29:59",
+   "attack_seconds": 2177,
+   "attack_episodes": 12,
+   "timestamps_shared_with_train1": 0,
+   "identical_rows_shared_with_train1": 0
+  },
+  {
+   "partition": "test3_full_uncorrected",
+   "first": "2020-07-13T00:00:00",
+   "last": "2020-07-14T06:00:00",
+   "rows": 108001,
+   "hours": 30.00027777777778,
+   "windows": 21589,
+   "first_window_end": "2020-07-13T00:00:59",
+   "last_window_end": "2020-07-14T05:59:59",
+   "attack_seconds": 1535,
+   "attack_episodes": 8,
+   "timestamps_shared_with_train1": 43201,
+   "identical_rows_shared_with_train1": 43201
+  }
+ ],
+ "results": {
+  "training_statistics_eq14": {
+   "F1 comparator": {
+    "threshold": 0.9799774094386605,
+    "calibration_flag_rate": 0.0023177656738903696,
+    "selection_f1": 0.4423076923076923,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.010678992668154287,
+     "fpr_wilson_block": [
+      0.005997620654358532,
+      0.018944712886261827
+     ],
+     "fpr_wilson_window": [
+      0.009024363713294018,
+      0.012633132496527845
+     ],
+     "fpr_mbb": [
+      0.005079365079365079,
+      0.017777777777777778
+     ],
+     "episodes": 8,
+     "episodes_detected": 7,
+     "episode_recall_cp": [
+      0.4734903291247935,
+      0.9968402764687481
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5993485342019544,
+     "median_delay_s": 17.0,
+     "false_alarm_episodes": 20,
+     "alarms_per_hour": 1.1475932419509085,
+     "D": 0.125,
+     "R_CI": 0.455,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5353019341750413,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0689,
+      "2": 0.9311
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.016537603360021,
+     "fpr_wilson_block": [
+      0.009132804477988457,
+      0.029765795696221134
+     ],
+     "fpr_wilson_window": [
+      0.013908000459895096,
+      0.019654478860024346
+     ],
+     "fpr_mbb": [
+      0.006167979002624672,
+      0.03005249343832021
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.7575757575757576,
+     "median_delay_s": 31.5,
+     "false_alarm_episodes": 13,
+     "alarms_per_hour": 1.2285076781729887,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2586,
+      "2": 0.7414000000000001
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.011792980102839258,
+     "fpr_wilson_block": [
+      0.007433103071912112,
+      0.01866205588771092
+     ],
+     "fpr_wilson_window": [
+      0.010312668380875894,
+      0.013482885452151656
+     ],
+     "fpr_mbb": [
+      0.007134894091415831,
+      0.0173355629877369
+     ],
+     "episodes": 12,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.6152038348490559,
+      0.9978924067681397
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6367816091954023,
+     "median_delay_s": 30.0,
+     "false_alarm_episodes": 35,
+     "alarms_per_hour": 1.408450704225352,
+     "D": 0.08333333333333337,
+     "R_CI": 0.44666666666666666,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5069592330301889,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0024000000000000002,
+      "2": 0.9976
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.005802249851983422,
+     "fpr_wilson_block": [
+      0.002278066995263145,
+      0.014698048317218451
+     ],
+     "fpr_wilson_window": [
+      0.004391922849900946,
+      0.007661973452576168
+     ],
+     "fpr_mbb": [
+      0.0015366430260047282,
+      0.011583924349881796
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.576,
+     "median_delay_s": 28.0,
+     "false_alarm_episodes": 9,
+     "alarms_per_hour": 0.7673179396092362,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.6586000000000001,
+      "2": 0.3414
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.0047756747283561165,
+     "fpr_wilson_block": [
+      0.002521727892959564,
+      0.009025993133625242
+     ],
+     "fpr_wilson_window": [
+      0.003960815258644911,
+      0.005757206448351587
+     ],
+     "fpr_mbb": [
+      0.001967410323709537,
+      0.008355205599300088
+     ],
+     "episodes": 20,
+     "episodes_detected": 9,
+     "episode_recall_cp": [
+      0.23057789677592416,
+      0.6847218669594515
+     ],
+     "episode_detected_flags": [
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.3304221251819505,
+     "median_delay_s": 53.0,
+     "false_alarm_episodes": 12,
+     "alarms_per_hour": 0.37854889589905366,
+     "D": 0.55,
+     "R_CI": 0.54,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5838844206448152,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.9769,
+      "2": 0.023100000000000002
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.007409854634698886,
+     "fpr_wilson_block": [
+      0.004342308515799828,
+      0.012616953452868269
+     ],
+     "fpr_wilson_window": [
+      0.00634104081740773,
+      0.00865725272108978
+     ],
+     "fpr_mbb": [
+      0.004001883239171375,
+      0.01172316384180791
+     ],
+     "episodes": 8,
+     "episodes_detected": 6,
+     "episode_recall_cp": [
+      0.34914420558717585,
+      0.9681459737500557
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6,
+     "median_delay_s": 15.0,
+     "false_alarm_episodes": 25,
+     "alarms_per_hour": 0.8495374740419105,
+     "D": 0.25,
+     "R_CI": 0.48,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5601711588825649,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.3265,
+      "2": 0.6735
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.0023177656738903696,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.0123755222155075,
+     "fpr_wilson_block": [
+      0.009074929041432414,
+      0.016856136109147844
+     ],
+     "fpr_wilson_window": [
+      0.011313000722935134,
+      0.013536469851771643
+     ],
+     "fpr_mbb": [
+      0.008713910761154856,
+      0.01669291338582677
+     ],
+     "episodes": 25,
+     "episodes_detected": 22,
+     "episode_recall_cp": [
+      0.6878096927137647,
+      0.9745346033522668
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6536485097636177,
+     "median_delay_s": 27.0,
+     "false_alarm_episodes": 68,
+     "alarms_per_hour": 1.286423710554665,
+     "D": 0.12,
+     "R_CI": 0.454,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.49243806145724706,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0019,
+      "2": 0.9980999999999999
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.00505292781988551,
+     "fpr_wilson_block": [
+      0.00296501317632281,
+      0.008598438738434204
+     ],
+     "fpr_wilson_window": [
+      0.004325533941502107,
+      0.005901917223811844
+     ],
+     "fpr_mbb": [
+      0.002554278416347382,
+      0.007982120051085569
+     ],
+     "episodes": 25,
+     "episodes_detected": 12,
+     "episode_recall_cp": [
+      0.2779680096699466,
+      0.6869429555429676
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.3682266009852217,
+     "median_delay_s": 44.5,
+     "false_alarm_episodes": 21,
+     "alarms_per_hour": 0.48354600402955,
+     "D": 0.52,
+     "R_CI": 0.534,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5744063980660107,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.9662,
+      "2": 0.03379999999999999
+     }
+    }
+   },
+   "Nominal 1%": {
+    "threshold": 0.9594702381307174,
+    "calibration_flag_rate": 0.009966392397728589,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.03259483583041122,
+     "fpr_wilson_block": [
+      0.023424627955125905,
+      0.04518885514189989
+     ],
+     "fpr_wilson_window": [
+      0.02962808067661775,
+      0.035847687282764204
+     ],
+     "fpr_mbb": [
+      0.021825396825396824,
+      0.04420634920634921
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7133550488599348,
+     "median_delay_s": 8.0,
+     "false_alarm_episodes": 42,
+     "alarms_per_hour": 2.409945808096908,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.028218926368289803,
+     "fpr_wilson_block": [
+      0.017898642101669554,
+      0.04422190040578161
+     ],
+     "fpr_wilson_window": [
+      0.024731639867564624,
+      0.032181712084505536
+     ],
+     "fpr_mbb": [
+      0.01115485564304462,
+      0.04659120734908132
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.7922077922077922,
+     "median_delay_s": 27.5,
+     "false_alarm_episodes": 18,
+     "alarms_per_hour": 1.701010631316446,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2659,
+      "2": 0.7341
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.03319919517102616,
+     "fpr_wilson_block": [
+      0.025237876667693178,
+      0.043559692608869126
+     ],
+     "fpr_wilson_window": [
+      0.03067263622686329,
+      0.03592615777582087
+     ],
+     "fpr_mbb": [
+      0.023522853957636567,
+      0.04403567447045708
+     ],
+     "episodes": 12,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.6152038348490559,
+      0.9978924067681397
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7172413793103448,
+     "median_delay_s": 26.0,
+     "false_alarm_episodes": 70,
+     "alarms_per_hour": 2.816901408450704,
+     "D": 0.08333333333333337,
+     "R_CI": 0.44666666666666666,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5069592330301889,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0017000000000000001,
+      "2": 0.9983000000000001
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.020959147424511545,
+     "fpr_wilson_block": [
+      0.012686148917421562,
+      0.03443901569181392
+     ],
+     "fpr_wilson_window": [
+      0.018114722467326875,
+      0.024239186120590017
+     ],
+     "fpr_mbb": [
+      0.010756501182033097,
+      0.03357269503546095
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.608,
+     "median_delay_s": 23.0,
+     "false_alarm_episodes": 19,
+     "alarms_per_hour": 1.6198934280639432,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.6601,
+      "2": 0.3399
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.008850332982825096,
+     "fpr_wilson_block": [
+      0.0055204557122467395,
+      0.014160155869458622
+     ],
+     "fpr_wilson_window": [
+      0.007715206741249506,
+      0.010150760111394107
+     ],
+     "fpr_mbb": [
+      0.004374453193350831,
+      0.01447944006999125
+     ],
+     "episodes": 20,
+     "episodes_detected": 10,
+     "episode_recall_cp": [
+      0.2719578495607919,
+      0.7280421504392081
+     ],
+     "episode_detected_flags": [
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.38573508005822416,
+     "median_delay_s": 45.5,
+     "false_alarm_episodes": 20,
+     "alarms_per_hour": 0.6309148264984227,
+     "D": 0.5,
+     "R_CI": 0.53,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5756084300878416,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.9408000000000001,
+      "2": 0.059199999999999996
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.022748725693788937,
+     "fpr_wilson_block": [
+      0.01675990509306377,
+      0.03081047499960384
+     ],
+     "fpr_wilson_window": [
+      0.020825921009875428,
+      0.024844553672627858
+     ],
+     "fpr_mbb": [
+      0.016101694915254237,
+      0.030225988700564973
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7081967213114754,
+     "median_delay_s": 11.0,
+     "false_alarm_episodes": 53,
+     "alarms_per_hour": 1.8010194449688504,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.009966392397728589,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.03200294279933787,
+     "fpr_wilson_block": [
+      0.026420710799502475,
+      0.038717698389255255
+     ],
+     "fpr_wilson_window": [
+      0.030281352092687612,
+      0.033818997889336254
+     ],
+     "fpr_mbb": [
+      0.025065616797900262,
+      0.03960629921259842
+     ],
+     "episodes": 25,
+     "episodes_detected": 23,
+     "episode_recall_cp": [
+      0.7396941578947858,
+      0.9901604099812025
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7338129496402878,
+     "median_delay_s": 26.0,
+     "false_alarm_episodes": 130,
+     "alarms_per_hour": 2.4593394466486243,
+     "D": 0.07999999999999996,
+     "R_CI": 0.446,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.48206116842104285,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0002,
+      "2": 0.9998
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.012120630656560811,
+     "fpr_wilson_block": [
+      0.008579078867598927,
+      0.01709896466198306
+     ],
+     "fpr_wilson_window": [
+      0.010966308915283779,
+      0.013394811574003006
+     ],
+     "fpr_mbb": [
+      0.007630906768837803,
+      0.017369093231162196
+     ],
+     "episodes": 25,
+     "episodes_detected": 13,
+     "episode_recall_cp": [
+      0.31305704445703236,
+      0.7220319903300534
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.41995073891625617,
+     "median_delay_s": 43.0,
+     "false_alarm_episodes": 39,
+     "alarms_per_hour": 0.8980140074834501,
+     "D": 0.48,
+     "R_CI": 0.526,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5673885911085935,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.9244000000000001,
+      "2": 0.07560000000000001
+     }
+    }
+   },
+   "Nominal 5%": {
+    "threshold": 0.9108681498849791,
+    "calibration_flag_rate": 0.04994785027233747,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.09603124003825311,
+     "fpr_wilson_block": [
+      0.07961850721906813,
+      0.11540310332122578
+     ],
+     "fpr_wilson_window": [
+      0.0909990002531932,
+      0.10131074702491542
+     ],
+     "fpr_mbb": [
+      0.07285714285714286,
+      0.11571428571428571
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8697068403908795,
+     "median_delay_s": 4.0,
+     "false_alarm_episodes": 96,
+     "alarms_per_hour": 5.508447561364361,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.06181913636960231,
+     "fpr_wilson_block": [
+      0.045583277860121674,
+      0.0833329639429457
+     ],
+     "fpr_wilson_window": [
+      0.05662921719791532,
+      0.06745068974101533
+     ],
+     "fpr_mbb": [
+      0.03503937007874016,
+      0.0875360892388451
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.8051948051948052,
+     "median_delay_s": 25.0,
+     "false_alarm_episodes": 39,
+     "alarms_per_hour": 3.685523034518966,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.26639999999999997,
+      "2": 0.7336
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.10742231164766376,
+     "fpr_wilson_block": [
+      0.09270162686056757,
+      0.1241606967264264
+     ],
+     "fpr_wilson_window": [
+      0.10296907514780444,
+      0.1120440868582843
+     ],
+     "fpr_mbb": [
+      0.0858974358974359,
+      0.13054626532887403
+     ],
+     "episodes": 12,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.6152038348490559,
+      0.9978924067681397
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7931034482758621,
+     "median_delay_s": 15.0,
+     "false_alarm_episodes": 130,
+     "alarms_per_hour": 5.231388329979879,
+     "D": 0.08333333333333337,
+     "R_CI": 0.44666666666666666,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5069592330301889,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0018,
+      "2": 0.9982
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.0674955595026643,
+     "fpr_wilson_block": [
+      0.05120249563349293,
+      0.08848967189468221
+     ],
+     "fpr_wilson_window": [
+      0.06233910205713748,
+      0.07304531300091872
+     ],
+     "fpr_mbb": [
+      0.0433806146572104,
+      0.09633569739952719
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.672,
+     "median_delay_s": 8.0,
+     "false_alarm_episodes": 42,
+     "alarms_per_hour": 3.5808170515097695,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.652,
+      "2": 0.34800000000000003
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.021512443042411497,
+     "fpr_wilson_block": [
+      0.01589218802819376,
+      0.029061599579638907
+     ],
+     "fpr_wilson_window": [
+      0.019709160624662308,
+      0.02347676479886319
+     ],
+     "fpr_mbb": [
+      0.01347331583552056,
+      0.03079615048118985
+     ],
+     "episodes": 20,
+     "episodes_detected": 14,
+     "episode_recall_cp": [
+      0.4572108177237109,
+      0.8810684095942722
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true
+     ],
+     "point_recall": 0.462882096069869,
+     "median_delay_s": 62.5,
+     "false_alarm_episodes": 52,
+     "alarms_per_hour": 1.640378548895899,
+     "D": 0.30000000000000004,
+     "R_CI": 0.49,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5385578364552578,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.392,
+      "2": 0.608
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.07834623371719841,
+     "fpr_wilson_block": [
+      0.06670585812072334,
+      0.09181805166447173
+     ],
+     "fpr_wilson_window": [
+      0.0748039586478577,
+      0.08204137568891882
+     ],
+     "fpr_mbb": [
+      0.06247645951035782,
+      0.09439736346516008
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8754098360655738,
+     "median_delay_s": 5.5,
+     "false_alarm_episodes": 132,
+     "alarms_per_hour": 4.485557862941287,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.04994785027233747,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.09453742872907854,
+     "fpr_wilson_block": [
+      0.0848391037341736,
+      0.10521694777166897
+     ],
+     "fpr_wilson_window": [
+      0.09163882766108873,
+      0.09751787170435501
+     ],
+     "fpr_mbb": [
+      0.08083989501312336,
+      0.10847769028871392
+     ],
+     "episodes": 25,
+     "episodes_detected": 23,
+     "episode_recall_cp": [
+      0.7396941578947858,
+      0.9901604099812025
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8201438848920863,
+     "median_delay_s": 15.0,
+     "false_alarm_episodes": 265,
+     "alarms_per_hour": 5.013268872014503,
+     "D": 0.07999999999999996,
+     "R_CI": 0.446,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.48206116842104285,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.03393136972720586,
+     "fpr_wilson_block": [
+      0.02763632609827602,
+      0.04159896395307354
+     ],
+     "fpr_wilson_window": [
+      0.031981165288877796,
+      0.035996075014660005
+     ],
+     "fpr_mbb": [
+      0.024616060025542785,
+      0.04422174329501915
+     ],
+     "episodes": 25,
+     "episodes_detected": 17,
+     "episode_recall_cp": [
+      0.4649992825026276,
+      0.8505045773864304
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true
+     ],
+     "point_recall": 0.49507389162561577,
+     "median_delay_s": 43.0,
+     "false_alarm_episodes": 94,
+     "alarms_per_hour": 2.1644440180370337,
+     "D": 0.31999999999999995,
+     "R_CI": 0.494,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5370001434994744,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.41600000000000004,
+      "2": 0.5839999999999999
+     }
+    }
+   },
+   "Nominal 10%": {
+    "threshold": 0.8610645861107483,
+    "calibration_flag_rate": 0.09989570054467493,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.17452980554670067,
+     "fpr_wilson_block": [
+      0.15272001956887823,
+      0.1987237084734497
+     ],
+     "fpr_wilson_window": [
+      0.16798848752644346,
+      0.18127034220008953
+     ],
+     "fpr_mbb": [
+      0.14261904761904762,
+      0.20412698412698413
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.9543973941368078,
+     "median_delay_s": 4.0,
+     "false_alarm_episodes": 142,
+     "alarms_per_hour": 8.14791201785145,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.1109069431683948,
+     "fpr_wilson_block": [
+      0.08876849138888425,
+      0.13773209235387246
+     ],
+     "fpr_wilson_window": [
+      0.10405105109499987,
+      0.11815499477004726
+     ],
+     "fpr_mbb": [
+      0.07545931758530183,
+      0.14566929133858267
+     ],
+     "episodes": 5,
+     "episodes_detected": 5,
+     "episode_recall_cp": [
+      0.47817624989501856,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8268398268398268,
+     "median_delay_s": 22.0,
+     "false_alarm_episodes": 57,
+     "alarms_per_hour": 5.386533665835412,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5343647500209963,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.19069975408003578,
+     "fpr_wilson_block": [
+      0.17156373621708443,
+      0.2114254577935114
+     ],
+     "fpr_wilson_window": [
+      0.18501001434694472,
+      0.19652228043404832
+     ],
+     "fpr_mbb": [
+      0.16148132664437012,
+      0.22380295429208472
+     ],
+     "episodes": 12,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.6152038348490559,
+      0.9978924067681397
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8436781609195402,
+     "median_delay_s": 14.0,
+     "false_alarm_episodes": 154,
+     "alarms_per_hour": 6.197183098591549,
+     "D": 0.08333333333333337,
+     "R_CI": 0.44666666666666666,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5069592330301889,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0017000000000000001,
+      "2": 0.9983000000000001
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.14505624629958555,
+     "fpr_wilson_block": [
+      0.12095252672165238,
+      0.17301797900475555
+     ],
+     "fpr_wilson_window": [
+      0.13770681958182507,
+      0.15272843959312998
+     ],
+     "fpr_mbb": [
+      0.11040189125295509,
+      0.18333333333333332
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.712,
+     "median_delay_s": 8.0,
+     "false_alarm_episodes": 84,
+     "alarms_per_hour": 7.161634103019539,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2671,
+      "2": 0.7329
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.04026463371889239,
+     "fpr_wilson_block": [
+      0.032317211547528424,
+      0.050065362701074104
+     ],
+     "fpr_wilson_window": [
+      0.037790747522561105,
+      0.04289324803361992
+     ],
+     "fpr_mbb": [
+      0.02930883639545057,
+      0.05288713910761155
+     ],
+     "episodes": 20,
+     "episodes_detected": 16,
+     "episode_recall_cp": [
+      0.5633859970033317,
+      0.9426660029499672
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5443959243085881,
+     "median_delay_s": 53.5,
+     "false_alarm_episodes": 93,
+     "alarms_per_hour": 2.9337539432176656,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5173228005993337,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0866,
+      "2": 0.9134
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.1462620351142156,
+     "fpr_wilson_block": [
+      0.13054469741691715,
+      0.16351582461577113
+     ],
+     "fpr_wilson_window": [
+      0.14156808238159554,
+      0.1510842324666404
+     ],
+     "fpr_mbb": [
+      0.12339924670433144,
+      0.16963394538606402
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.9540983606557377,
+     "median_delay_s": 3.5,
+     "false_alarm_episodes": 211,
+     "alarms_per_hour": 7.170096280913725,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.09989570054467493,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.16939488688615045,
+     "fpr_wilson_block": [
+      0.1567410614632763,
+      0.18284875599272374
+     ],
+     "fpr_wilson_window": [
+      0.16565980983118417,
+      0.17319669600205922
+     ],
+     "fpr_mbb": [
+      0.15026115485564304,
+      0.18965944881889762
+     ],
+     "episodes": 25,
+     "episodes_detected": 24,
+     "episode_recall_cp": [
+      0.796483086077586,
+      0.9989878003006891
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8746145940390545,
+     "median_delay_s": 14.0,
+     "false_alarm_episodes": 353,
+     "alarms_per_hour": 6.678052497438188,
+     "D": 0.040000000000000036,
+     "R_CI": 0.438,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.4707033827844828,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.06856631168249704,
+     "fpr_wilson_block": [
+      0.059483394913512566,
+      0.07891978074351774
+     ],
+     "fpr_wilson_window": [
+      0.06581791806298354,
+      0.07142069725350711
+     ],
+     "fpr_mbb": [
+      0.055268199233716474,
+      0.08266363346104724
+     ],
+     "episodes": 25,
+     "episodes_detected": 20,
+     "episode_recall_cp": [
+      0.5929625677213227,
+      0.931688535987516
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5701970443349754,
+     "median_delay_s": 38.5,
+     "false_alarm_episodes": 177,
+     "alarms_per_hour": 4.07560203396335,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5114074864557354,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0487,
+      "2": 0.9513000000000001
+     }
+    }
+   }
+  },
+  "segment_wise_v1_3_0": {
+   "F1 comparator": {
+    "threshold": 0.9708450308431076,
+    "calibration_flag_rate": 0.0062579673195039985,
+    "selection_f1": 0.4355044699872286,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.00940388906598661,
+     "fpr_wilson_block": [
+      0.0050894985629285384,
+      0.017311968094410046
+     ],
+     "fpr_wilson_window": [
+      0.007858890186527356,
+      0.011249179303320103
+     ],
+     "fpr_mbb": [
+      0.0038888888888888888,
+      0.016271825396825368
+     ],
+     "episodes": 8,
+     "episodes_detected": 6,
+     "episode_recall_cp": [
+      0.34914420558717585,
+      0.9681459737500557
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5635179153094463,
+     "median_delay_s": 18.0,
+     "false_alarm_episodes": 18,
+     "alarms_per_hour": 1.0328339177558177,
+     "D": 0.25,
+     "R_CI": 0.48,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5601711588825649,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.3149,
+      "2": 0.6851
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.02008137550859693,
+     "fpr_wilson_block": [
+      0.011708186753493749,
+      0.03423527233080037
+     ],
+     "fpr_wilson_window": [
+      0.017164889225696204,
+      0.023481562690493684
+     ],
+     "fpr_mbb": [
+      0.007611548556430446,
+      0.03530183727034121
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.7748917748917749,
+     "median_delay_s": 31.5,
+     "false_alarm_episodes": 13,
+     "alarms_per_hour": 1.2285076781729887,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2645,
+      "2": 0.7355
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.003912363067292645,
+     "fpr_wilson_block": [
+      0.0017754783997749398,
+      0.008598949868755569
+     ],
+     "fpr_wilson_window": [
+      0.0030980538521749295,
+      0.004939649161214027
+     ],
+     "fpr_mbb": [
+      0.0015050167224080267,
+      0.007134894091415831
+     ],
+     "episodes": 12,
+     "episodes_detected": 9,
+     "episode_recall_cp": [
+      0.4281415381218109,
+      0.9451393554720072
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5080459770114942,
+     "median_delay_s": 36.0,
+     "false_alarm_episodes": 13,
+     "alarms_per_hour": 0.5231388329979879,
+     "D": 0.25,
+     "R_CI": 0.48,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5443716923756379,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.1597,
+      "2": 0.8402999999999999
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.0015393724097098876,
+     "fpr_wilson_block": [
+      0.0002870765535103754,
+      0.008209618644259193
+     ],
+     "fpr_wilson_window": [
+      0.0008998694856961129,
+      0.002632148361501064
+     ],
+     "fpr_mbb": [
+      0.0,
+      0.0037854609929077582
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.408,
+     "median_delay_s": 38.0,
+     "false_alarm_episodes": 3,
+     "alarms_per_hour": 0.2557726465364121,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.6656,
+      "2": 0.33440000000000003
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.012749737118822293,
+     "fpr_wilson_block": [
+      0.008600031367014592,
+      0.018863669025505063
+     ],
+     "fpr_wilson_window": [
+      0.011374031736258124,
+      0.014289431008456383
+     ],
+     "fpr_mbb": [
+      0.006955380577427821,
+      0.019772528433945755
+     ],
+     "episodes": 20,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.3152781330405486,
+      0.7694221032240758
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.42212518195050946,
+     "median_delay_s": 43.0,
+     "false_alarm_episodes": 26,
+     "alarms_per_hour": 0.8201892744479495,
+     "D": 0.44999999999999996,
+     "R_CI": 0.52,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5669443733918903,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.8716,
+      "2": 0.1284
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.006843496318670946,
+     "fpr_wilson_block": [
+      0.003926066833836442,
+      0.011902938465637825
+     ],
+     "fpr_wilson_window": [
+      0.00581932616199102,
+      0.008046456072727817
+     ],
+     "fpr_mbb": [
+      0.0034839924670433146,
+      0.01115819209039548
+     ],
+     "episodes": 8,
+     "episodes_detected": 6,
+     "episode_recall_cp": [
+      0.34914420558717585,
+      0.9681459737500557
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5868852459016394,
+     "median_delay_s": 15.0,
+     "false_alarm_episodes": 24,
+     "alarms_per_hour": 0.8155559750802341,
+     "D": 0.25,
+     "R_CI": 0.48,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5601711588825649,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.3185,
+      "2": 0.6815
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.0062579673195039985,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.008959772984051078,
+     "fpr_wilson_block": [
+      0.006222712619242371,
+      0.01288511996779964
+     ],
+     "fpr_wilson_window": [
+      0.008061379707338204,
+      0.009957281867433875
+     ],
+     "fpr_mbb": [
+      0.005511154855643045,
+      0.012965879265091863
+     ],
+     "episodes": 25,
+     "episodes_detected": 19,
+     "episode_recall_cp": [
+      0.5487119821833135,
+      0.9064355606682571
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5889003083247688,
+     "median_delay_s": 29.0,
+     "false_alarm_episodes": 44,
+     "alarms_per_hour": 0.8323918127118421,
+     "D": 0.24,
+     "R_CI": 0.478,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5202576035633373,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.1277,
+      "2": 0.8723
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.009722088969906296,
+     "fpr_wilson_block": [
+      0.006610273858703948,
+      0.014277749892091279
+     ],
+     "fpr_wilson_window": [
+      0.008693163160922838,
+      0.010871463213893526
+     ],
+     "fpr_mbb": [
+      0.005491698595146871,
+      0.014974457215836526
+     ],
+     "episodes": 25,
+     "episodes_detected": 14,
+     "episode_recall_cp": [
+      0.3492816339913358,
+      0.7559763348527919
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.41995073891625617,
+     "median_delay_s": 40.5,
+     "false_alarm_episodes": 29,
+     "alarms_per_hour": 0.6677540055646167,
+     "D": 0.43999999999999995,
+     "R_CI": 0.518,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5601436732017329,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.8395000000000001,
+      "2": 0.1605
+     }
+    }
+   },
+   "Nominal 1%": {
+    "threshold": 0.9617445848315705,
+    "calibration_flag_rate": 0.009966392397728589,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.012033790245457443,
+     "fpr_wilson_block": [
+      0.006984454786365101,
+      0.020657549817742142
+     ],
+     "fpr_wilson_window": [
+      0.010269784797726321,
+      0.01409647730206835
+     ],
+     "fpr_mbb": [
+      0.006111111111111111,
+      0.019285714285714285
+     ],
+     "episodes": 8,
+     "episodes_detected": 7,
+     "episode_recall_cp": [
+      0.4734903291247935,
+      0.9968402764687481
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6254071661237784,
+     "median_delay_s": 15.0,
+     "false_alarm_episodes": 21,
+     "alarms_per_hour": 1.204972904048454,
+     "D": 0.125,
+     "R_CI": 0.455,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5353019341750413,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.06520000000000001,
+      "2": 0.9348000000000001
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.023625147657172857,
+     "fpr_wilson_block": [
+      0.014363439546718731,
+      0.038624878447659904
+     ],
+     "fpr_wilson_window": [
+      0.020447314157388232,
+      0.027283110355072093
+     ],
+     "fpr_mbb": [
+      0.00905511811023622,
+      0.04028871391076116
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.7878787878787878,
+     "median_delay_s": 30.0,
+     "false_alarm_episodes": 14,
+     "alarms_per_hour": 1.32300826880168,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2602,
+      "2": 0.7398
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.005924435501900291,
+     "fpr_wilson_block": [
+      0.0031018591481841874,
+      0.011286372701050795
+     ],
+     "fpr_wilson_window": [
+      0.004901141601664025,
+      0.007159842472058189
+     ],
+     "fpr_mbb": [
+      0.002842809364548495,
+      0.009643255295429209
+     ],
+     "episodes": 12,
+     "episodes_detected": 10,
+     "episode_recall_cp": [
+      0.515862251314033,
+      0.9791374745399076
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5540229885057472,
+     "median_delay_s": 38.0,
+     "false_alarm_episodes": 18,
+     "alarms_per_hour": 0.7243460764587525,
+     "D": 0.16666666666666663,
+     "R_CI": 0.4633333333333333,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5268275497371934,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0354,
+      "2": 0.9646000000000001
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.0027235050325636473,
+     "fpr_wilson_block": [
+      0.0007287270324644532,
+      0.01012336264161401
+     ],
+     "fpr_wilson_window": [
+      0.0018155609905508574,
+      0.004083645316446303
+     ],
+     "fpr_mbb": [
+      0.0,
+      0.00673758865248227
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.488,
+     "median_delay_s": 28.0,
+     "false_alarm_episodes": 3,
+     "alarms_per_hour": 0.2557726465364121,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.6636,
+      "2": 0.3364
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.017350157728706624,
+     "fpr_wilson_block": [
+      0.012380688365886539,
+      0.024265307814672447
+     ],
+     "fpr_wilson_window": [
+      0.01573561353270009,
+      0.019127142118390183
+     ],
+     "fpr_mbb": [
+      0.010278871391076116,
+      0.025809273840769902
+     ],
+     "episodes": 20,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.3152781330405486,
+      0.7694221032240758
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.43377001455604075,
+     "median_delay_s": 43.0,
+     "false_alarm_episodes": 37,
+     "alarms_per_hour": 1.167192429022082,
+     "D": 0.44999999999999996,
+     "R_CI": 0.52,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5669443733918903,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.8674,
+      "2": 0.1326
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.009297715688125353,
+     "fpr_wilson_block": [
+      0.005765553467893956,
+      0.014961230731420236
+     ],
+     "fpr_wilson_window": [
+      0.008091426390398896,
+      0.010681904827360863
+     ],
+     "fpr_mbb": [
+      0.005414312617702448,
+      0.013935969868173258
+     ],
+     "episodes": 8,
+     "episodes_detected": 6,
+     "episode_recall_cp": [
+      0.34914420558717585,
+      0.9681459737500557
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6327868852459017,
+     "median_delay_s": 15.0,
+     "false_alarm_episodes": 26,
+     "alarms_per_hour": 0.883518973003587,
+     "D": 0.25,
+     "R_CI": 0.48,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5601711588825649,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.3145,
+      "2": 0.6855
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.009966392397728589,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.011482172416511206,
+     "fpr_wilson_block": [
+      0.008320539941008604,
+      0.015825987462184728
+     ],
+     "fpr_wilson_window": [
+      0.01046004991492743,
+      0.012602901382873353
+     ],
+     "fpr_mbb": [
+      0.0075065616797900265,
+      0.016063648293963246
+     ],
+     "episodes": 25,
+     "episodes_detected": 21,
+     "episode_recall_cp": [
+      0.6391715455407279,
+      0.9546205476282904
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.632065775950668,
+     "median_delay_s": 28.0,
+     "false_alarm_episodes": 53,
+     "alarms_per_hour": 1.0026537744029007,
+     "D": 0.16000000000000003,
+     "R_CI": 0.462,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5021656908918544,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0119,
+      "2": 0.9881000000000001
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.013399852889443219,
+     "fpr_wilson_block": [
+      0.009646464975923266,
+      0.018586255769011656
+     ],
+     "fpr_wilson_window": [
+      0.012183885167314975,
+      0.014735365516356036
+     ],
+     "fpr_mbb": [
+      0.008045977011494253,
+      0.019604086845466155
+     ],
+     "episodes": 25,
+     "episodes_detected": 14,
+     "episode_recall_cp": [
+      0.3492816339913358,
+      0.7559763348527919
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.4421182266009852,
+     "median_delay_s": 38.5,
+     "false_alarm_episodes": 40,
+     "alarms_per_hour": 0.9210400076753333,
+     "D": 0.43999999999999995,
+     "R_CI": 0.518,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.5601436732017329,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.8463999999999999,
+      "2": 0.15360000000000001
+     }
+    }
+   },
+   "Nominal 5%": {
+    "threshold": 0.9022279134772768,
+    "calibration_flag_rate": 0.04994785027233747,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.044788014026139626,
+     "fpr_wilson_block": [
+      0.033827034868993786,
+      0.05908348779941394
+     ],
+     "fpr_wilson_window": [
+      0.04130617806243257,
+      0.04854848290670463
+     ],
+     "fpr_mbb": [
+      0.03126984126984127,
+      0.058412698412698416
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.762214983713355,
+     "median_delay_s": 8.0,
+     "false_alarm_episodes": 57,
+     "alarms_per_hour": 3.2706407395600894,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.05276282976768605,
+     "fpr_wilson_block": [
+      0.03789908790511293,
+      0.0730136255721829
+     ],
+     "fpr_wilson_window": [
+      0.047964546992339506,
+      0.0580118744227889
+     ],
+     "fpr_mbb": [
+      0.028346456692913385,
+      0.07821850393700783
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.8008658008658008,
+     "median_delay_s": 25.0,
+     "false_alarm_episodes": 34,
+     "alarms_per_hour": 3.2130200813755088,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2681,
+      "2": 0.7319
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.02570981444220881,
+     "fpr_wilson_block": [
+      0.018813462379507845,
+      0.03504383801332112
+     ],
+     "fpr_wilson_window": [
+      0.02349057730927774,
+      0.02813267052438817
+     ],
+     "fpr_mbb": [
+      0.017891583054626535,
+      0.034894091415830546
+     ],
+     "episodes": 12,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.6152038348490559,
+      0.9978924067681397
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6873563218390805,
+     "median_delay_s": 26.0,
+     "false_alarm_episodes": 60,
+     "alarms_per_hour": 2.414486921529175,
+     "D": 0.08333333333333337,
+     "R_CI": 0.44666666666666666,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5069592330301889,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0013,
+      "2": 0.9987
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.015393724097098875,
+     "fpr_wilson_block": [
+      0.008577091072667799,
+      0.027477719497915873
+     ],
+     "fpr_wilson_window": [
+      0.012979689649927073,
+      0.018248433176929903
+     ],
+     "fpr_mbb": [
+      0.006973995271867612,
+      0.026122931442080378
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.6,
+     "median_delay_s": 28.0,
+     "false_alarm_episodes": 17,
+     "alarms_per_hour": 1.449378330373002,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.6609,
+      "2": 0.33909999999999996
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.04635471433578689,
+     "fpr_wilson_block": [
+      0.03778549351710249,
+      0.05675269134614258
+     ],
+     "fpr_wilson_window": [
+      0.043702540094376456,
+      0.04915956702357822
+     ],
+     "fpr_mbb": [
+      0.03442694663167104,
+      0.05949365704286962
+     ],
+     "episodes": 20,
+     "episodes_detected": 16,
+     "episode_recall_cp": [
+      0.5633859970033317,
+      0.9426660029499672
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5633187772925764,
+     "median_delay_s": 43.5,
+     "false_alarm_episodes": 102,
+     "alarms_per_hour": 3.217665615141956,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5173228005993337,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0847,
+      "2": 0.9152999999999999
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.04063620917500472,
+     "fpr_wilson_block": [
+      0.03237854621193888,
+      0.05088910701610047
+     ],
+     "fpr_wilson_window": [
+      0.03805982551067435,
+      0.04337913118283875
+     ],
+     "fpr_mbb": [
+      0.030602636534839925,
+      0.050988700564971755
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7901639344262295,
+     "median_delay_s": 8.0,
+     "false_alarm_episodes": 93,
+     "alarms_per_hour": 3.160279403435907,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.04994785027233747,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.037415591581491894,
+     "fpr_wilson_block": [
+      0.031350267935641475,
+      0.04460034054610763
+     ],
+     "fpr_wilson_window": [
+      0.03555517789690448,
+      0.03936937711578512
+     ],
+     "fpr_mbb": [
+      0.02989501312335958,
+      0.04561679790026247
+     ],
+     "episodes": 25,
+     "episodes_detected": 23,
+     "episode_recall_cp": [
+      0.7396941578947858,
+      0.9901604099812025
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7379239465570401,
+     "median_delay_s": 24.0,
+     "false_alarm_episodes": 151,
+     "alarms_per_hour": 2.8566173572610944,
+     "D": 0.07999999999999996,
+     "R_CI": 0.446,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.48206116842104285,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.0379929003166075,
+     "fpr_wilson_block": [
+      0.03130563055558562,
+      0.0460407596545095
+     ],
+     "fpr_wilson_window": [
+      0.035930019666718244,
+      0.04016928400398945
+     ],
+     "fpr_mbb": [
+      0.029086845466155812,
+      0.04808508939974456
+     ],
+     "episodes": 25,
+     "episodes_detected": 19,
+     "episode_recall_cp": [
+      0.5487119821833135,
+      0.9064355606682571
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.5689655172413793,
+     "median_delay_s": 39.0,
+     "false_alarm_episodes": 119,
+     "alarms_per_hour": 2.740094022834117,
+     "D": 0.24,
+     "R_CI": 0.478,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5202576035633373,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.1201,
+      "2": 0.8799000000000001
+     }
+    }
+   },
+   "Nominal 10%": {
+    "threshold": 0.8355604467249556,
+    "calibration_flag_rate": 0.09989570054467493,
+    "heldout_test3": {
+     "windows": 12949,
+     "attack_free_windows": 12548,
+     "n_eff_blocks": 1045,
+     "attack_free_hours": 17.427777777777777,
+     "fpr": 0.08973541600255021,
+     "fpr_wilson_block": [
+      0.07387636523222556,
+      0.1085997150718646
+     ],
+     "fpr_wilson_window": [
+      0.08485951375729024,
+      0.09486243909094476
+     ],
+     "fpr_mbb": [
+      0.0676984126984127,
+      0.10984126984126984
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8599348534201955,
+     "median_delay_s": 4.0,
+     "false_alarm_episodes": 91,
+     "alarms_per_hour": 5.221549250876634,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "heldout_test4": {
+     "windows": 7909,
+     "attack_free_windows": 7619,
+     "n_eff_blocks": 634,
+     "attack_free_hours": 10.581944444444444,
+     "fpr": 0.10080063000393752,
+     "fpr_wilson_block": [
+      0.07971724910729808,
+      0.12669244070669902
+     ],
+     "fpr_wilson_window": [
+      0.09424032571106467,
+      0.1077632797868408
+     ],
+     "fpr_mbb": [
+      0.06640091863517061,
+      0.1334678477690288
+     ],
+     "episodes": 5,
+     "episodes_detected": 4,
+     "episode_recall_cp": [
+      0.28358206388191054,
+      0.9949492366205319
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false
+     ],
+     "point_recall": 0.8225108225108225,
+     "median_delay_s": 20.0,
+     "false_alarm_episodes": 54,
+     "alarms_per_hour": 5.103031893949337,
+     "D": 0.19999999999999996,
+     "R_CI": 0.47,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5732835872236179,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.2604,
+      "2": 0.7396
+     }
+    },
+    "heldout_test5": {
+     "windows": 18469,
+     "attack_free_windows": 17892,
+     "n_eff_blocks": 1491,
+     "attack_free_hours": 24.85,
+     "fpr": 0.06673373574782025,
+     "fpr_wilson_block": [
+      0.05514721276971983,
+      0.08054708285191702
+     ],
+     "fpr_wilson_window": [
+      0.06316920847343756,
+      0.0704842698681342
+     ],
+     "fpr_mbb": [
+      0.050890468227424754,
+      0.08394648829431438
+     ],
+     "episodes": 12,
+     "episodes_detected": 11,
+     "episode_recall_cp": [
+      0.6152038348490559,
+      0.9978924067681397
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.7563218390804598,
+     "median_delay_s": 20.0,
+     "false_alarm_episodes": 104,
+     "alarms_per_hour": 4.185110663983903,
+     "D": 0.08333333333333337,
+     "R_CI": 0.44666666666666666,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5069592330301889,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0022,
+      "2": 0.9978
+     }
+    },
+    "f1sel_test1": {
+     "windows": 8629,
+     "attack_free_windows": 8445,
+     "n_eff_blocks": 703,
+     "attack_free_hours": 11.729166666666666,
+     "fpr": 0.04357608052101836,
+     "fpr_wilson_block": [
+      0.030803555587498442,
+      0.06130964351923699
+     ],
+     "fpr_wilson_window": [
+      0.03942555866133612,
+      0.04814164950876045
+     ],
+     "fpr_mbb": [
+      0.025059101654846337,
+      0.06643026004728132
+     ],
+     "episodes": 5,
+     "episodes_detected": 3,
+     "episode_recall_cp": [
+      0.14663279963467318,
+      0.9472550494736831
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false
+     ],
+     "point_recall": 0.656,
+     "median_delay_s": 13.0,
+     "false_alarm_episodes": 29,
+     "alarms_per_hour": 2.4724689165186504,
+     "D": 0.4,
+     "R_CI": 0.51,
+     "level": 1,
+     "R_CI_at_lower_recall": 0.6006734400730653,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.6604,
+      "2": 0.3396
+     }
+    },
+    "f1sel_test2": {
+     "windows": 23749,
+     "attack_free_windows": 22824,
+     "n_eff_blocks": 1902,
+     "attack_free_hours": 31.7,
+     "fpr": 0.09051875219067648,
+     "fpr_wilson_block": [
+      0.07843606664568066,
+      0.10425215778274204
+     ],
+     "fpr_wilson_window": [
+      0.08686497498742692,
+      0.09431034403173517
+     ],
+     "fpr_mbb": [
+      0.07388451443569553,
+      0.10931758530183727
+     ],
+     "episodes": 20,
+     "episodes_detected": 18,
+     "episode_recall_cp": [
+      0.6830172859809176,
+      0.9876514728297052
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6375545851528385,
+     "median_delay_s": 31.0,
+     "false_alarm_episodes": 172,
+     "alarms_per_hour": 5.425867507886435,
+     "D": 0.09999999999999998,
+     "R_CI": 0.45,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.4933965428038165,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0025,
+      "2": 0.9975
+     }
+    },
+    "test3_full_uncorrected": {
+     "windows": 21589,
+     "attack_free_windows": 21188,
+     "n_eff_blocks": 1765,
+     "attack_free_hours": 29.427777777777777,
+     "fpr": 0.08660562582593921,
+     "fpr_wilson_block": [
+      0.07436562126804916,
+      0.10064119827622256
+     ],
+     "fpr_wilson_window": [
+      0.08289307657043757,
+      0.09046804761311131
+     ],
+     "fpr_mbb": [
+      0.06972693032015066,
+      0.10357815442561205
+     ],
+     "episodes": 8,
+     "episodes_detected": 8,
+     "episode_recall_cp": [
+      0.6305833524471808,
+      1.0
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8950819672131147,
+     "median_delay_s": 5.5,
+     "false_alarm_episodes": 137,
+     "alarms_per_hour": 4.655465357749669,
+     "D": 0.0,
+     "R_CI": 0.43,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5038833295105638,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "2": 1.0
+     }
+    },
+    "test3_overlap_excluded": {
+     "flag_rate": 0.09989570054467493,
+     "windows": 8629
+    },
+    "heldout_pooled": {
+     "windows": 39327,
+     "attack_free_windows": 38059,
+     "n_eff_blocks": 3171,
+     "attack_free_hours": 52.859722222222224,
+     "fpr": 0.0811371817441341,
+     "fpr_wilson_block": [
+      0.07213269456647319,
+      0.09115529072856547
+     ],
+     "fpr_wilson_window": [
+      0.0784360853069845,
+      0.08392282490486926
+     ],
+     "fpr_mbb": [
+      0.06871391076115485,
+      0.09351706036745407
+     ],
+     "episodes": 25,
+     "episodes_detected": 23,
+     "episode_recall_cp": [
+      0.7396941578947858,
+      0.9901604099812025
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.8047276464542652,
+     "median_delay_s": 18.0,
+     "false_alarm_episodes": 249,
+     "alarms_per_hour": 4.710580940119288,
+     "D": 0.07999999999999996,
+     "R_CI": 0.446,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.48206116842104285,
+     "level_at_lower_recall": 2,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0001,
+      "2": 0.9999000000000001
+     }
+    },
+    "f1sel_pooled": {
+     "windows": 32378,
+     "attack_free_windows": 31269,
+     "n_eff_blocks": 2605,
+     "attack_free_hours": 43.42916666666667,
+     "fpr": 0.0778406728708945,
+     "fpr_wilson_block": [
+      0.06816263174108998,
+      0.08876195372724914
+     ],
+     "fpr_wilson_window": [
+      0.07492266325417608,
+      0.08086239597160018
+     ],
+     "fpr_mbb": [
+      0.06430395913154534,
+      0.09268837803320562
+     ],
+     "episodes": 25,
+     "episodes_detected": 21,
+     "episode_recall_cp": [
+      0.6391715455407279,
+      0.9546205476282904
+     ],
+     "episode_detected_flags": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+     ],
+     "point_recall": 0.6403940886699507,
+     "median_delay_s": 23.0,
+     "false_alarm_episodes": 201,
+     "alarms_per_hour": 4.62822603856855,
+     "D": 0.16000000000000003,
+     "R_CI": 0.462,
+     "level": 2,
+     "R_CI_at_lower_recall": 0.5021656908918544,
+     "level_at_lower_recall": 1,
+     "episode_bootstrap_level_freq": {
+      "1": 0.0156,
+      "2": 0.9844
+     }
+    }
+   }
+  }
+ }
+}

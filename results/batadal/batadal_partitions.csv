@@ -1,0 +1,5 @@
+partition,first,last,records,windows,first_window_end,last_window_end,attack_hours,attacks,identical_value_rows_shared_with_train1,timestamps_shared_with_train1
+training,2014-01-06T00,2014-10-24T23,7008,6985,2014-01-06T23,2014-10-24T23,0,0,,
+calibration,2014-10-25T00,2015-01-06T00,1753,1730,2014-10-25T23,2015-01-06T00,0,0,,
+train2,2016-07-04T00,2016-12-25T00,4177,4154,2016-07-04T23,2016-12-25T00,485,7,0.0,0.0
+test,2017-01-04T00,2017-04-01T00,2089,2066,2017-01-04T23,2017-04-01T00,400,7,0.0,0.0
