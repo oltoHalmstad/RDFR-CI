@@ -1,5 +1,25 @@
 # Changelog
 
+## Unreleased (revision-4 analyses, intended for v1.4.1)
+
+- Corrected HAI 21.03 evaluation (`experiments/hai_evaluation.py`):
+  - excludes the first 12 h of test3, which duplicate the calibration segment;
+  - applies the training-referenced form of Equation (14);
+  - adds test4 and test5;
+  - records input hashes and library versions.
+- Same-testbed replication on HAI 22.04 and 23.05 (`experiments/hai_replication.py`).
+- Second-system evaluation on BATADAL (C-Town) under a protocol frozen before analysis (`preregistration/batadal_ctown/`):
+  - Isolation Forest and reconstruction autoencoder;
+  - predictions P1–P3;
+  - 20 seeds and window-length sensitivity;
+  - code: `experiments/batadal_evaluation.py`.
+- C-Town action-consequence simulation with WNTR and policy-outcome comparison (`experiments/ctown_consequence.py`). Per-run results are cached in `results/ctown/cache/`.
+- Cross-dataset summary (`experiments/summarize.py`).
+- The reference segment of Equation (14) is an explicit argument of `anomaly_scores()` (`experiments/swat/train_isolation_forest.py`).
+- New dependency: `wntr>=1.5`.
+- `experiments/swat/run_swat_experiment.py` now passes the reference segment explicitly (`--score-reference training|segment`, default `training`).
+- These analyses were prepared with the assistance of Claude (Anthropic).
+
 ## v1.3.0 — 2026-09-09
 
 - Aligned the software authority codes to manuscript Table 4: `0=Rollback/isolation` through `4=Bounded automation`.

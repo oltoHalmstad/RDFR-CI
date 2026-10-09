@@ -1,0 +1,16 @@
+dataset,detector,budget,attacks,detected,heldout_fpr,later_rate,exceed_heldout,exceed_later,provisional,mechanism,final_level,later_rate_note
+HAI 21.03,Isolation Forest,Nominal 1%,25,23,3.2002942799337872,,True,,2,gate,1,pooled later attack-free periods
+HAI 21.03,Isolation Forest,Nominal 5%,25,23,9.453742872907855,,True,,2,gate,1,pooled later attack-free periods
+HAI 21.03,Isolation Forest,Nominal 10%,25,24,16.939488688615047,,True,,2,gate,1,pooled later attack-free periods
+HAI 22.04,Isolation Forest,Nominal 1%,51,15,0.483731644111719,1.2866203563877983,False,True,1,gate+score,1,pooled later attack-free periods
+HAI 22.04,Isolation Forest,Nominal 5%,51,29,2.403301660428064,6.1859915982537546,False,True,1,gate+score,1,pooled later attack-free periods
+HAI 22.04,Isolation Forest,Nominal 10%,51,35,5.630098857855841,15.360918151615827,False,True,2,gate,1,pooled later attack-free periods
+HAI 23.05,Isolation Forest,Nominal 1%,52,23,1.3321722374564589,1.026915921258947,True,False,1,gate+score,1,pooled later attack-free periods
+HAI 23.05,Isolation Forest,Nominal 5%,52,33,7.092566515971244,6.166370128445734,True,True,1,gate+score,1,pooled later attack-free periods
+HAI 23.05,Isolation Forest,Nominal 10%,52,39,13.629289261098348,11.93627271767124,True,True,2,gate,1,pooled later attack-free periods
+BATADAL,Isolation Forest,Nominal 1%,7,3,1.7940199335548173,2.0945541591861163,False,False,1,score,1,pooled later attack-free periods
+BATADAL,Isolation Forest,Nominal 5%,7,5,6.112956810631229,6.842210253341313,False,False,2,none,2,pooled later attack-free periods
+BATADAL,Isolation Forest,Nominal 10%,7,7,11.561461794019934,12.627169359664872,False,False,2,none,2,pooled later attack-free periods
+BATADAL,Autoencoder,Nominal 1%,7,7,3.255813953488372,2.8525832834629963,False,True,2,gate,1,pooled later attack-free periods
+BATADAL,Autoencoder,Nominal 5%,7,7,10.69767441860465,9.83443048075005,True,True,2,gate,1,pooled later attack-free periods
+BATADAL,Autoencoder,Nominal 10%,7,7,20.86378737541528,18.93077997207261,True,True,2,gate,1,pooled later attack-free periods

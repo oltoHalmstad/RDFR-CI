@@ -10,7 +10,7 @@ ROOT=HERE.parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 sys.path.insert(0,str(HERE))
 from prepare_swat import discover_csvs,load_swat,chronological_normal_split
-from train_isolation_forest import train_isolation_forest,anomaly_scores
+from train_isolation_forest import train_isolation_forest,anomaly_scores,fit_score_reference
 from train_autoencoder import train_autoencoder,reconstruction_scores
 from threshold_analysis import evaluate_thresholds,select_f1,select_fpr_constrained
 from attack_episode_metrics import event_metrics,contiguous_event_ids
@@ -27,6 +27,8 @@ def main():
     ap.add_argument('--model',choices=['isolation_forest','autoencoder'],default='isolation_forest')
     ap.add_argument('--phi',type=float,default=.05); ap.add_argument('--seed',type=int,default=42)
     ap.add_argument('--bootstrap',type=int,default=10000)
+    ap.add_argument('--score-reference',choices=['training','segment'],default='training',
+                    help='Equation (14): training-referenced (default) or segment-wise normalization (v1.3.0 behaviour)')
     ap.add_argument('--output-dir',default=str(ROOT/'results/swat'))
     args=ap.parse_args()
     data_dir=Path(args.data_dir)
@@ -41,7 +43,8 @@ def main():
         Xtrain,Xcal=chronological_normal_split(Xn,.80)
         if args.model=='isolation_forest':
             scaler,model=train_isolation_forest(Xtrain,args.seed)
-            ns=anomaly_scores(scaler,model,Xcal); ats=anomaly_scores(scaler,model,Xa)
+            ref=fit_score_reference(scaler,model,Xtrain) if args.score_reference=='training' else 'segment'
+            ns=anomaly_scores(scaler,model,Xcal,reference=ref); ats=anomaly_scores(scaler,model,Xa,reference=ref)
         else:
             scaler,model=train_autoencoder(Xtrain,args.seed)
             ns=reconstruction_scores(scaler,model,Xcal); ats=reconstruction_scores(scaler,model,Xa)

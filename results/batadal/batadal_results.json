@@ -1,0 +1,3047 @@
+{
+ "meta": {
+  "prereg_sha256": "b754e912ea5568bb36f85ae0e40951730f4a4afcd2b478a2228791617ba45e02",
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "sklearn": "1.9.1",
+  "files": {
+   "train1": "8ca6cb851242254d2605b5a53ba3ba5009e2213a545d65396615f1ce0b426e1b",
+   "train2": "4746beab2cfcdb5e68c7fa197a7522aecb70189d61dcc3eb1f870d2ce387068b",
+   "test": "184dfc1581df52193b2acb79164f7ce094f2bb00b1bc2e3c2e70050095065fa5"
+  },
+  "window_h": 24,
+  "step_h": 1,
+  "variables": 43,
+  "features_isolation_forest": 108,
+  "features_autoencoder": 108
+ },
+ "partitions": [
+  {
+   "partition": "training",
+   "first": "2014-01-06T00",
+   "last": "2014-10-24T23",
+   "records": 7008,
+   "windows": 6985,
+   "first_window_end": "2014-01-06T23",
+   "last_window_end": "2014-10-24T23",
+   "attack_hours": 0,
+   "attacks": 0,
+   "identical_value_rows_shared_with_train1": null,
+   "timestamps_shared_with_train1": null
+  },
+  {
+   "partition": "calibration",
+   "first": "2014-10-25T00",
+   "last": "2015-01-06T00",
+   "records": 1753,
+   "windows": 1730,
+   "first_window_end": "2014-10-25T23",
+   "last_window_end": "2015-01-06T00",
+   "attack_hours": 0,
+   "attacks": 0,
+   "identical_value_rows_shared_with_train1": null,
+   "timestamps_shared_with_train1": null
+  },
+  {
+   "partition": "train2",
+   "first": "2016-07-04T00",
+   "last": "2016-12-25T00",
+   "records": 4177,
+   "windows": 4154,
+   "first_window_end": "2016-07-04T23",
+   "last_window_end": "2016-12-25T00",
+   "attack_hours": 485,
+   "attacks": 7,
+   "identical_value_rows_shared_with_train1": 0,
+   "timestamps_shared_with_train1": 0
+  },
+  {
+   "partition": "test",
+   "first": "2017-01-04T00",
+   "last": "2017-04-01T00",
+   "records": 2089,
+   "windows": 2066,
+   "first_window_end": "2017-01-04T23",
+   "last_window_end": "2017-04-01T00",
+   "attack_hours": 400,
+   "attacks": 7,
+   "identical_value_rows_shared_with_train1": 0,
+   "timestamps_shared_with_train1": 0
+  }
+ ],
+ "primary": {
+  "isolation_forest": {
+   "training_referenced": {
+    "F1 comparator": {
+     "threshold": 0.8202571162483487,
+     "calibration_rate": 0.06820809248554913,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.07973421926910298,
+      "wilson_block": [
+       0.034380599148278776,
+       0.1741278734153333
+      ],
+      "mbb": [
+       0.05512820512820513,
+       0.1064102564102564
+      ],
+      "episodes": 7,
+      "detected": 6,
+      "detected_flags": [
+       true,
+       true,
+       false,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.4212768029568048,
+       0.9963897031380994
+      ],
+      "median_delay_h": 7.0,
+      "delays_h": [
+       0.0,
+       6.0,
+       8.0,
+       1.0,
+       45.0,
+       11.0
+      ],
+      "D": 0.1428571428571429,
+      "R_CI": 0.4585714285714286,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.545744639408639,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.0641,
+       "2": 0.9359
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.09236031927023945,
+      "wilson_block": [
+       0.05528883941534771,
+       0.15033297106417548
+      ],
+      "mbb": [
+       0.06722222222222222,
+       0.11222222222222222
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.07973421926910298,
+      "wilson_block": [
+       0.034380599148278776,
+       0.1741278734153333
+      ],
+      "mbb": [
+       0.05512820512820513,
+       0.1064102564102564
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.08856971873129862,
+      "wilson_block": [
+       0.05704964003584161,
+       0.13501126267608696
+      ]
+     },
+     "selection_f1": 0.4300341296928328
+    },
+    "Nominal 1%": {
+     "threshold": 0.918129085721185,
+     "calibration_rate": 0.009826589595375723,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.017940199335548173,
+      "wilson_block": [
+       0.003416258106941565,
+       0.08871480409843482
+      ],
+      "mbb": [
+       0.008333333333333333,
+       0.028205128205128206
+      ],
+      "episodes": 7,
+      "detected": 3,
+      "detected_flags": [
+       true,
+       true,
+       false,
+       false,
+       true,
+       false,
+       false
+      ],
+      "recall_cp": [
+       0.09898827844250786,
+       0.8159484323599169
+      ],
+      "median_delay_h": 17.0,
+      "delays_h": [
+       0.0,
+       21.0,
+       17.0
+      ],
+      "D": 0.5714285714285714,
+      "R_CI": 0.5442857142857143,
+      "level": 1,
+      "R_CI_at_lower_recall": 0.6102023443114984,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.8707,
+       "2": 0.1293
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.022234891676168756,
+      "wilson_block": [
+       0.007886651551381563,
+       0.06107988996168198
+      ],
+      "mbb": [
+       0.012222222222222223,
+       0.031118055555555454
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.017940199335548173,
+      "wilson_block": [
+       0.003416258106941565,
+       0.08871480409843482
+      ],
+      "mbb": [
+       0.008333333333333333,
+       0.028205128205128206
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.020945541591861162,
+      "wilson_block": [
+       0.008482425195881726,
+       0.050782669525425636
+      ]
+     }
+    },
+    "Nominal 5%": {
+     "threshold": 0.8457559517992596,
+     "calibration_rate": 0.04971098265895954,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.061129568106312294,
+      "wilson_block": [
+       0.023456565280902314,
+       0.15001354717485388
+      ],
+      "mbb": [
+       0.03782051282051282,
+       0.08782051282051281
+      ],
+      "episodes": 7,
+      "detected": 5,
+      "detected_flags": [
+       true,
+       true,
+       false,
+       true,
+       true,
+       true,
+       false
+      ],
+      "recall_cp": [
+       0.2904208637373427,
+       0.9633074338239145
+      ],
+      "median_delay_h": 7.0,
+      "delays_h": [
+       0.0,
+       7.0,
+       9.0,
+       1.0,
+       45.0
+      ],
+      "D": 0.2857142857142857,
+      "R_CI": 0.48714285714285716,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5719158272525314,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.3204,
+       "2": 0.6796000000000001
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.07155074116305588,
+      "wilson_block": [
+       0.03982960054377086,
+       0.12524003662456717
+      ],
+      "mbb": [
+       0.04888194444444445,
+       0.09027777777777778
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.061129568106312294,
+      "wilson_block": [
+       0.023456565280902314,
+       0.15001354717485388
+      ],
+      "mbb": [
+       0.03782051282051282,
+       0.08782051282051281
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.06842210253341313,
+      "wilson_block": [
+       0.041361284804577916,
+       0.11113508514318328
+      ]
+     }
+    },
+    "Nominal 10%": {
+     "threshold": 0.7804939593403918,
+     "calibration_rate": 0.1,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.11561461794019934,
+      "wilson_block": [
+       0.057614176607490575,
+       0.21846827616412934
+      ],
+      "mbb": [
+       0.084599358974359,
+       0.1467948717948718
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 8.0,
+      "delays_h": [
+       0.0,
+       3.0,
+       15.0,
+       8.0,
+       0.0,
+       36.0,
+       11.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.13084378563283922,
+      "wilson_block": [
+       0.08548915744567215,
+       0.19512639819837158
+      ],
+      "mbb": [
+       0.10138888888888889,
+       0.15611805555555547
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.11561461794019934,
+      "wilson_block": [
+       0.057614176607490575,
+       0.21846827616412934
+      ],
+      "mbb": [
+       0.084599358974359,
+       0.1467948717948718
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.12627169359664872,
+      "wilson_block": [
+       0.08780980321390526,
+       0.17828770041314845
+      ]
+     }
+    }
+   },
+   "segment_wise": {
+    "F1 comparator": {
+     "threshold": 0.7613003022494567,
+     "calibration_rate": 0.14046242774566475,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.09501661129568106,
+      "wilson_block": [
+       0.0439776158941855,
+       0.19331236675802252
+      ],
+      "mbb": [
+       0.0641025641025641,
+       0.12628205128205128
+      ],
+      "episodes": 7,
+      "detected": 6,
+      "detected_flags": [
+       true,
+       true,
+       false,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.4212768029568048,
+       0.9963897031380994
+      ],
+      "median_delay_h": 7.0,
+      "delays_h": [
+       0.0,
+       6.0,
+       8.0,
+       1.0,
+       42.0,
+       11.0
+      ],
+      "D": 0.1428571428571429,
+      "R_CI": 0.4585714285714286,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.545744639408639,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.06709999999999999,
+       "2": 0.9329
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.09236031927023945,
+      "wilson_block": [
+       0.05528883941534771,
+       0.15033297106417548
+      ],
+      "mbb": [
+       0.06722222222222222,
+       0.11277777777777778
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.09501661129568106,
+      "wilson_block": [
+       0.0439776158941855,
+       0.19331236675802252
+      ],
+      "mbb": [
+       0.0641025641025641,
+       0.12628205128205128
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.09315778974665868,
+      "wilson_block": [
+       0.06070633757245603,
+       0.14036431022438195
+      ]
+     },
+     "selection_f1": 0.4300341296928328
+    },
+    "Nominal 1%": {
+     "threshold": 0.9337232310994669,
+     "calibration_rate": 0.009826589595375723,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.000664451827242525,
+      "wilson_block": [
+       6.976812387517184e-06,
+       0.05958846529283697
+      ],
+      "mbb": [
+       0.0,
+       0.0019230769230769232
+      ],
+      "episodes": 7,
+      "detected": 1,
+      "detected_flags": [
+       false,
+       true,
+       false,
+       false,
+       false,
+       false,
+       false
+      ],
+      "recall_cp": [
+       0.0036102968619005833,
+       0.5787231970431952
+      ],
+      "median_delay_h": 21.0,
+      "delays_h": [
+       21.0
+      ],
+      "D": 0.8571428571428572,
+      "R_CI": 0.6014285714285714,
+      "level": 1,
+      "R_CI_at_lower_recall": 0.6292779406276199,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.9987,
+       "2": 0.0013
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.002565564424173318,
+      "wilson_block": [
+       0.00021078870091294222,
+       0.030425616394728988
+      ],
+      "mbb": [
+       0.0002777777777777778,
+       0.006388888888888889
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.000664451827242525,
+      "wilson_block": [
+       6.976812387517184e-06,
+       0.05958846529283697
+      ],
+      "mbb": [
+       0.0,
+       0.0019230769230769232
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.001994813484939158,
+      "wilson_block": [
+       0.00017863336331881696,
+       0.021872296876841005
+      ]
+     }
+    },
+    "Nominal 5%": {
+     "threshold": 0.8653908329848989,
+     "calibration_rate": 0.04971098265895954,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.03322259136212625,
+      "wilson_block": [
+       0.009313166593459314,
+       0.11159940570051302
+      ],
+      "mbb": [
+       0.017948717948717947,
+       0.0532051282051282
+      ],
+      "episodes": 7,
+      "detected": 4,
+      "detected_flags": [
+       true,
+       true,
+       false,
+       false,
+       true,
+       true,
+       false
+      ],
+      "recall_cp": [
+       0.184051567640083,
+       0.9010117215574921
+      ],
+      "median_delay_h": 19.0,
+      "delays_h": [
+       0.0,
+       21.0,
+       17.0,
+       49.0
+      ],
+      "D": 0.4285714285714286,
+      "R_CI": 0.5157142857142857,
+      "level": 1,
+      "R_CI_at_lower_recall": 0.5931896864719834,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.6337,
+       "2": 0.36629999999999996
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.029076396807297605,
+      "wilson_block": [
+       0.011661942492392333,
+       0.07063682038325264
+      ],
+      "mbb": [
+       0.016666666666666666,
+       0.04027777777777778
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.03322259136212625,
+      "wilson_block": [
+       0.009313166593459314,
+       0.11159940570051302
+      ],
+      "mbb": [
+       0.017948717948717947,
+       0.0532051282051282
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.030321164971075204,
+      "wilson_block": [
+       0.014227164178564858,
+       0.06344914875973129
+      ]
+     }
+    },
+    "Nominal 10%": {
+     "threshold": 0.799931396925912,
+     "calibration_rate": 0.1,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.06445182724252492,
+      "wilson_block": [
+       0.02533619460740287,
+       0.1543907678676133
+      ],
+      "mbb": [
+       0.04038461538461539,
+       0.09294871794871795
+      ],
+      "episodes": 7,
+      "detected": 5,
+      "detected_flags": [
+       true,
+       true,
+       false,
+       true,
+       true,
+       true,
+       false
+      ],
+      "recall_cp": [
+       0.2904208637373427,
+       0.9633074338239145
+      ],
+      "median_delay_h": 7.0,
+      "delays_h": [
+       0.0,
+       7.0,
+       9.0,
+       1.0,
+       45.0
+      ],
+      "D": 0.2857142857142857,
+      "R_CI": 0.48714285714285716,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5719158272525314,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "1": 0.3206,
+       "2": 0.6794
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.06556442417331813,
+      "wilson_block": [
+       0.035535193902653174,
+       0.11786874957342611
+      ],
+      "mbb": [
+       0.04416666666666667,
+       0.08333333333333333
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.06445182724252492,
+      "wilson_block": [
+       0.02533619460740287,
+       0.1543907678676133
+      ],
+      "mbb": [
+       0.04038461538461539,
+       0.09294871794871795
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.06523040095751047,
+      "wilson_block": [
+       0.038940345752126584,
+       0.107288375440915
+      ]
+     }
+    }
+   }
+  },
+  "autoencoder": {
+   "training_referenced": {
+    "F1 comparator": {
+     "threshold": 0.9954714682262363,
+     "calibration_rate": 0.005202312138728324,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.022591362126245847,
+      "wilson_block": [
+       0.005012536993326912,
+       0.09587811523901346
+      ],
+      "mbb": [
+       0.0,
+       0.058333333333333334
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 8.0,
+      "delays_h": [
+       15.0,
+       1.0,
+       11.0,
+       5.0,
+       4.0,
+       28.0,
+       8.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.01596351197263398,
+      "wilson_block": [
+       0.004778013648900476,
+       0.05196732494846343
+      ],
+      "mbb": [
+       0.0019444444444444444,
+       0.024166666666666666
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.022591362126245847,
+      "wilson_block": [
+       0.005012536993326912,
+       0.09587811523901346
+      ],
+      "mbb": [
+       0.0,
+       0.058333333333333334
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.017953321364452424,
+      "wilson_block": [
+       0.006791720450932973,
+       0.04659745356282478
+      ]
+     },
+     "selection_f1": 0.6627335299901671
+    },
+    "Nominal 1%": {
+     "threshold": 0.986881904776752,
+     "calibration_rate": 0.009826589595375723,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.03255813953488372,
+      "wilson_block": [
+       0.00902198973816052,
+       0.1106392125519598
+      ],
+      "mbb": [
+       0.005128205128205128,
+       0.06987179487179487
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 6.0,
+      "delays_h": [
+       6.0,
+       1.0,
+       10.0,
+       5.0,
+       3.0,
+       28.0,
+       8.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.026795895096921322,
+      "wilson_block": [
+       0.01036642876659763,
+       0.0674882603215202
+      ],
+      "mbb": [
+       0.008888888888888889,
+       0.03805555555555556
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.03255813953488372,
+      "wilson_block": [
+       0.00902198973816052,
+       0.1106392125519598
+      ],
+      "mbb": [
+       0.005128205128205128,
+       0.06987179487179487
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.028525832834629963,
+      "wilson_block": [
+       0.013083372156419762,
+       0.061067388357346625
+      ]
+     }
+    },
+    "Nominal 5%": {
+     "threshold": 0.9241969657004663,
+     "calibration_rate": 0.04971098265895954,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.10697674418604651,
+      "wilson_block": [
+       0.05180751792948647,
+       0.20800712479205746
+      ],
+      "mbb": [
+       0.06921474358974361,
+       0.14871794871794872
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 3.0,
+      "delays_h": [
+       2.0,
+       1.0,
+       9.0,
+       3.0,
+       0.0,
+       4.0,
+       8.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.09464082098061574,
+      "wilson_block": [
+       0.05702606757985445,
+       0.1530398166871959
+      ],
+      "mbb": [
+       0.060833333333333336,
+       0.12
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.10697674418604651,
+      "wilson_block": [
+       0.05180751792948647,
+       0.20800712479205746
+      ],
+      "mbb": [
+       0.06921474358974361,
+       0.14871794871794872
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.0983443048075005,
+      "wilson_block": [
+       0.06487231199155236,
+       0.14638326503170496
+      ]
+     }
+    },
+    "Nominal 10%": {
+     "threshold": 0.8502339701302275,
+     "calibration_rate": 0.1,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.20863787375415282,
+      "wilson_block": [
+       0.1260276183009125,
+       0.32524663500998696
+      ],
+      "mbb": [
+       0.1608974358974359,
+       0.25064102564102564
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 1.0,
+      "delays_h": [
+       2.0,
+       1.0,
+       8.0,
+       0.0,
+       0.0,
+       0.0,
+       8.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.18101482326111745,
+      "wilson_block": [
+       0.1270034008956384,
+       0.2513817780740025
+      ],
+      "mbb": [
+       0.14,
+       0.2127777777777778
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.20863787375415282,
+      "wilson_block": [
+       0.1260276183009125,
+       0.32524663500998696
+      ],
+      "mbb": [
+       0.1608974358974359,
+       0.25064102564102564
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.18930779972072612,
+      "wilson_block": [
+       0.14188785345368676,
+       0.24799571307907875
+      ]
+     }
+    }
+   },
+   "segment_wise": {
+    "F1 comparator": {
+     "threshold": 0.963195266117188,
+     "calibration_rate": 0.025433526011560695,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.015282392026578074,
+      "wilson_block": [
+       0.002601936516010664,
+       0.08452364567395775
+      ],
+      "mbb": [
+       0.0,
+       0.046153846153846156
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 9.0,
+      "delays_h": [
+       15.0,
+       4.0,
+       12.0,
+       7.0,
+       5.0,
+       28.0,
+       9.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.01596351197263398,
+      "wilson_block": [
+       0.004778013648900476,
+       0.05196732494846343
+      ],
+      "mbb": [
+       0.0022222222222222222,
+       0.023895833333333234
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.015282392026578074,
+      "wilson_block": [
+       0.002601936516010664,
+       0.08452364567395775
+      ],
+      "mbb": [
+       0.0,
+       0.046153846153846156
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.01575902653101935,
+      "wilson_block": [
+       0.005609362210081827,
+       0.04347080328480621
+      ]
+     },
+     "selection_f1": 0.6627335299901671
+    },
+    "Nominal 1%": {
+     "threshold": 0.9844017186095808,
+     "calibration_rate": 0.009826589595375723,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.011295681063122924,
+      "wilson_block": [
+       0.0015388112152069366,
+       0.07807855095164949
+      ],
+      "mbb": [
+       0.0,
+       0.03461538461538462
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 9.0,
+      "delays_h": [
+       15.0,
+       7.0,
+       12.0,
+       8.0,
+       6.0,
+       40.0,
+       9.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.010547320410490307,
+      "wilson_block": [
+       0.0024797945627433524,
+       0.04371086878924358
+      ],
+      "mbb": [
+       0.0008333333333333334,
+       0.01611111111111111
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.011295681063122924,
+      "wilson_block": [
+       0.0015388112152069366,
+       0.07807855095164949
+      ],
+      "mbb": [
+       0.0,
+       0.03461538461538462
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.010771992818671455,
+      "wilson_block": [
+       0.0031530390137460562,
+       0.036133925301892626
+      ]
+     }
+    },
+    "Nominal 5%": {
+     "threshold": 0.9162209267132789,
+     "calibration_rate": 0.04971098265895954,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.021926910299003323,
+      "wilson_block": [
+       0.004772349779090551,
+       0.09486693244939783
+      ],
+      "mbb": [
+       0.0,
+       0.057692307692307696
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 8.0,
+      "delays_h": [
+       15.0,
+       2.0,
+       11.0,
+       5.0,
+       5.0,
+       28.0,
+       8.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.02993158494868871,
+      "wilson_block": [
+       0.012156302054628532,
+       0.07180898849133913
+      ],
+      "mbb": [
+       0.011111111111111112,
+       0.041944444444444444
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.021926910299003323,
+      "wilson_block": [
+       0.004772349779090551,
+       0.09486693244939783
+      ],
+      "mbb": [
+       0.0,
+       0.057692307692307696
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.02752842609216038,
+      "wilson_block": [
+       0.012455982886168043,
+       0.05973613739174846
+      ]
+     }
+    },
+    "Nominal 10%": {
+     "threshold": 0.8396807377538716,
+     "calibration_rate": 0.1,
+     "test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.0345514950166113,
+      "wilson_block": [
+       0.00990340428019227,
+       0.11351190802148403
+      ],
+      "mbb": [
+       0.007051282051282051,
+       0.07243589743589744
+      ],
+      "episodes": 7,
+      "detected": 7,
+      "detected_flags": [
+       true,
+       true,
+       true,
+       true,
+       true,
+       true,
+       true
+      ],
+      "recall_cp": [
+       0.5903836027749966,
+       1.0
+      ],
+      "median_delay_h": 6.0,
+      "delays_h": [
+       6.0,
+       1.0,
+       10.0,
+       5.0,
+       3.0,
+       28.0,
+       8.0
+      ],
+      "D": 0.0,
+      "R_CI": 0.43,
+      "level": 2,
+      "R_CI_at_lower_recall": 0.5119232794450007,
+      "level_at_lower_recall": 1,
+      "boot_level_freq": {
+       "2": 1.0
+      }
+     },
+     "later1_train2": {
+      "attack_free_windows": 3508,
+      "n_eff": 146,
+      "hours": 3508,
+      "rate": 0.062143671607753706,
+      "wilson_block": [
+       0.033117616134426174,
+       0.11362021666036237
+      ],
+      "mbb": [
+       0.035555555555555556,
+       0.08166666666666667
+      ]
+     },
+     "later2_test": {
+      "attack_free_windows": 1505,
+      "n_eff": 62,
+      "hours": 1505,
+      "rate": 0.0345514950166113,
+      "wilson_block": [
+       0.00990340428019227,
+       0.11351190802148403
+      ],
+      "mbb": [
+       0.007051282051282051,
+       0.07243589743589744
+      ]
+     },
+     "later_pooled": {
+      "hours": 5013,
+      "rate": 0.05385996409335727,
+      "wilson_block": [
+       0.030493404825077064,
+       0.09340681767927601
+      ]
+     }
+    }
+   }
+  }
+ },
+ "predictions": {
+  "isolation_forest": {
+   "Nominal 1%": {
+    "P1_exceedance": {
+     "later1_train2": false,
+     "later2_test": false
+    },
+    "P1": false,
+    "P2_score_mechanism": true,
+    "P2_gate_mechanism": false,
+    "P2": true,
+    "final_level": 1,
+    "P3": null,
+    "later_rate_trref": 0.020945541591861162,
+    "later_rate_segwise": 0.001994813484939158
+   },
+   "Nominal 5%": {
+    "P1_exceedance": {
+     "later1_train2": false,
+     "later2_test": false
+    },
+    "P1": false,
+    "P2_score_mechanism": false,
+    "P2_gate_mechanism": false,
+    "P2": false,
+    "final_level": 2,
+    "P3": true,
+    "later_rate_trref": 0.06842210253341313,
+    "later_rate_segwise": 0.030321164971075204
+   },
+   "Nominal 10%": {
+    "P1_exceedance": {
+     "later1_train2": false,
+     "later2_test": false
+    },
+    "P1": false,
+    "P2_score_mechanism": false,
+    "P2_gate_mechanism": false,
+    "P2": false,
+    "final_level": 2,
+    "P3": true,
+    "later_rate_trref": 0.12627169359664872,
+    "later_rate_segwise": 0.06523040095751047
+   }
+  },
+  "autoencoder": {
+   "Nominal 1%": {
+    "P1_exceedance": {
+     "later1_train2": true,
+     "later2_test": false
+    },
+    "P1": true,
+    "P2_score_mechanism": false,
+    "P2_gate_mechanism": true,
+    "P2": true,
+    "final_level": 1,
+    "P3": null,
+    "later_rate_trref": 0.028525832834629963,
+    "later_rate_segwise": 0.010771992818671455
+   },
+   "Nominal 5%": {
+    "P1_exceedance": {
+     "later1_train2": true,
+     "later2_test": true
+    },
+    "P1": true,
+    "P2_score_mechanism": false,
+    "P2_gate_mechanism": true,
+    "P2": true,
+    "final_level": 1,
+    "P3": true,
+    "later_rate_trref": 0.0983443048075005,
+    "later_rate_segwise": 0.02752842609216038
+   },
+   "Nominal 10%": {
+    "P1_exceedance": {
+     "later1_train2": true,
+     "later2_test": true
+    },
+    "P1": true,
+    "P2_score_mechanism": false,
+    "P2_gate_mechanism": true,
+    "P2": true,
+    "final_level": 1,
+    "P3": true,
+    "later_rate_trref": 0.18930779972072612,
+    "later_rate_segwise": 0.05385996409335727
+   }
+  }
+ },
+ "window_sensitivity": {
+  "12h": {
+   "results": {
+    "training_referenced": {
+     "F1 comparator": {
+      "threshold": 0.8141089522522559,
+      "calibration_rate": 0.11653272101033295,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.08619612742036227,
+       "wilson_block": [
+        0.03931172266612987,
+        0.17860107436256606
+       ],
+       "mbb": [
+        0.06130952380952381,
+        0.1130952380952381
+       ],
+       "episodes": 7,
+       "detected": 7,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.5903836027749966,
+        1.0
+       ],
+       "median_delay_h": 12.0,
+       "delays_h": [
+        5.0,
+        25.0,
+        22.0,
+        5.0,
+        9.0,
+        24.0,
+        12.0
+       ],
+       "D": 0.0,
+       "R_CI": 0.43,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.5119232794450007,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "2": 1.0
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.10460599334073252,
+       "wilson_block": [
+        0.06512038834190878,
+        0.1638377682754659
+       ],
+       "mbb": [
+        0.08440860215053764,
+        0.12473118279569892
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.08619612742036227,
+       "wilson_block": [
+        0.03931172266612987,
+        0.17860107436256606
+       ],
+       "mbb": [
+        0.06130952380952381,
+        0.1130952380952381
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.0989433237271854,
+       "wilson_block": [
+        0.06586438910538886,
+        0.146038201610376
+       ]
+      },
+      "selection_f1": 0.4488734835355286
+     },
+     "Nominal 1%": {
+      "threshold": 0.9532009564114824,
+      "calibration_rate": 0.00975889781859931,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.0037476577139287947,
+       "wilson_block": [
+        0.0002145174762337096,
+        0.06187109345100996
+       ],
+       "mbb": [
+        0.0,
+        0.009523809523809525
+       ],
+       "episodes": 7,
+       "detected": 3,
+       "detected_flags": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true
+       ],
+       "recall_cp": [
+        0.09898827844250786,
+        0.8159484323599169
+       ],
+       "median_delay_h": 18.0,
+       "delays_h": [
+        8.0,
+        65.0,
+        18.0
+       ],
+       "D": 0.5714285714285714,
+       "R_CI": 0.5442857142857143,
+       "level": 1,
+       "R_CI_at_lower_recall": 0.6102023443114984,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.8737999999999999,
+        "2": 0.1262
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.00776914539400666,
+       "wilson_block": [
+        0.0015248442658047957,
+        0.0385956959722462
+       ],
+       "mbb": [
+        0.0024193548387096775,
+        0.01424731182795699
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.0037476577139287947,
+       "wilson_block": [
+        0.0002145174762337096,
+        0.06187109345100996
+       ],
+       "mbb": [
+        0.0,
+        0.009523809523809525
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.006532180595581172,
+       "wilson_block": [
+        0.0014528099057304952,
+        0.028857036443223752
+       ]
+      }
+     },
+     "Nominal 5%": {
+      "threshold": 0.8968408506010151,
+      "calibration_rate": 0.04994259471871412,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.024359775140537165,
+       "wilson_block": [
+        0.005893501299953301,
+        0.09514890615265342
+       ],
+       "mbb": [
+        0.008928571428571428,
+        0.04583333333333333
+       ],
+       "episodes": 7,
+       "detected": 5,
+       "detected_flags": [
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.2904208637373427,
+        0.9633074338239145
+       ],
+       "median_delay_h": 13.0,
+       "delays_h": [
+        25.0,
+        7.0,
+        9.0,
+        48.0,
+        13.0
+       ],
+       "D": 0.2857142857142857,
+       "R_CI": 0.48714285714285716,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.5719158272525314,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.3235,
+        "2": 0.6764999999999999
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.04078801331853496,
+       "wilson_block": [
+        0.018961581356382318,
+        0.08554771632905984
+       ],
+       "mbb": [
+        0.02661290322580645,
+        0.0543010752688172
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.024359775140537165,
+       "wilson_block": [
+        0.005893501299953301,
+        0.09514890615265342
+       ],
+       "mbb": [
+        0.008928571428571428,
+        0.04583333333333333
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.035734870317002884,
+       "wilson_block": [
+        0.018003159901764904,
+        0.06969150379387377
+       ]
+      }
+     },
+     "Nominal 10%": {
+      "threshold": 0.8356168611457446,
+      "calibration_rate": 0.09988518943742825,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.0712054965646471,
+       "wilson_block": [
+        0.030030336371939095,
+        0.1595502450019473
+       ],
+       "mbb": [
+        0.047619047619047616,
+        0.09642857142857143
+       ],
+       "episodes": 7,
+       "detected": 6,
+       "detected_flags": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.4212768029568048,
+        0.9963897031380994
+       ],
+       "median_delay_h": 18.0,
+       "delays_h": [
+        24.0,
+        26.0,
+        5.0,
+        9.0,
+        24.0,
+        12.0
+       ],
+       "D": 0.1428571428571429,
+       "R_CI": 0.4585714285714286,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.545744639408639,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.0656,
+        "2": 0.9344
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.08435072142064373,
+       "wilson_block": [
+        0.049604043341232994,
+        0.13985512761513702
+       ],
+       "mbb": [
+        0.064247311827957,
+        0.10376344086021505
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.0712054965646471,
+       "wilson_block": [
+        0.030030336371939095,
+        0.1595502450019473
+       ],
+       "mbb": [
+        0.047619047619047616,
+        0.09642857142857143
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.0803073967339097,
+       "wilson_block": [
+        0.05097547200187143,
+        0.12430654448607507
+       ]
+      }
+     }
+    },
+    "segment_wise": {
+     "F1 comparator": {
+      "threshold": 0.7625294381092482,
+      "calibration_rate": 0.1452353616532721,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.127420362273579,
+       "wilson_block": [
+        0.06707147783768484,
+        0.22875491224173716
+       ],
+       "mbb": [
+        0.0970089285714286,
+        0.15595238095238095
+       ],
+       "episodes": 7,
+       "detected": 7,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.5903836027749966,
+        1.0
+       ],
+       "median_delay_h": 12.0,
+       "delays_h": [
+        5.0,
+        23.0,
+        22.0,
+        5.0,
+        9.0,
+        24.0,
+        12.0
+       ],
+       "D": 0.0,
+       "R_CI": 0.43,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.5119232794450007,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "2": 1.0
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.10460599334073252,
+       "wilson_block": [
+        0.06512038834190878,
+        0.1638377682754659
+       ],
+       "mbb": [
+        0.08413978494623656,
+        0.12473118279569892
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.127420362273579,
+       "wilson_block": [
+        0.06707147783768484,
+        0.22875491224173716
+       ],
+       "mbb": [
+        0.0970089285714286,
+        0.15595238095238095
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.11162343900096061,
+       "wilson_block": [
+        0.0762338066552414,
+        0.16058587580316275
+       ]
+      },
+      "selection_f1": 0.4488734835355286
+     },
+     "Nominal 1%": {
+      "threshold": 0.9426188248179854,
+      "calibration_rate": 0.00975889781859931,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.004372267332916927,
+       "wilson_block": [
+        0.00028684440896723645,
+        0.06297927550389348
+       ],
+       "mbb": [
+        0.0005952380952380953,
+        0.01011904761904762
+       ],
+       "episodes": 7,
+       "detected": 3,
+       "detected_flags": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true
+       ],
+       "recall_cp": [
+        0.09898827844250786,
+        0.8159484323599169
+       ],
+       "median_delay_h": 18.0,
+       "delays_h": [
+        8.0,
+        57.0,
+        18.0
+       ],
+       "D": 0.5714285714285714,
+       "R_CI": 0.5442857142857143,
+       "level": 1,
+       "R_CI_at_lower_recall": 0.6102023443114984,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.8697,
+        "2": 0.1303
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.004994450610432853,
+       "wilson_block": [
+        0.0007154639741482477,
+        0.03399425631034047
+       ],
+       "mbb": [
+        0.001075268817204301,
+        0.00967741935483871
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.004372267332916927,
+       "wilson_block": [
+        0.00028684440896723645,
+        0.06297927550389348
+       ],
+       "mbb": [
+        0.0005952380952380953,
+        0.01011904761904762
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.004803073967339097,
+       "wilson_block": [
+        0.0008703899192257624,
+        0.026041671192095855
+       ]
+      }
+     },
+     "Nominal 5%": {
+      "threshold": 0.8820597798706998,
+      "calibration_rate": 0.04994259471871412,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.03123048094940662,
+       "wilson_block": [
+        0.008755325479645151,
+        0.10527268081474928
+       ],
+       "mbb": [
+        0.01369047619047619,
+        0.055952380952380955
+       ],
+       "episodes": 7,
+       "detected": 5,
+       "detected_flags": [
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.2904208637373427,
+        0.9633074338239145
+       ],
+       "median_delay_h": 13.0,
+       "delays_h": [
+        25.0,
+        7.0,
+        9.0,
+        48.0,
+        13.0
+       ],
+       "D": 0.2857142857142857,
+       "R_CI": 0.48714285714285716,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.5719158272525314,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.3181,
+        "2": 0.6819
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.02746947835738069,
+       "wilson_block": [
+        0.010873277877076381,
+        0.06766408403126682
+       ],
+       "mbb": [
+        0.016935483870967744,
+        0.03790322580645161
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.03123048094940662,
+       "wilson_block": [
+        0.008755325479645151,
+        0.10527268081474928
+       ],
+       "mbb": [
+        0.01369047619047619,
+        0.055952380952380955
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.02862632084534102,
+       "wilson_block": [
+        0.013331455888646617,
+        0.06039453516339126
+       ]
+      }
+     },
+     "Nominal 10%": {
+      "threshold": 0.8199633227743205,
+      "calibration_rate": 0.09988518943742825,
+      "test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.07745159275452843,
+       "wilson_block": [
+        0.03383294876217362,
+        0.16755272246788344
+       ],
+       "mbb": [
+        0.05357142857142857,
+        0.10416666666666667
+       ],
+       "episodes": 7,
+       "detected": 6,
+       "detected_flags": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.4212768029568048,
+        0.9963897031380994
+       ],
+       "median_delay_h": 10.5,
+       "delays_h": [
+        5.0,
+        26.0,
+        5.0,
+        9.0,
+        24.0,
+        12.0
+       ],
+       "D": 0.1428571428571429,
+       "R_CI": 0.4585714285714286,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.545744639408639,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.0635,
+        "2": 0.9364999999999999
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3604,
+       "n_eff": 150,
+       "hours": 3604,
+       "rate": 0.06132075471698113,
+       "wilson_block": [
+        0.03281218424608729,
+        0.11173718109571579
+       ],
+       "mbb": [
+        0.04381720430107527,
+        0.07876344086021506
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1601,
+       "n_eff": 66,
+       "hours": 1601,
+       "rate": 0.07745159275452843,
+       "wilson_block": [
+        0.03383294876217362,
+        0.16755272246788344
+       ],
+       "mbb": [
+        0.05357142857142857,
+        0.10416666666666667
+       ]
+      },
+      "later_pooled": {
+       "hours": 5205,
+       "rate": 0.06628242074927954,
+       "wilson_block": [
+        0.04011393043705427,
+        0.10760827245676088
+       ]
+      }
+     }
+    }
+   },
+   "predictions": {
+    "Nominal 1%": {
+     "P1_exceedance": {
+      "later1_train2": false,
+      "later2_test": false
+     },
+     "P1": false,
+     "P2_score_mechanism": true,
+     "P2_gate_mechanism": false,
+     "P2": true,
+     "final_level": 1,
+     "P3": null,
+     "later_rate_trref": 0.006532180595581172,
+     "later_rate_segwise": 0.004803073967339097
+    },
+    "Nominal 5%": {
+     "P1_exceedance": {
+      "later1_train2": false,
+      "later2_test": false
+     },
+     "P1": false,
+     "P2_score_mechanism": false,
+     "P2_gate_mechanism": false,
+     "P2": false,
+     "final_level": 2,
+     "P3": true,
+     "later_rate_trref": 0.035734870317002884,
+     "later_rate_segwise": 0.02862632084534102
+    },
+    "Nominal 10%": {
+     "P1_exceedance": {
+      "later1_train2": false,
+      "later2_test": false
+     },
+     "P1": false,
+     "P2_score_mechanism": false,
+     "P2_gate_mechanism": false,
+     "P2": false,
+     "final_level": 2,
+     "P3": true,
+     "later_rate_trref": 0.0803073967339097,
+     "later_rate_segwise": 0.06628242074927954
+    }
+   }
+  },
+  "48h": {
+   "results": {
+    "training_referenced": {
+     "F1 comparator": {
+      "threshold": 0.8894878294446972,
+      "calibration_rate": 0.023446658851113716,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.02196969696969697,
+       "wilson_block": [
+        0.00442616159480716,
+        0.1019295544731951
+       ],
+       "mbb": [
+        0.0030303030303030303,
+        0.048484848484848485
+       ],
+       "episodes": 7,
+       "detected": 6,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+       ],
+       "recall_cp": [
+        0.4212768029568048,
+        0.9963897031380994
+       ],
+       "median_delay_h": 14.5,
+       "delays_h": [
+        66.0,
+        9.0,
+        29.0,
+        1.0,
+        13.0,
+        16.0
+       ],
+       "D": 0.1428571428571429,
+       "R_CI": 0.4585714285714286,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.545744639408639,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.0653,
+        "2": 0.9347000000000001
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.02080820265379976,
+       "wilson_block": [
+        0.006948723650023778,
+        0.060623358820299164
+       ],
+       "mbb": [
+        0.009821428571428571,
+        0.027678571428571427
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.02196969696969697,
+       "wilson_block": [
+        0.00442616159480716,
+        0.1019295544731951
+       ],
+       "mbb": [
+        0.0030303030303030303,
+        0.048484848484848485
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.02113891285591027,
+       "wilson_block": [
+        0.008322247661514397,
+        0.05264600188802514
+       ]
+      },
+      "selection_f1": 0.45336225596529284
+     },
+     "Nominal 1%": {
+      "threshold": 0.9301033571862393,
+      "calibration_rate": 0.00996483001172333,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.00909090909090909,
+       "wilson_block": [
+        0.0009498251637935912,
+        0.08132989593298211
+       ],
+       "mbb": [
+        0.0007575757575757576,
+        0.021212121212121213
+       ],
+       "episodes": 7,
+       "detected": 3,
+       "detected_flags": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        false
+       ],
+       "recall_cp": [
+        0.09898827844250786,
+        0.8159484323599169
+       ],
+       "median_delay_h": 13.0,
+       "delays_h": [
+        13.0,
+        8.0,
+        17.0
+       ],
+       "D": 0.5714285714285714,
+       "R_CI": 0.5442857142857143,
+       "level": 1,
+       "R_CI_at_lower_recall": 0.6102023443114984,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.8683000000000001,
+        "2": 0.1317
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.008745476477683957,
+       "wilson_block": [
+        0.0017573770378835236,
+        0.04234263702388871
+       ],
+       "mbb": [
+        0.002380952380952381,
+        0.012797619047619047
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.00909090909090909,
+       "wilson_block": [
+        0.0009498251637935912,
+        0.08132989593298211
+       ],
+       "mbb": [
+        0.0007575757575757576,
+        0.021212121212121213
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.008843830888697153,
+       "wilson_block": [
+        0.0022135440131013755,
+        0.034644430862710116
+       ]
+      }
+     },
+     "Nominal 5%": {
+      "threshold": 0.8443700231162862,
+      "calibration_rate": 0.049824150058616644,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.05,
+       "wilson_block": [
+        0.016417012997941793,
+        0.14233939800743595
+       ],
+       "mbb": [
+        0.016666666666666666,
+        0.09696969696969697
+       ],
+       "episodes": 7,
+       "detected": 6,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+       ],
+       "recall_cp": [
+        0.4212768029568048,
+        0.9963897031380994
+       ],
+       "median_delay_h": 11.0,
+       "delays_h": [
+        66.0,
+        7.0,
+        29.0,
+        0.0,
+        9.0,
+        13.0
+       ],
+       "D": 0.1428571428571429,
+       "R_CI": 0.4585714285714286,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.545744639408639,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.0637,
+        "2": 0.9362999999999999
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.04764776839565742,
+       "wilson_block": [
+        0.02276338682646452,
+        0.09703404785288376
+       ],
+       "mbb": [
+        0.02857142857142857,
+        0.06428571428571428
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.05,
+       "wilson_block": [
+        0.016417012997941793,
+        0.14233939800743595
+       ],
+       "mbb": [
+        0.016666666666666666,
+        0.09696969696969697
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.04831751509922347,
+       "wilson_block": [
+        0.025906042347715517,
+        0.08835860384901231
+       ]
+      }
+     },
+     "Nominal 10%": {
+      "threshold": 0.7916834664129283,
+      "calibration_rate": 0.09964830011723329,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.09772727272727273,
+       "wilson_block": [
+        0.04370066527203739,
+        0.20427855062670938
+       ],
+       "mbb": [
+        0.051515151515151514,
+        0.15681818181818183
+       ],
+       "episodes": 7,
+       "detected": 7,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+       ],
+       "recall_cp": [
+        0.5903836027749966,
+        1.0
+       ],
+       "median_delay_h": 9.0,
+       "delays_h": [
+        1.0,
+        7.0,
+        15.0,
+        0.0,
+        9.0,
+        13.0,
+        17.0
+       ],
+       "D": 0.0,
+       "R_CI": 0.43,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.5119232794450007,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "2": 1.0
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.08775633293124246,
+       "wilson_block": [
+        0.051038200127950135,
+        0.14680386200982926
+       ],
+       "mbb": [
+        0.059821428571428574,
+        0.10923363095238084
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.09772727272727273,
+       "wilson_block": [
+        0.04370066527203739,
+        0.20427855062670938
+       ],
+       "mbb": [
+        0.051515151515151514,
+        0.15681818181818183
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.090595340811044,
+       "wilson_block": [
+        0.057698951399672606,
+        0.13947120069268149
+       ]
+      }
+     }
+    },
+    "segment_wise": {
+     "F1 comparator": {
+      "threshold": 0.8399784706207851,
+      "calibration_rate": 0.07209847596717468,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.02196969696969697,
+       "wilson_block": [
+        0.00442616159480716,
+        0.1019295544731951
+       ],
+       "mbb": [
+        0.003787878787878788,
+        0.048503787878787605
+       ],
+       "episodes": 7,
+       "detected": 6,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+       ],
+       "recall_cp": [
+        0.4212768029568048,
+        0.9963897031380994
+       ],
+       "median_delay_h": 14.5,
+       "delays_h": [
+        66.0,
+        9.0,
+        29.0,
+        1.0,
+        13.0,
+        16.0
+       ],
+       "D": 0.1428571428571429,
+       "R_CI": 0.4585714285714286,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.545744639408639,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.0625,
+        "2": 0.9375
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.02080820265379976,
+       "wilson_block": [
+        0.006948723650023778,
+        0.060623358820299164
+       ],
+       "mbb": [
+        0.009821428571428571,
+        0.027678571428571427
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.02196969696969697,
+       "wilson_block": [
+        0.00442616159480716,
+        0.1019295544731951
+       ],
+       "mbb": [
+        0.003787878787878788,
+        0.048503787878787605
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.02113891285591027,
+       "wilson_block": [
+        0.008322247661514397,
+        0.05264600188802514
+       ]
+      },
+      "selection_f1": 0.45336225596529284
+     },
+     "Nominal 1%": {
+      "threshold": 0.942082539002838,
+      "calibration_rate": 0.00996483001172333,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.0007575757575757576,
+       "wilson_block": [
+        8.043601378376897e-06,
+        0.06669309251401544
+       ],
+       "mbb": [
+        0.0,
+        0.0007575757575757576
+       ],
+       "episodes": 7,
+       "detected": 2,
+       "detected_flags": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false
+       ],
+       "recall_cp": [
+        0.03669256617608555,
+        0.7095791362626572
+       ],
+       "median_delay_h": 60.0,
+       "delays_h": [
+        22.0,
+        98.0
+       ],
+       "D": 0.7142857142857143,
+       "R_CI": 0.5728571428571428,
+       "level": 1,
+       "R_CI_at_lower_recall": 0.6226614867647828,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.9767,
+        "2": 0.0233
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.00030156815440289503,
+       "wilson_block": [
+        3.198119615672665e-06,
+        0.027666368056171058
+       ],
+       "mbb": [
+        0.0,
+        0.0008928571428571428
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.0007575757575757576,
+       "wilson_block": [
+        8.043601378376897e-06,
+        0.06669309251401544
+       ],
+       "mbb": [
+        0.0,
+        0.0007575757575757576
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.0004314063848144953,
+       "wilson_block": [
+        8.965943467588444e-06,
+        0.02035250520821419
+       ]
+      }
+     },
+     "Nominal 5%": {
+      "threshold": 0.8664388050611042,
+      "calibration_rate": 0.049824150058616644,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.013636363636363636,
+       "wilson_block": [
+        0.0019568809893330263,
+        0.08882025009728735
+       ],
+       "mbb": [
+        0.0015151515151515152,
+        0.029545454545454545
+       ],
+       "episodes": 7,
+       "detected": 5,
+       "detected_flags": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false
+       ],
+       "recall_cp": [
+        0.2904208637373427,
+        0.9633074338239145
+       ],
+       "median_delay_h": 16.0,
+       "delays_h": [
+        66.0,
+        9.0,
+        1.0,
+        16.0,
+        16.0
+       ],
+       "D": 0.2857142857142857,
+       "R_CI": 0.48714285714285716,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.5719158272525314,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.3173,
+        "2": 0.6827
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.012062726176115802,
+       "wilson_block": [
+        0.0029754161964345126,
+        0.047579416677689154
+       ],
+       "mbb": [
+        0.004166666666666667,
+        0.017857142857142856
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.013636363636363636,
+       "wilson_block": [
+        0.0019568809893330263,
+        0.08882025009728735
+       ],
+       "mbb": [
+        0.0015151515151515152,
+        0.029545454545454545
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.012510785159620362,
+       "wilson_block": [
+        0.0038142695087678216,
+        0.04023448904166431
+       ]
+      }
+     },
+     "Nominal 10%": {
+      "threshold": 0.8183288334240436,
+      "calibration_rate": 0.09964830011723329,
+      "test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.031818181818181815,
+       "wilson_block": [
+        0.008111990542131443,
+        0.11665478050386763
+       ],
+       "mbb": [
+        0.008333333333333333,
+        0.06439393939393939
+       ],
+       "episodes": 7,
+       "detected": 6,
+       "detected_flags": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+       ],
+       "recall_cp": [
+        0.4212768029568048,
+        0.9963897031380994
+       ],
+       "median_delay_h": 14.5,
+       "delays_h": [
+        66.0,
+        9.0,
+        29.0,
+        1.0,
+        13.0,
+        16.0
+       ],
+       "D": 0.1428571428571429,
+       "R_CI": 0.4585714285714286,
+       "level": 2,
+       "R_CI_at_lower_recall": 0.545744639408639,
+       "level_at_lower_recall": 1,
+       "boot_level_freq": {
+        "1": 0.0683,
+        "2": 0.9317
+       }
+      },
+      "later1_train2": {
+       "attack_free_windows": 3316,
+       "n_eff": 138,
+       "hours": 3316,
+       "rate": 0.03226779252110977,
+       "wilson_block": [
+        0.013215134261008926,
+        0.0766554131974372
+       ],
+       "mbb": [
+        0.016666666666666666,
+        0.04345238095238095
+       ]
+      },
+      "later2_test": {
+       "attack_free_windows": 1320,
+       "n_eff": 55,
+       "hours": 1320,
+       "rate": 0.031818181818181815,
+       "wilson_block": [
+        0.008111990542131443,
+        0.11665478050386763
+       ],
+       "mbb": [
+        0.008333333333333333,
+        0.06439393939393939
+       ]
+      },
+      "later_pooled": {
+       "hours": 4636,
+       "rate": 0.0321397756686799,
+       "wilson_block": [
+        0.014994240190445454,
+        0.06754636038295601
+       ]
+      }
+     }
+    }
+   },
+   "predictions": {
+    "Nominal 1%": {
+     "P1_exceedance": {
+      "later1_train2": false,
+      "later2_test": false
+     },
+     "P1": false,
+     "P2_score_mechanism": true,
+     "P2_gate_mechanism": false,
+     "P2": true,
+     "final_level": 1,
+     "P3": null,
+     "later_rate_trref": 0.008843830888697153,
+     "later_rate_segwise": 0.0004314063848144953
+    },
+    "Nominal 5%": {
+     "P1_exceedance": {
+      "later1_train2": false,
+      "later2_test": false
+     },
+     "P1": false,
+     "P2_score_mechanism": false,
+     "P2_gate_mechanism": false,
+     "P2": false,
+     "final_level": 2,
+     "P3": true,
+     "later_rate_trref": 0.04831751509922347,
+     "later_rate_segwise": 0.012510785159620362
+    },
+    "Nominal 10%": {
+     "P1_exceedance": {
+      "later1_train2": false,
+      "later2_test": false
+     },
+     "P1": false,
+     "P2_score_mechanism": false,
+     "P2_gate_mechanism": false,
+     "P2": false,
+     "final_level": 2,
+     "P3": true,
+     "later_rate_trref": 0.090595340811044,
+     "later_rate_segwise": 0.0321397756686799
+    }
+   }
+  }
+ }
+}
