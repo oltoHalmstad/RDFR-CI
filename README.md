@@ -95,4 +95,4 @@ Python 3.13.16, NumPy 2.5.3, pandas 3.0.5, SciPy 1.18.1, scikit-learn 1.9.1, WNT
 ### Notes for the release
 
 - The HAI scripts were re-implemented from the manuscript description, because the v1.4.0 `hai_evaluation.py` was not public. On the uncorrected 21.03 split they give 2.27%, 7.83% and 14.63%, where the earlier manuscript version reported 2.44%, 8.20% and 15.03%. Rerun them in the release environment and confirm all values before publication.
-- The analyses in this overlay were prepared with the assistance of Claude (Anthropic) and must be checked by the authors.
+- The analyses in this overlay were prepared with the assistance of Claude (Anthropic) and checked by the authors.
