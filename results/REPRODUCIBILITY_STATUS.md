@@ -1,27 +1,17 @@
 # REPRODUCIBILITY STATUS
 
-Release: v1.2.1
-Manuscript alignment: 8 September 2026
+Release: v1.4.1
+Manuscript alignment: 10 October 2026 (revision 4; policy tables unchanged since v1.3.0)
 
-Core RDFR-CI equations: PASS
-30-scenario library: PASS
-Six showcases: PASS
-Authority ceiling: PASS
-Decision uncertainty: PASS
-Aggregation sensitivity: PASS
-Weight sensitivity: PASS
-Agent authority tests: PASS
-Figures regenerated: PASS
-Tables regenerated: PASS
+Canonical authority scale: PASS
+UNKNOWN AI-assurance cap: PASS
+Priority stop: PASS
+Exact manuscript table set: PASS
+Aggregation sensitivity 21/30: PASS
 Unit tests: PASS
-SWaT pipeline implemented: PASS
-SWaT A11 derived-output bundle: NOT INCLUDED — authorized data required
-SWaT labeled attack-detection results: NOT RUN for A1/A2 in this release
-Restricted data excluded from Git/working tree: PASS
-Zenodo metadata ready: PASS
 
-Verification mode: full
-Pytest: ..............................                                           [100%]
-30 passed in 4.75s
+Verification mode: smoke
+Pytest: .............................                                            [100%]
+29 passed in 2.45s
 
-Scientific classification: RDFR-CI computational outputs are reproduced; SWaT-derived numerical validation is not included in this unrestricted checkout and remains external-data work.
+Scientific classification: this release verifies the public policy implementation and manuscript-facing numeric tables. Exact publication figure binaries and the aligned DOCX are identified by hashes in the release/Zenodo package; raw SWaT data are excluded and labeled A1/A2 attack validation remains unexecuted.

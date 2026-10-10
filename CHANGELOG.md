@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased (revision-4 analyses, intended for v1.4.1)
+## v1.4.1 — 2026-10-10
+
+Release for the fourth revision of the article. Zenodo DOI: `10.5281/zenodo.23277893`.
+
 
 - Corrected HAI 21.03 evaluation (`experiments/hai_evaluation.py`):
   - excludes the first 12 h of test3, which duplicate the calibration segment;
@@ -18,6 +21,7 @@
 - The reference segment of Equation (14) is an explicit argument of `anomaly_scores()` (`experiments/swat/train_isolation_forest.py`).
 - New dependency: `wntr>=1.5`.
 - `experiments/swat/run_swat_experiment.py` now passes the reference segment explicitly (`--score-reference training|segment`, default `training`).
+- Release metadata (README, CITATION.cff, .zenodo.json, ZENODO_*, pyproject, `__version__`, `scripts/verify_results.py`) set to 1.4.1.
 - These analyses were prepared with the assistance of Claude (Anthropic).
 
 ## v1.3.0 — 2026-09-09
