@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "inputs": {
+      "SWaT.A10_OTDataset_19-Feb-2026_0930_1735.csv": "a435ceda8885756738b9a8b5489653e635e7b73cbae55a08a4bec5c6c9a80ce4",
+      "SWaT.A10_OTDataset_20-Feb-2026_0905_1710.csv": "beff59ba83c407280e493657e8dcd252d581fc0135988f3f538c276991126dac"
+    },
+    "event_spec_sha256": "36a57dce27b80194e553f0957f80bb497e53fe371e76ea81c7aaeddd6501ccc6",
+    "python": "3.13.16",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.1",
+    "seed": 42,
+    "variables": 82,
+    "features": 173,
+    "records": [
+      29160,
+      29160
+    ],
+    "windows": {
+      "train": 4654,
+      "calibration": 1167,
+      "target": 5821
+    },
+    "blocks": 485
+  },
+  "transfer_training": [
+    {
+      "phi": 0.01,
+      "threshold": 0.9948126390668746,
+      "cal_rate": 0.009425878320479864,
+      "tgt_flags": 114,
+      "tgt_windows": 5821,
+      "tgt_rate": 0.01958426387218691,
+      "ci_windows": [
+        0.01632853699468743,
+        0.023473655126715492
+      ],
+      "ci_blocks": [
+        0.01050893293366767,
+        0.03621008887723078
+      ],
+      "exceedance_distinguishable_blocks": true
+    },
+    {
+      "phi": 0.05,
+      "threshold": 0.976446639728819,
+      "cal_rate": 0.049700085689802914,
+      "tgt_flags": 614,
+      "tgt_windows": 5821,
+      "tgt_rate": 0.10548015804844528,
+      "ci_windows": [
+        0.09784769818892639,
+        0.1136329863119861
+      ],
+      "ci_blocks": [
+        0.0811746886543272,
+        0.13598613150970934
+      ],
+      "exceedance_distinguishable_blocks": true
+    },
+    {
+      "phi": 0.1,
+      "threshold": 0.9096918369405771,
+      "cal_rate": 0.09940017137960583,
+      "tgt_flags": 1043,
+      "tgt_windows": 5821,
+      "tgt_rate": 0.17917883525167497,
+      "ci_windows": [
+        0.1695395619539226,
+        0.18924126900860905
+      ],
+      "ci_blocks": [
+        0.1476102854255434,
+        0.21578959772548564
+      ],
+      "exceedance_distinguishable_blocks": true
+    }
+  ],
+  "challenge_training": [
+    {
+      "selection": "F1 comparator",
+      "threshold": 0.9542030442209171,
+      "detected": 9,
+      "events": 12,
+      "weighted_recall": 0.8333333333333334,
+      "D": 0.16666666666666663,
+      "R_CI": 0.4633333333333333,
+      "provisional_level": "Assisted defense",
+      "cp95": [
+        0.4281415381218108,
+        0.9451393554720072
+      ],
+      "untouched_target_flag_rate": 0.12420546297886961,
+      "bootstrap_level_freq": {
+        "Assisted defense": 0.9447,
+        "Shadow/restricted": 0.0553
+      },
+      "detected_ids": [
+        "H02",
+        "H03",
+        "H05",
+        "H06",
+        "H07",
+        "H09",
+        "H10",
+        "H11",
+        "H12"
+      ],
+      "f1_calibration": 0.05047257137289292
+    },
+    {
+      "selection": "Nominal 1%",
+      "threshold": 0.9948126390668746,
+      "detected": 4,
+      "events": 12,
+      "weighted_recall": 0.4166666666666667,
+      "D": 0.5833333333333333,
+      "R_CI": 0.5466666666666666,
+      "provisional_level": "Shadow/restricted",
+      "cp95": [
+        0.09924609114958328,
+        0.6511244935811844
+      ],
+      "untouched_target_flag_rate": 0.01958426387218691,
+      "bootstrap_level_freq": {
+        "Assisted defense": 0.0653,
+        "Shadow/restricted": 0.9347
+      },
+      "detected_ids": [
+        "H03",
+        "H09",
+        "H10",
+        "H12"
+      ],
+      "f1_calibration": null
+    },
+    {
+      "selection": "Nominal 5%",
+      "threshold": 0.976446639728819,
+      "detected": 6,
+      "events": 12,
+      "weighted_recall": 0.5833333333333334,
+      "D": 0.41666666666666663,
+      "R_CI": 0.5133333333333333,
+      "provisional_level": "Shadow/restricted",
+      "cp95": [
+        0.21094463823929666,
+        0.7890553617607033
+      ],
+      "untouched_target_flag_rate": 0.10548015804844528,
+      "bootstrap_level_freq": {
+        "Assisted defense": 0.3393,
+        "Shadow/restricted": 0.6607
+      },
+      "detected_ids": [
+        "H03",
+        "H05",
+        "H06",
+        "H09",
+        "H10",
+        "H12"
+      ],
+      "f1_calibration": null
+    },
+    {
+      "selection": "Nominal 10%",
+      "threshold": 0.9096918369405771,
+      "detected": 11,
+      "events": 12,
+      "weighted_recall": 0.9166666666666666,
+      "D": 0.08333333333333337,
+      "R_CI": 0.44666666666666666,
+      "provisional_level": "Assisted defense",
+      "cp95": [
+        0.6152038348490559,
+        0.9978924067681397
+      ],
+      "untouched_target_flag_rate": 0.17917883525167497,
+      "bootstrap_level_freq": {
+        "Assisted defense": 0.9945,
+        "Shadow/restricted": 0.0055
+      },
+      "detected_ids": [
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H05",
+        "H06",
+        "H07",
+        "H09",
+        "H10",
+        "H11",
+        "H12"
+      ],
+      "f1_calibration": null
+    }
+  ],
+  "transfer_segment": [
+    {
+      "phi": 0.01,
+      "threshold": 0.9936811515467162,
+      "cal_rate": 0.009425878320479864,
+      "tgt_flags": 19,
+      "tgt_windows": 5821,
+      "tgt_rate": 0.0032640439786978184,
+      "ci_windows": [
+        0.0020906676280584716,
+        0.005092610941237629
+      ],
+      "ci_blocks": [
+        0.0007797885363695651,
+        0.013555291587432645
+      ],
+      "exceedance_distinguishable_blocks": false
+    },
+    {
+      "phi": 0.05,
+      "threshold": 0.9697493860471081,
+      "cal_rate": 0.049700085689802914,
+      "tgt_flags": 125,
+      "tgt_windows": 5821,
+      "tgt_rate": 0.021473973544064592,
+      "ci_windows": [
+        0.01805358881772882,
+        0.025525530136023312
+      ],
+      "ci_blocks": [
+        0.011845359132853386,
+        0.0386233822418141
+      ],
+      "exceedance_distinguishable_blocks": false
+    },
+    {
+      "phi": 0.1,
+      "threshold": 0.8806443225664183,
+      "cal_rate": 0.09940017137960583,
+      "tgt_flags": 659,
+      "tgt_windows": 5821,
+      "tgt_rate": 0.11321078852430853,
+      "ci_windows": [
+        0.1053249551784128,
+        0.12160679363665557
+      ],
+      "ci_blocks": [
+        0.08799848127767924,
+        0.14450210073813974
+      ],
+      "exceedance_distinguishable_blocks": false
+    }
+  ],
+  "runtime_s": 65.2
+}

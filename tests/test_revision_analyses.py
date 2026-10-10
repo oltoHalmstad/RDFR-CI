@@ -72,13 +72,3 @@ def test_tableA1(df):
     assert all(c == ("3 2 2 2 2 1" if i % 4 == 1 else "4 2 2 2 2 1") for i, c in enumerate(codes) if i != 9)
     assert (a1.eligible_while_gate_unresolved == 0).all()
     assert [x for x in a1.gated_changed_ids if x] == ["HOSP-001"]
-
-
-def test_interval_columns():
-    t11 = ra.table11_intervals()
-    assert list(t11.interval_windows) == ["1.38-2.04%", "9.44-10.99%", "15.36-17.26%"]
-    assert list(t11.interval_blocks) == ["0.86-3.26%", "7.80-13.20%", "13.27-19.84%"]
-    assert list(t11.exceedance_distinguishable_blocks) == ["No", "Yes", "Yes"]
-    t12 = ra.table12_intervals()
-    assert list(t12.interval_events) == ["0.43-0.95", "0.00-0.38", "0.02-0.48", "0.15-0.72"]
-    assert [round(x, 3) for x in t12.R_CI] == [0.478, 0.606, 0.582, 0.534]

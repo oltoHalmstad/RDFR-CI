@@ -1,0 +1,5 @@
+selection,events,weighted_recall,D,R_CI,level,cp95,target_flag_rate
+F1 comparator,9/12,0.83,0.17,0.463,Assisted defense,0.43–0.95,12.42
+Nominal 1%,4/12,0.42,0.58,0.547,Shadow/restricted,0.10–0.65,1.96
+Nominal 5%,6/12,0.58,0.42,0.513,Shadow/restricted,0.21–0.79,10.55
+Nominal 10%,11/12,0.92,0.08,0.447,Assisted defense,0.62–1.00,17.92

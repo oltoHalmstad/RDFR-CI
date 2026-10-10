@@ -4,7 +4,7 @@
 
 Reference implementation, scenario library, evaluation harness, and manuscript-aligned supplementary materials for the RDFR-CI article.
 
-> **Scientific status.** The 30 cross-sector scenario values and the six showcased action contexts are illustrative governance inputs, not measured risk levels for sectors or organizations. The SWaT A11 materials distributed here are aggregate derived outputs plus a separately labeled constructed-event challenge; raw SWaT telemetry is not redistributed. Labeled SWaT A1/A2 attack validation remains unexecuted.
+> **Scientific status.** The 30 cross-sector scenario values and the six showcased action contexts are illustrative governance inputs, not measured risk levels for sectors or organizations. The SWaT A11 materials distributed here are derived outputs of the v1.4.1 rerun (training-referenced normalization) plus a separately labeled constructed-event challenge; raw SWaT telemetry is not redistributed. Labeled SWaT A1/A2 attack validation remains unexecuted.
 
 ## What changed in v1.4.1
 
@@ -57,8 +57,9 @@ These analyses support the fourth revision of the article (manuscript informatio
 | Section 4.9, Tables D5 and D6: C-Town action-consequence simulation and policy outcomes | `experiments/ctown_consequence.py` | `results/ctown/` |
 | Table D4: cross-dataset summary | `experiments/summarize.py` | `results/summary/` |
 | Figure 7 and Figure A2 | `experiments/make_figures.py` | `results/figures/revision4/` |
-| Sections 3.14, 4.2, 4.3, 4.5 and 4.7: Tables 10, 15, 17 and A1, interval columns of Tables 11 and 12, Figures 4–6 (re-implementation of the v1.4.0 script; see `experiments/REVISION_ANALYSES_NOTE.md`) | `experiments/run_revision_analyses.py` | `results/revision_analyses/` |
-| Section 3.13 and Equation (14): explicit reference segment | `experiments/swat/train_isolation_forest.py` (patched) | Rerun of SWaT A11, if the restricted data are available |
+| Sections 3.14, 4.2, 4.5 and 4.7: Tables 10, 15, 17 and A1, Figures 4 and 6 (re-implementation of the v1.4.0 script; see `experiments/REVISION_ANALYSES_NOTE.md`) | `experiments/run_revision_analyses.py` | `results/revision_analyses/` |
+| Section 3.13 and Equation (14): explicit reference segment | `experiments/swat/train_isolation_forest.py` (patched) | used by the A11 rerun |
+| Section 4.3, Tables 11 and 12, Figure 5: SWaT A11 rerun with training-referenced normalization and constructed-event challenge (specification frozen in `experiments/swat/a11_constructed_events.json`) | `experiments/swat/a11_rerun.py` (needs the restricted captures in `data/private/swat_a11/`) | `results/swat_a11/` |
 
 The protocol and predictions for the BATADAL and C-Town analyses were fixed before analysis. They are in `preregistration/batadal_ctown/PREREGISTRATION.md`, with its SHA-256 and freeze time in `PREREGISTRATION.sha256`; every deviation is in `DEVIATIONS.md`. The hash of the protocol is also stored in each results file.
 

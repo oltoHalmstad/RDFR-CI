@@ -1,0 +1,7 @@
+form,budget,cal_rate,tgt_rate,ci_windows,ci_blocks,distinguishable
+training,1%,0.94,1.96,1.63–2.35,1.05–3.62,True
+training,5%,4.97,10.55,9.78–11.36,8.12–13.60,True
+training,10%,9.94,17.92,16.95–18.92,14.76–21.58,True
+segment,1%,0.94,0.33,0.21–0.51,0.08–1.36,False
+segment,5%,4.97,2.15,1.81–2.55,1.18–3.86,False
+segment,10%,9.94,11.32,10.53–12.16,8.80–14.45,False

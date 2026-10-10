@@ -2,9 +2,8 @@
 
 ## Provenance
 
-The manuscript says that `experiments/run_revision_analyses.py` "regenerates Tables 10, 15, 17, and A1, the interval columns of Tables 11 and 12, and Figures 4–6 with fixed seeds from the archived scenario catalog and the reported A11 aggregates". That script was part of release v1.4.0. The v1.4.0 file was not available, so release v1.4.1 contains a **re-implementation** that was written from the manuscript's description of the method:
+The manuscript says that `experiments/run_revision_analyses.py` regenerates Tables 10, 15, 17 and A1 and Figures 4 and 6 with fixed seeds from the archived scenario catalog. That script was part of release v1.4.0. The v1.4.0 file was not available, so release v1.4.1 contains a **re-implementation** that was written from the manuscript's description of the method:
 
-- Section 3.13 (end): Wilson and Clopper–Pearson interval bases.
 - Section 3.14: robustness, policy-variant and 24-parameterization design.
 - Section 3.16: the alternative decision methods.
 
@@ -16,7 +15,7 @@ The policy logic comes from `rdfr_ci`:
 
 The input is `scenarios/scenario_catalog.yaml`, which holds 30 scenarios. Thirteen of them have at least one unresolved gate.
 
-The raw SWaT A11 data are restricted, so the A11 interval columns are recomputed from the aggregates reported in Tables 11 and 12. These aggregates are hard-coded in `REPORTED_A11_AGGREGATES`.
+The SWaT A11 analysis (Tables 11 and 12, Figure 5) is not part of this script: release v1.4.1 reruns it on the restricted captures with `experiments/swat/a11_rerun.py` (see `experiments/swat/A11_RERUN_NOTE.md`).
 
 ## How to run
 
@@ -32,11 +31,9 @@ The script runs in about 3 s. It writes the following CSV files to `--out-dir`:
 - `table_15*`
 - `table_17*`
 - `table_A1`
-- `table_11_intervals`
-- `table_12_intervals`
 - `scenario_points`
 
-It also writes `summary.json` and Figures 4, 5 and 6 as PNG and PDF files.
+It also writes `summary.json` and Figures 4 and 6 as PNG and PDF files.
 
 ## Conventions used
 
@@ -55,7 +52,6 @@ It also writes `summary.json` and Figures 4, 5 and 6 as PNG and PDF files.
 - **Worst-dimension rule.** Assigns the Table 6 band of max(E, D, A, F, C).
 - Gates are applied to every method. The water-context column of Table 17 is computed before gates are applied.
 - **Table A1 weights.** For wC = 0.35, wC = 0.15, wD = 0.30 and wF = 0.10, the other weights are rescaled proportionally. C* = b1 / wC.
-- **Wilson intervals.** These use the reported target flag rate as p̂, with n = 5821 for the nominal basis and n_eff = 485 for the block basis.
 
 ## Comparison with the manuscript (seed 42, n = 10,000)
 
@@ -80,14 +76,6 @@ It also writes `summary.json` and Figures 4, 5 and 6 as PNG and PDF files.
   - Water context: (2, 2), (3, 3), (2, 2) and (0, 0).
   - Original AI-SOC weights: 27 (0.93), with RAIL-002 at level 0.
 - **Table A1, all 24 rows.** The number of changed levels and the up/down split, C*, and the showcase codes all match. No parameterization makes an action execution-eligible while a gate is unresolved. Only 1 of the 312 gated scenario–parameterization pairs changes: HOSP-001, with wC = 0.35 and stricter boundaries.
-- **Table 11, interval columns.**
-  - Window basis: 1.38–2.04%, 9.44–10.99% and 15.36–17.26%.
-  - Block basis: 0.86–3.26%, 7.80–13.20% and 13.27–19.84%.
-  - Exceedance distinguishable: No, Yes, Yes.
-- **Table 12, interval column.** 0.43–0.95, 0.00–0.38, 0.02–0.48 and 0.15–0.72. RCI is 0.478, 0.606, 0.582 and 0.534.
-
-The Table 11 intervals depend on how the flag rate is entered. With the reported rate as p̂, they match exactly. With implied integer counts instead (98, 593 and 948 of 5821), three upper limits move by 0.01 percentage points: 2.05, 3.27 and 19.83 in place of 2.04, 3.26 and 19.84. The original evidently used the unrounded v1.3.0 rates, so the reported rates are used here.
-
 **Monte Carlo quantities.**
 
 | Quantity | Manuscript | Script (seed 42) |
@@ -112,7 +100,6 @@ The joint Monte Carlo counts depend on the seed. FOOD-001 (0.9003) and BUILD-001
 The script creates the figures from the same data:
 
 - **Figure 4.** (a) Changed provisional and final levels for the 4 all-boundary shifts and the 16 single-boundary shifts. (b) Joint Monte Carlo retention against boundary margin, with open markers for provisional levels and filled markers for final levels.
-- **Figure 5.** Calibration and target flag rates, with block-basis Wilson intervals and dashed budget lines.
 - **Figure 6.** A grid of 30 scenarios × 4 variants, with the gate-unresolved eligible counts in the right-hand column.
 
 The layout and styling are a re-implementation and are not byte-identical to the published renderings.

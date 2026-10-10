@@ -17,8 +17,9 @@ Design source: manuscript Sections 3.13 (end), 3.14 and 3.16. The script was
 re-implemented in release v1.4.1 from that description because the v1.4.0
 file was not available (see experiments/REVISION_ANALYSES_NOTE.md).
 
-Inputs: the archived 30-scenario catalog (scenarios/scenario_catalog.yaml) and
-the reported SWaT A11 aggregates hard-coded in ``REPORTED_A11_AGGREGATES``.
+Input: the archived 30-scenario catalog (scenarios/scenario_catalog.yaml).
+The SWaT A11 analysis of Section 4.3 (Tables 11 and 12, Figure 5) is rerun on
+the restricted captures by experiments/swat/a11_rerun.py.
 Policy logic (Equation (1) score, Equation (2) weights, Table 5 gate caps,
 Table 6 bands, Equation (10) minimum) is taken from the ``rdfr_ci`` package.
 
@@ -60,27 +61,6 @@ LEVELS_DESC = (4, 3, 2, 1, 0)
 # follow the half-open convention of Table 6 instead of floating-point noise.
 _ROUND = 10
 
-# ---------------------------------------------------------------------------
-# Reported SWaT A11 aggregates (manuscript Tables 11 and 12, release v1.3.0).
-# The raw SWaT A11 captures are restricted by the data provider (iTrust, SUTD)
-# and are not redistributed; the interval columns are therefore recomputed from
-# the aggregates exactly as reported in the manuscript.
-# ---------------------------------------------------------------------------
-REPORTED_A11_AGGREGATES = {
-    "n_windows_nominal": 5821,      # (29,160 - 60)/5 + 1 windows per capture
-    "n_blocks_effective": 485,      # non-overlapping 60 s blocks per capture
-    "flag_rates": [                 # Table 11 (percent, as reported)
-        {"budget": 0.01, "calibration_19feb": 0.0094, "target_20feb": 0.0168},
-        {"budget": 0.05, "calibration_19feb": 0.0497, "target_20feb": 0.1019},
-        {"budget": 0.10, "calibration_19feb": 0.0994, "target_20feb": 0.1629},
-    ],
-    "heldout_events": [             # Table 12 (12 held-out constructed events)
-        {"selection": "Synthetic F1", "detected": 9, "n": 12, "weighted_recall": 0.76},
-        {"selection": "Nominal 1%", "detected": 1, "n": 12, "weighted_recall": 0.12},
-        {"selection": "Nominal 5%", "detected": 2, "n": 12, "weighted_recall": 0.24},
-        {"selection": "Nominal 10%", "detected": 5, "n": 12, "weighted_recall": 0.48},
-    ],
-}
 # Water-treatment context of Equation (15): E, A, F, C fixed, D varies.
 WATER_CONTEXT = {"E": 0.55, "A": 0.30, "F": 0.25, "C": 0.90}
 
@@ -368,33 +348,6 @@ def tableA1(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
-# Tables 11 and 12 interval columns
-# ---------------------------------------------------------------------------
-def table11_intervals() -> pd.DataFrame:
-    a = REPORTED_A11_AGGREGATES; rows = []
-    for r in a["flag_rates"]:
-        p = r["target_20feb"]
-        lw, hw = wilson(p, a["n_windows_nominal"]); lb, hb = wilson(p, a["n_blocks_effective"])
-        rows.append(dict(budget=r["budget"], calibration_19feb=r["calibration_19feb"], target_20feb=p,
-                         wilson_windows_low=lw, wilson_windows_high=hw, wilson_blocks_low=lb, wilson_blocks_high=hb,
-                         interval_windows=f"{100*lw:.2f}-{100*hw:.2f}%", interval_blocks=f"{100*lb:.2f}-{100*hb:.2f}%",
-                         exceedance_distinguishable_blocks="Yes" if lb > r["budget"] else "No"))
-    return pd.DataFrame(rows)
-
-
-def table12_intervals() -> pd.DataFrame:
-    rows = []
-    for e in REPORTED_A11_AGGREGATES["heldout_events"]:
-        lo, hi = clopper_pearson(e["detected"], e["n"])
-        D = 1 - e["weighted_recall"]
-        r = score({**WATER_CONTEXT, "D": D}, DEFAULT_WEIGHTS)
-        rows.append(dict(selection=e["selection"], events=f"{e['detected']}/{e['n']}", weighted_recall=e["weighted_recall"],
-                         D=round(D, 10), R_CI=round(r, 10), provisional_level=level_from_score(r),
-                         cp_low=lo, cp_high=hi, interval_events=f"{lo:.2f}-{hi:.2f}"))
-    return pd.DataFrame(rows)
-
-
-# ---------------------------------------------------------------------------
 # Figures
 # ---------------------------------------------------------------------------
 BLUE, ORANGE, INK, MUTED = "#2a78d6", "#eb6834", "#0b0b0b", "#52514e"
@@ -439,24 +392,6 @@ def figure4(det: pd.DataFrame, jmc: pd.DataFrame, out: Path):
     ax2.set_title("(b) Joint Monte Carlo (inputs, weights, boundaries)", loc="left", fontsize=10)
     ax2.legend(loc="lower right")
     fig.tight_layout(); _save(fig, out, "figure_4_robustness"); plt.close(fig)
-
-
-def figure5(t11: pd.DataFrame, out: Path):
-    import matplotlib.pyplot as plt
-    _style(plt)
-    fig, ax = plt.subplots(figsize=(6, 3.8))
-    x = np.arange(len(t11)); w = 0.36
-    ax.bar(x - w / 2 - 0.02, 100 * t11.calibration_19feb, w, color=BLUE, label="19 Feb calibration")
-    tgt = 100 * t11.target_20feb
-    err = np.vstack([tgt - 100 * t11.wilson_blocks_low, 100 * t11.wilson_blocks_high - tgt])
-    ax.bar(x + w / 2 + 0.02, tgt, w, color=ORANGE, label="20 Feb target (Wilson 95%, n_eff = 485)",
-           yerr=err, capsize=4, error_kw={"ecolor": INK, "elinewidth": 1})
-    for xi, b in zip(x, t11.budget):
-        ax.hlines(100 * b, xi - 0.45, xi + 0.45, colors=MUTED, linestyles="--", lw=1)
-    ax.set_xticks(x, [f"{int(100*b)}% budget" for b in t11.budget])
-    ax.set_ylabel("Window-level flag rate (%)")
-    ax.legend(loc="upper left")
-    fig.tight_layout(); _save(fig, out, "figure_5_a11_flag_rates"); plt.close(fig)
 
 
 def figure6(df: pd.DataFrame, variants: dict, t15: pd.DataFrame, out: Path):
@@ -508,13 +443,11 @@ def main(out_dir: Path, seed: int = 42, n_mc: int = 10_000, figures: bool = True
     write(pd.DataFrame({"scenario_id": df.scenario_id, **per}), out_dir, "table_17_levels")
 
     a1 = tableA1(df); write(a1, out_dir, "table_A1")
-    t11 = table11_intervals(); write(t11, out_dir, "table_11_intervals")
-    t12 = table12_intervals(); write(t12, out_dir, "table_12_intervals")
 
     if figures:
         import matplotlib
         matplotlib.use("Agg")
-        figure4(det, jmc, out_dir); figure5(t11, out_dir); figure6(df, variants, t15, out_dir)
+        figure4(det, jmc, out_dir); figure6(df, variants, t15, out_dir)
 
     summary = {
         "seed": seed, "n_mc": n_mc, "catalog": str(CATALOG.relative_to(ROOT)),
@@ -525,9 +458,6 @@ def main(out_dir: Path, seed: int = 42, n_mc: int = 10_000, figures: bool = True
         "table_A1": a1[["weights", "boundaries", "final_levels_changed", "C_star", "showcase_codes",
                         "eligible_while_gate_unresolved", "gated_changed_ids"]].to_dict(orient="records"),
         "table_A1_gated_pairs_changed": int(sum(len(x.split(",")) for x in a1.gated_changed_ids if x)),
-        "table_11_intervals": t11.to_dict(orient="records"),
-        "table_12_intervals": t12.to_dict(orient="records"),
-        "reported_a11_aggregates": REPORTED_A11_AGGREGATES,
         "runtime_seconds": round(time.time() - t0, 2),
     }
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2, default=float), encoding="utf-8")
@@ -546,7 +476,5 @@ if __name__ == "__main__":
     print(pd.DataFrame(s["table_15"]).drop(columns=["eligible_while_gated_ids"]).to_string(index=False))
     print(pd.DataFrame(s["table_17"]).drop(columns=["disagreements"]).to_string(index=False))
     print(pd.DataFrame(s["table_A1"]).to_string(index=False))
-    print(pd.DataFrame(s["table_11_intervals"])[["budget", "interval_windows", "interval_blocks", "exceedance_distinguishable_blocks"]].to_string(index=False))
-    print(pd.DataFrame(s["table_12_intervals"])[["selection", "events", "R_CI", "provisional_level", "interval_events"]].to_string(index=False))
     print(f"gated scenario-parameterization pairs changed: {s['table_A1_gated_pairs_changed']} of 312")
     print(f"runtime: {s['runtime_seconds']} s -> {a.out_dir}")
