@@ -94,6 +94,14 @@ python experiments/summarize.py .
 
 Running the scripts above reproduced `results/batadal/batadal_results.json` (primary results and predictions) and the Table D5 and D6 files exactly.
 
+### Verify the archived results
+
+`scripts/verify_revision4.py` reruns the SWaT A11 and HAI 21.03 analyses into a temporary folder and compares every output table with the archived copy:
+
+```bash
+python scripts/verify_revision4.py --a11-dir data/private/swat_a11 --hai-dir DATA/hai-21.03
+```
+
 ### Environment of the reported runs
 
 Python 3.13.16, NumPy 2.5.3, pandas 3.0.5, SciPy 1.18.1, scikit-learn 1.9.1, WNTR 1.5.0. The Python, NumPy, pandas and scikit-learn versions are also stored in the HAI and BATADAL results JSON files, and the WNTR version in `results/ctown/ctown_results.json`.
