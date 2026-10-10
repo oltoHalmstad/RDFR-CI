@@ -1,10 +1,14 @@
-# RDFR-CI v1.3.0
+# RDFR-CI v1.4.1
 
 **Risk-Driven Deployment and Forensic Readiness for Governing AI Authority in Critical Infrastructure Protection**
 
 Reference implementation, scenario library, evaluation harness, and manuscript-aligned supplementary materials for the RDFR-CI article.
 
-> **Scientific status.** The 30 cross-sector scenario values and the six showcased action contexts are illustrative governance inputs, not measured risk levels for sectors or organizations. The SWaT A11 materials distributed here are aggregate derived outputs plus a separately labeled constructed-event challenge; raw SWaT telemetry is not redistributed. Labeled SWaT A1/A2 attack validation remains unexecuted.
+> **Scientific status.** The 30 cross-sector scenario values and the six showcased action contexts are illustrative governance inputs, not measured risk levels for sectors or organizations. The SWaT A11 materials distributed here are derived outputs of the v1.4.1 rerun (training-referenced normalization) plus a separately labeled constructed-event challenge; raw SWaT telemetry is not redistributed. Labeled SWaT A1/A2 attack validation remains unexecuted.
+
+## What changed in v1.4.1
+
+v1.4.1 is the release for the fourth revision of the article (manuscript information-4588318). It adds the labeled-attack and consequence analyses listed under "Revision-4 analyses" below: the corrected HAI 21.03 evaluation, the replication on HAI 22.04 and 23.05, the BATADAL second-system evaluation under a pre-specified protocol, and the C-Town action-consequence simulation. The policy implementation (authority scale, gates, Equations (1)–(12)) is unchanged from v1.3.0/v1.4.0.
 
 ## What changed in v1.3.0
 
@@ -26,14 +30,14 @@ with illustrative default weights `0.20, 0.20, 0.15, 0.20, 0.25`.
 
 ## Release / citation status
 
-- Software version: **1.3.0**
-- Manuscript alignment date: **9 September 2026**
+- Software version: **1.4.1**
+- Release date: **10 October 2026**
 - Article DOI: pending
-- v1.3.0 Zenodo DOI: **10.5281/zenodo.22682447**
-- Previous archived release v1.2.1: **10.5281/zenodo.22662284**
+- v1.4.1 Zenodo DOI: **10.5281/zenodo.23277893**
+- Earlier archived releases: v1.3.0 **10.5281/zenodo.22682447**; v1.2.1 **10.5281/zenodo.22662284**
 - GitHub: https://github.com/oltoHalmstad/RDFR-CI
 
-Cite `10.5281/zenodo.22682447` for the v1.3.0 software/supplementary release. `10.5281/zenodo.22662284` identifies the previous v1.2.1 release.
+Cite `10.5281/zenodo.23277893` for the v1.4.1 software/supplementary release used in the article. The earlier DOIs identify the previous releases.
 
 ## License
 
@@ -41,7 +45,7 @@ Code is MIT licensed. Dataset licenses/access terms remain with their original p
 
 ## Revision-4 analyses (HAI replication, BATADAL second system, C-Town simulation)
 
-These analyses support the fourth revision of the article (manuscript information-4588318). They are intended for release v1.4.1.
+These analyses support the fourth revision of the article (manuscript information-4588318). They are included in release v1.4.1.
 
 ### What v1.4.1 adds
 
@@ -53,7 +57,9 @@ These analyses support the fourth revision of the article (manuscript informatio
 | Section 4.9, Tables D5 and D6: C-Town action-consequence simulation and policy outcomes | `experiments/ctown_consequence.py` | `results/ctown/` |
 | Table D4: cross-dataset summary | `experiments/summarize.py` | `results/summary/` |
 | Figure 7 and Figure A2 | `experiments/make_figures.py` | `results/figures/revision4/` |
-| Section 3.13 and Equation (14): explicit reference segment | `experiments/swat/train_isolation_forest.py` (patched) | Rerun of SWaT A11, if the restricted data are available |
+| Sections 3.14, 4.2, 4.5 and 4.7: Tables 10, 15, 17 and A1, Figures 4 and 6 (re-implementation of the v1.4.0 script; see `experiments/REVISION_ANALYSES_NOTE.md`) | `experiments/run_revision_analyses.py` | `results/revision_analyses/` |
+| Section 3.13 and Equation (14): explicit reference segment | `experiments/swat/train_isolation_forest.py` (patched) | used by the A11 rerun |
+| Section 4.3, Tables 11 and 12, Figure 5: SWaT A11 rerun with training-referenced normalization and constructed-event challenge (specification frozen in `experiments/swat/a11_constructed_events.json`) | `experiments/swat/a11_rerun.py` (needs the restricted captures in `data/private/swat_a11/`) | `results/swat_a11/` |
 
 The protocol and predictions for the BATADAL and C-Town analyses were fixed before analysis. They are in `preregistration/batadal_ctown/PREREGISTRATION.md`, with its SHA-256 and freeze time in `PREREGISTRATION.sha256`; every deviation is in `DEVIATIONS.md`. The hash of the protocol is also stored in each results file.
 
@@ -87,6 +93,14 @@ python experiments/summarize.py .
 - Without `--no-new-a3`, the script also runs the 27 zone-isolation-under-attack runs that were not completed for the article (DEVIATIONS.md, item 12). Each takes 10–30 minutes; none of them enters Table D6.
 
 Running the scripts above reproduced `results/batadal/batadal_results.json` (primary results and predictions) and the Table D5 and D6 files exactly.
+
+### Verify the archived results
+
+`scripts/verify_revision4.py` reruns the SWaT A11 and HAI 21.03 analyses into a temporary folder and compares every output table with the archived copy:
+
+```bash
+python scripts/verify_revision4.py --a11-dir data/private/swat_a11 --hai-dir DATA/hai-21.03
+```
 
 ### Environment of the reported runs
 

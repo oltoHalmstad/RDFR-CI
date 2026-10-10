@@ -1,0 +1,41 @@
+{
+  "description": "Constructed-event challenge for the SWaT A11 rerun (Section 4.3). Re-specified in release v1.4.1 because the event definitions of the earlier analysis were not archived. Fixed before any score of a perturbed copy was computed.",
+  "base_capture": "20 February 2026 (SWaT.A10_OTDataset_20-Feb-2026_0905_1710.csv)",
+  "duration_s": 600,
+  "magnitude_unit": "standard deviation of the variable over the 19 February training segment (first 80% of records)",
+  "types": {
+    "offset": "add +2 sd for the whole event",
+    "ramp": "add a linear drift from 0 to +4 sd over the event",
+    "freeze": "hold the value recorded at event start for the whole event",
+    "zero": "set the value to 0 for the whole event (zero-flow for flow sensors)"
+  },
+  "classes": {"analyzer": 1, "flow_pressure": 2, "level_state": 3},
+  "detection_rule": "an event is detected if at least one flagged window overlaps it (window end within [start, start + duration - 1 + 59 s])",
+  "f1_comparator": "threshold maximizing window-level F1 over the 12 calibration copies (positive = window overlapping the event)",
+  "events": [
+    {"id": "C01", "set": "calibration", "class": "analyzer",      "type": "offset", "variable": "AIT202.Pv",  "start_s": 600},
+    {"id": "H01", "set": "heldout",     "class": "analyzer",      "type": "offset", "variable": "AIT301.Pv",  "start_s": 1750},
+    {"id": "C02", "set": "calibration", "class": "analyzer",      "type": "freeze", "variable": "AIT203.Pv",  "start_s": 2900},
+    {"id": "H02", "set": "heldout",     "class": "analyzer",      "type": "freeze", "variable": "AIT201.Pv",  "start_s": 4050},
+    {"id": "C03", "set": "calibration", "class": "analyzer",      "type": "ramp",   "variable": "AIT501.Pv",  "start_s": 5200},
+    {"id": "H03", "set": "heldout",     "class": "analyzer",      "type": "ramp",   "variable": "AIT502.Pv",  "start_s": 6350},
+    {"id": "C04", "set": "calibration", "class": "analyzer",      "type": "zero",   "variable": "AIT402.Pv",  "start_s": 7500},
+    {"id": "H04", "set": "heldout",     "class": "analyzer",      "type": "zero",   "variable": "AIT303.Pv",  "start_s": 8650},
+    {"id": "C05", "set": "calibration", "class": "flow_pressure", "type": "offset", "variable": "FIT401.Pv",  "start_s": 9800},
+    {"id": "H05", "set": "heldout",     "class": "flow_pressure", "type": "offset", "variable": "FIT502.Pv",  "start_s": 10950},
+    {"id": "C06", "set": "calibration", "class": "flow_pressure", "type": "freeze", "variable": "DPIT301.Pv", "start_s": 12100},
+    {"id": "H06", "set": "heldout",     "class": "flow_pressure", "type": "freeze", "variable": "PIT501.Pv",  "start_s": 13250},
+    {"id": "C07", "set": "calibration", "class": "flow_pressure", "type": "ramp",   "variable": "FIT501.Pv",  "start_s": 14400},
+    {"id": "H07", "set": "heldout",     "class": "flow_pressure", "type": "ramp",   "variable": "FIT201.Pv",  "start_s": 15550},
+    {"id": "C08", "set": "calibration", "class": "flow_pressure", "type": "zero",   "variable": "FIT301.Pv",  "start_s": 16700},
+    {"id": "H08", "set": "heldout",     "class": "flow_pressure", "type": "zero",   "variable": "FIT602.Pv",  "start_s": 17850},
+    {"id": "C09", "set": "calibration", "class": "level_state",   "type": "offset", "variable": "LIT101.Pv",  "start_s": 19000},
+    {"id": "H09", "set": "heldout",     "class": "level_state",   "type": "offset", "variable": "LIT601.Pv",  "start_s": 20150},
+    {"id": "C10", "set": "calibration", "class": "level_state",   "type": "freeze", "variable": "LIT301.Pv",  "start_s": 21300},
+    {"id": "H10", "set": "heldout",     "class": "level_state",   "type": "freeze", "variable": "LIT101.Pv",  "start_s": 22450},
+    {"id": "C11", "set": "calibration", "class": "level_state",   "type": "ramp",   "variable": "LIT602.Pv",  "start_s": 23600},
+    {"id": "H11", "set": "heldout",     "class": "level_state",   "type": "ramp",   "variable": "LIT401.Pv",  "start_s": 24750},
+    {"id": "C12", "set": "calibration", "class": "level_state",   "type": "zero",   "variable": "LIT401.Pv",  "start_s": 25900},
+    {"id": "H12", "set": "heldout",     "class": "level_state",   "type": "zero",   "variable": "LIT301.Pv",  "start_s": 27050}
+  ]
+}
