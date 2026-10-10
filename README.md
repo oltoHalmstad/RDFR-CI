@@ -57,6 +57,7 @@ These analyses support the fourth revision of the article (manuscript informatio
 | Section 4.9, Tables D5 and D6: C-Town action-consequence simulation and policy outcomes | `experiments/ctown_consequence.py` | `results/ctown/` |
 | Table D4: cross-dataset summary | `experiments/summarize.py` | `results/summary/` |
 | Figure 7 and Figure A2 | `experiments/make_figures.py` | `results/figures/revision4/` |
+| Sections 3.14, 4.2, 4.3, 4.5 and 4.7: Tables 10, 15, 17 and A1, interval columns of Tables 11 and 12, Figures 4–6 (re-implementation of the v1.4.0 script; see `experiments/REVISION_ANALYSES_NOTE.md`) | `experiments/run_revision_analyses.py` | `results/revision_analyses/` |
 | Section 3.13 and Equation (14): explicit reference segment | `experiments/swat/train_isolation_forest.py` (patched) | Rerun of SWaT A11, if the restricted data are available |
 
 The protocol and predictions for the BATADAL and C-Town analyses were fixed before analysis. They are in `preregistration/batadal_ctown/PREREGISTRATION.md`, with its SHA-256 and freeze time in `PREREGISTRATION.sha256`; every deviation is in `DEVIATIONS.md`. The hash of the protocol is also stored in each results file.

@@ -11,7 +11,7 @@ Aggregation sensitivity 21/30: PASS
 Unit tests: PASS
 
 Verification mode: smoke
-Pytest: .............................                                            [100%]
-29 passed in 2.45s
+Pytest: ..................................                                       [100%]
+34 passed in 2.52s
 
 Scientific classification: this release verifies the public policy implementation and manuscript-facing numeric tables. Exact publication figure binaries and the aligned DOCX are identified by hashes in the release/Zenodo package; raw SWaT data are excluded and labeled A1/A2 attack validation remains unexecuted.

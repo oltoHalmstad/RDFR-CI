@@ -1,0 +1,10 @@
+perturbation,provisional,final,provisional_value,final_value
+All boundaries -0.05,13 changed,8 changed,13.0,8.0
+All boundaries -0.025,5 changed,2 changed,5.0,2.0
+All boundaries +0.025,3 changed,1 changed,3.0,1.0
+All boundaries +0.05,7 changed,2 changed,7.0,2.0
+Single boundary +/-0.025 (largest of 8 settings),3 changed,1 changed,3.0,1.0
+Single boundary +/-0.05 (largest of 8 settings),6 changed,3 changed,6.0,3.0
+"Inputs only, sigma = 0.05: scenarios with retention probability >= 0.90",21 of 30,-,21.0,
+Joint Monte Carlo: scenarios with retention probability >= 0.90,18 of 30,25 of 30,18.0,25.0
+Joint Monte Carlo: lowest retention probability,0.49 (WATER-001),0.52 (HEALTH-002),0.4937,0.5188

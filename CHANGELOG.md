@@ -18,6 +18,7 @@ Release for the fourth revision of the article. Zenodo DOI: `10.5281/zenodo.2327
   - code: `experiments/batadal_evaluation.py`.
 - C-Town action-consequence simulation with WNTR and policy-outcome comparison (`experiments/ctown_consequence.py`). Per-run results are cached in `results/ctown/cache/`.
 - Cross-dataset summary (`experiments/summarize.py`).
+- `experiments/run_revision_analyses.py` re-implemented from the manuscript description, because the v1.4.0 file was not available. With seed 42 it reproduces every value of Tables 10, 15, 17 and A1 and the interval columns of Tables 11 and 12, and regenerates Figures 4–6 (`results/revision_analyses/`). Details and seed sensitivity: `experiments/REVISION_ANALYSES_NOTE.md`; tests: `tests/test_revision_analyses.py`.
 - The reference segment of Equation (14) is an explicit argument of `anomaly_scores()` (`experiments/swat/train_isolation_forest.py`).
 - New dependency: `wntr>=1.5`.
 - `experiments/swat/run_swat_experiment.py` now passes the reference segment explicitly (`--score-reference training|segment`, default `training`).

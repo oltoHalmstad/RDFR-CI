@@ -8,6 +8,7 @@ v1.4.1 adds the labeled-attack and consequence analyses of the revised article:
 - `experiments/hai_replication.py`: replication on HAI 22.04 and 23.05 (Table D3);
 - `experiments/batadal_evaluation.py`: BATADAL second-system evaluation under the protocol in `preregistration/batadal_ctown/` (Section 4.8; Table D4);
 - `experiments/ctown_consequence.py`: C-Town action-consequence simulation and policy outcomes (Section 4.9; Tables D5, D6), with cached runs in `results/ctown/cache/`;
+- `experiments/run_revision_analyses.py`: robustness, policy-variant, alternative-method and parameterization analyses (Tables 10, 15, 17, A1; interval columns of Tables 11 and 12; Figures 4–6), re-implemented from the manuscript description and verified to reproduce the published values (`experiments/REVISION_ANALYSES_NOTE.md`);
 - `experiments/summarize.py` and `experiments/make_figures.py`.
 
 The policy implementation (authority scale, gates, delegation) is unchanged from v1.3.0. See `README.md` for commands and the environment of the reported runs, and `CHANGELOG.md` for details.
