@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Verify the v1.3.0 manuscript-alignment invariants available in the public repository."""
+"""Verify the manuscript-alignment invariants available in the public repository."""
 from pathlib import Path
 import argparse,csv,json,sys,subprocess,os
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
 from rdfr_ci.authority import AuthorityState,authority_from_score
 from rdfr_ci.gates import final_authority
-VERSION='1.3.0'
+VERSION='1.4.1'
 def main(mode='full'):
     checks=[]
     def add(n,v): checks.append((n,bool(v)))
@@ -22,7 +22,7 @@ def main(mode='full'):
     agg=ROOT/'results/sensitivity/aggregation_summary.json'
     if agg.exists(): add('Aggregation sensitivity 21/30',json.loads(agg.read_text()).get('changed_under_at_least_one')==21)
     env=os.environ.copy();env['PYTHONPATH']=str(ROOT/'src')+os.pathsep+env.get('PYTHONPATH','');t=subprocess.run([sys.executable,'-m','pytest','-q'],cwd=ROOT,env=env,capture_output=True,text=True);add('Unit tests',t.returncode==0)
-    lines=['# REPRODUCIBILITY STATUS','',f'Release: v{VERSION}','Manuscript alignment: 9 September 2026','']+[f'{n}: {"PASS" if ok else "FAIL"}' for n,ok in checks]+['',f'Verification mode: {mode}',f'Pytest: {t.stdout.strip() or t.stderr.strip()}','', 'Scientific classification: v1.3.0 verifies the public policy implementation and manuscript-facing numeric tables. Exact publication figure binaries and the aligned DOCX are identified by hashes in the release/Zenodo package; raw SWaT data are excluded and labeled A1/A2 attack validation remains unexecuted.']
+    lines=['# REPRODUCIBILITY STATUS','',f'Release: v{VERSION}','Manuscript alignment: 10 October 2026 (revision 4; policy tables unchanged since v1.3.0)','']+[f'{n}: {"PASS" if ok else "FAIL"}' for n,ok in checks]+['',f'Verification mode: {mode}',f'Pytest: {t.stdout.strip() or t.stderr.strip()}','', 'Scientific classification: this release verifies the public policy implementation and manuscript-facing numeric tables. Exact publication figure binaries and the aligned DOCX are identified by hashes in the release/Zenodo package; raw SWaT data are excluded and labeled A1/A2 attack validation remains unexecuted.']
     (ROOT/'results/REPRODUCIBILITY_STATUS.md').write_text('\n'.join(lines)+'\n',encoding='utf-8');print('\n'.join(lines));return 1 if any(not ok for _,ok in checks) else 0
 if __name__=='__main__':
     ap=argparse.ArgumentParser();ap.add_argument('--full',action='store_true');ap.add_argument('--smoke',action='store_true');a=ap.parse_args();raise SystemExit(main('smoke' if a.smoke else 'full'))

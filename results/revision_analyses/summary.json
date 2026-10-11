@@ -1,0 +1,401 @@
+{
+  "seed": 42,
+  "n_mc": 10000,
+  "catalog": "scenarios/scenario_catalog.yaml",
+  "gated_scenarios": 13,
+  "table_10": [
+    {
+      "perturbation": "All boundaries -0.05",
+      "provisional": "13 changed",
+      "final": "8 changed",
+      "provisional_value": 13.0,
+      "final_value": 8.0
+    },
+    {
+      "perturbation": "All boundaries -0.025",
+      "provisional": "5 changed",
+      "final": "2 changed",
+      "provisional_value": 5.0,
+      "final_value": 2.0
+    },
+    {
+      "perturbation": "All boundaries +0.025",
+      "provisional": "3 changed",
+      "final": "1 changed",
+      "provisional_value": 3.0,
+      "final_value": 1.0
+    },
+    {
+      "perturbation": "All boundaries +0.05",
+      "provisional": "7 changed",
+      "final": "2 changed",
+      "provisional_value": 7.0,
+      "final_value": 2.0
+    },
+    {
+      "perturbation": "Single boundary +/-0.025 (largest of 8 settings)",
+      "provisional": "3 changed",
+      "final": "1 changed",
+      "provisional_value": 3.0,
+      "final_value": 1.0
+    },
+    {
+      "perturbation": "Single boundary +/-0.05 (largest of 8 settings)",
+      "provisional": "6 changed",
+      "final": "3 changed",
+      "provisional_value": 6.0,
+      "final_value": 3.0
+    },
+    {
+      "perturbation": "Inputs only, sigma = 0.05: scenarios with retention probability >= 0.90",
+      "provisional": "21 of 30",
+      "final": "-",
+      "provisional_value": 21.0,
+      "final_value": NaN
+    },
+    {
+      "perturbation": "Joint Monte Carlo: scenarios with retention probability >= 0.90",
+      "provisional": "18 of 30",
+      "final": "25 of 30",
+      "provisional_value": 18.0,
+      "final_value": 25.0
+    },
+    {
+      "perturbation": "Joint Monte Carlo: lowest retention probability",
+      "provisional": "0.49 (WATER-001)",
+      "final": "0.52 (HEALTH-002)",
+      "provisional_value": 0.4937,
+      "final_value": 0.5188
+    }
+  ],
+  "table_15": [
+    {
+      "variant": "Fixed playbook",
+      "eligible_while_gate_unresolved": 12,
+      "above_provisional": 24,
+      "bounded_automation_C_ge_0_5": 6,
+      "spearman_rci_restriction": -0.011883473113799317,
+      "levels_4_3_2_1_0": "15 / 14 / 1 / 0 / 0",
+      "eligible_while_gated_ids": "MFG-001,SUB-001,RAIL-001,HOSP-001,POWER-001,SUB-002,WW-001,ROAD-001,HEALTH-001,MFG-002,OIL-002,CDI-002"
+    },
+    {
+      "variant": "Score-only",
+      "eligible_while_gate_unresolved": 6,
+      "above_provisional": 0,
+      "bounded_automation_C_ge_0_5": 0,
+      "spearman_rci_restriction": 0.9439226604317377,
+      "levels_4_3_2_1_0": "1 / 9 / 12 / 8 / 0",
+      "eligible_while_gated_ids": "MFG-001,SUB-001,WW-001,HEALTH-001,MFG-002,OIL-002"
+    },
+    {
+      "variant": "Gates-only",
+      "eligible_while_gate_unresolved": 0,
+      "above_provisional": 16,
+      "bounded_automation_C_ge_0_5": 12,
+      "spearman_rci_restriction": -0.2507485355782513,
+      "levels_4_3_2_1_0": "17 / 0 / 7 / 6 / 0",
+      "eligible_while_gated_ids": ""
+    },
+    {
+      "variant": "Full RDFR-CI",
+      "eligible_while_gate_unresolved": 0,
+      "above_provisional": 0,
+      "bounded_automation_C_ge_0_5": 0,
+      "spearman_rci_restriction": 0.7121761318834303,
+      "levels_4_3_2_1_0": "1 / 3 / 13 / 13 / 0",
+      "eligible_while_gated_ids": ""
+    }
+  ],
+  "table_17": [
+    {
+      "method": "Full RDFR-CI",
+      "agreement": 30,
+      "kappa_quadratic": 1.0,
+      "higher": 0,
+      "lower": 0,
+      "eligible_C_ge_0_65": 0,
+      "level0": 0,
+      "rho_C": 0.2477662951141057,
+      "rho_RCI": 0.7121761318834303,
+      "levels_4_3_2_1_0": "1/3/13/13/0",
+      "water_context_D0_D025": "2, 2",
+      "disagreements": ""
+    },
+    {
+      "method": "AI-SOC-style score (no C)",
+      "agreement": 28,
+      "kappa_quadratic": 0.9484536082474226,
+      "higher": 2,
+      "lower": 0,
+      "eligible_C_ge_0_65": 1,
+      "level0": 0,
+      "rho_C": 0.18053087545301397,
+      "rho_RCI": 0.6874520091753843,
+      "levels_4_3_2_1_0": "1/5/11/13/0",
+      "water_context_D0_D025": "3, 3",
+      "disagreements": "HEALTH-002:3vs2,LOG-001:3vs2"
+    },
+    {
+      "method": "5 x 5 risk matrix",
+      "agreement": 17,
+      "kappa_quadratic": 0.6254927726675427,
+      "higher": 13,
+      "lower": 0,
+      "eligible_C_ge_0_65": 1,
+      "level0": 0,
+      "rho_C": 0.19159703268592482,
+      "rho_RCI": 0.286810698501763,
+      "levels_4_3_2_1_0": "3/8/12/7/0",
+      "water_context_D0_D025": "2, 2",
+      "disagreements": "BUILD-001:2vs1,WATER-002:4vs3,RAIL-002:2vs1,ROAD-002:3vs2,HEALTH-002:3vs2,CHEM-001:4vs3,CHEM-002:3vs2,OIL-001:2vs1,TEL-001:2vs1,DC-001:3vs1,PA-001:3vs2,FOOD-001:3vs1,LOG-001:3vs2"
+    },
+    {
+      "method": "Worst-dimension rule",
+      "agreement": 3,
+      "kappa_quadratic": 0.2962962962962963,
+      "higher": 0,
+      "lower": 27,
+      "eligible_C_ge_0_65": 0,
+      "level0": 19,
+      "rho_C": 0.62599738258652,
+      "rho_RCI": 0.727982789499574,
+      "levels_4_3_2_1_0": "0/1/2/8/19",
+      "water_context_D0_D025": "0, 0",
+      "disagreements": "CDI-001:3vs4,MFG-001:1vs2,SUB-001:0vs2,RAIL-001:0vs2,HOSP-001:0vs2,WATER-001:0vs1,POWER-001:0vs1,BUILD-001:0vs1,SUB-002:0vs1,WATER-002:1vs3,WW-001:0vs2,WW-002:0vs2,RAIL-002:0vs1,ROAD-001:0vs1,ROAD-002:0vs2,HEALTH-001:1vs2,HEALTH-002:0vs2,HOSP-002:0vs1,CHEM-001:1vs3,CHEM-002:0vs2,OIL-001:0vs1,TEL-001:0vs1,TEL-002:2vs3,DC-001:0vs1,PA-001:1vs2,FOOD-001:0vs1,LOG-001:1vs2"
+    },
+    {
+      "method": "AI-SOC original weights (sensitivity)",
+      "agreement": 27,
+      "kappa_quadratic": 0.9273021001615509,
+      "higher": 2,
+      "lower": 1,
+      "eligible_C_ge_0_65": 1,
+      "level0": 1,
+      "rho_C": 0.15933444308735203,
+      "rho_RCI": 0.6967626537980341,
+      "levels_4_3_2_1_0": "1/5/11/12/1",
+      "water_context_D0_D025": "3, 2",
+      "disagreements": "RAIL-002:0vs1,HEALTH-002:3vs2,LOG-001:3vs2"
+    }
+  ],
+  "table_A1": [
+    {
+      "weights": "Baseline (Eq. (2))",
+      "boundaries": "Baseline",
+      "final_levels_changed": "0 (0 up / 0 down)",
+      "C_star": 0.8,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Baseline (Eq. (2))",
+      "boundaries": "Stricter (-0.05)",
+      "final_levels_changed": "8 (0 up / 8 down)",
+      "C_star": 0.6,
+      "showcase_codes": "3 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Baseline (Eq. (2))",
+      "boundaries": "More permissive (+0.05)",
+      "final_levels_changed": "2 (2 up / 0 down)",
+      "C_star": 1.0,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Baseline (Eq. (2))",
+      "boundaries": "Equal-width",
+      "final_levels_changed": "5 (5 up / 0 down)",
+      "C_star": 0.8,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Equal weights",
+      "boundaries": "Baseline",
+      "final_levels_changed": "1 (1 up / 0 down)",
+      "C_star": 1.0,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Equal weights",
+      "boundaries": "Stricter (-0.05)",
+      "final_levels_changed": "4 (0 up / 4 down)",
+      "C_star": 0.75,
+      "showcase_codes": "3 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Equal weights",
+      "boundaries": "More permissive (+0.05)",
+      "final_levels_changed": "3 (3 up / 0 down)",
+      "C_star": 1.25,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Equal weights",
+      "boundaries": "Equal-width",
+      "final_levels_changed": "9 (9 up / 0 down)",
+      "C_star": 1.0,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-heavy (wC = 0.35)",
+      "boundaries": "Baseline",
+      "final_levels_changed": "1 (0 up / 1 down)",
+      "C_star": 0.5714285714,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-heavy (wC = 0.35)",
+      "boundaries": "Stricter (-0.05)",
+      "final_levels_changed": "8 (0 up / 8 down)",
+      "C_star": 0.4285714286,
+      "showcase_codes": "3 2 2 2 1 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": "HOSP-001"
+    },
+    {
+      "weights": "Consequence-heavy (wC = 0.35)",
+      "boundaries": "More permissive (+0.05)",
+      "final_levels_changed": "1 (1 up / 0 down)",
+      "C_star": 0.7142857143,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-heavy (wC = 0.35)",
+      "boundaries": "Equal-width",
+      "final_levels_changed": "5 (5 up / 0 down)",
+      "C_star": 0.5714285714,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-light (wC = 0.15)",
+      "boundaries": "Baseline",
+      "final_levels_changed": "1 (1 up / 0 down)",
+      "C_star": 1.3333333333,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-light (wC = 0.15)",
+      "boundaries": "Stricter (-0.05)",
+      "final_levels_changed": "9 (1 up / 8 down)",
+      "C_star": 1.0,
+      "showcase_codes": "3 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-light (wC = 0.15)",
+      "boundaries": "More permissive (+0.05)",
+      "final_levels_changed": "5 (5 up / 0 down)",
+      "C_star": 1.6666666667,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Consequence-light (wC = 0.15)",
+      "boundaries": "Equal-width",
+      "final_levels_changed": "7 (7 up / 0 down)",
+      "C_star": 1.3333333333,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Detection-heavy (wD = 0.30)",
+      "boundaries": "Baseline",
+      "final_levels_changed": "2 (2 up / 0 down)",
+      "C_star": 0.9142857143,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Detection-heavy (wD = 0.30)",
+      "boundaries": "Stricter (-0.05)",
+      "final_levels_changed": "8 (0 up / 8 down)",
+      "C_star": 0.6857142857,
+      "showcase_codes": "3 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Detection-heavy (wD = 0.30)",
+      "boundaries": "More permissive (+0.05)",
+      "final_levels_changed": "4 (4 up / 0 down)",
+      "C_star": 1.1428571429,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Detection-heavy (wD = 0.30)",
+      "boundaries": "Equal-width",
+      "final_levels_changed": "5 (5 up / 0 down)",
+      "C_star": 0.9142857143,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Forensic-light (wF = 0.10)",
+      "boundaries": "Baseline",
+      "final_levels_changed": "1 (0 up / 1 down)",
+      "C_star": 0.7111111111,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Forensic-light (wF = 0.10)",
+      "boundaries": "Stricter (-0.05)",
+      "final_levels_changed": "5 (0 up / 5 down)",
+      "C_star": 0.5333333333,
+      "showcase_codes": "3 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Forensic-light (wF = 0.10)",
+      "boundaries": "More permissive (+0.05)",
+      "final_levels_changed": "5 (5 up / 0 down)",
+      "C_star": 0.8888888889,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    },
+    {
+      "weights": "Forensic-light (wF = 0.10)",
+      "boundaries": "Equal-width",
+      "final_levels_changed": "9 (9 up / 0 down)",
+      "C_star": 0.7111111111,
+      "showcase_codes": "4 2 2 2 2 1",
+      "eligible_while_gate_unresolved": 0,
+      "gated_changed_ids": ""
+    }
+  ],
+  "table_A1_gated_pairs_changed": 1,
+  "runtime_seconds": 2.23
+}

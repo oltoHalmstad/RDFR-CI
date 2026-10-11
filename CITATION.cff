@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use RDFR-CI, please cite the associated article and the v1.3.0 software release."
+message: "If you use RDFR-CI, please cite the associated article and the v1.4.1 software release."
 title: "RDFR-CI: Reference Implementation, Scenario Library and Evaluation Harness"
 type: software
 authors:
@@ -9,9 +9,9 @@ authors:
   - family-names: Prokopovych-Tkachenko
     given-names: Dmytro
     affiliation: University of Customs and Finance
-version: 1.3.0
-date-released: 2026-09-09
-doi: "10.5281/zenodo.22682447"
+version: 1.4.1
+date-released: 2026-10-10
+doi: "10.5281/zenodo.23277893"
 repository-code: "https://github.com/oltoHalmstad/RDFR-CI"
 license: MIT
 keywords:
@@ -23,5 +23,6 @@ keywords:
   - autonomous cyber defense
   - AI governance
   - SWaT
+  - HAI
+  - BATADAL
   - reproducibility
-notes: "ARTICLE DOI: pending. RDFR-CI v1.3.0 ZENODO DOI: 10.5281/zenodo.22682447. Previous v1.2.1 DOI: 10.5281/zenodo.22662284. Raw SWaT data are not redistributed."
