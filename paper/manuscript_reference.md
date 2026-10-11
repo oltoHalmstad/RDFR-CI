@@ -1,6 +1,6 @@
 # Manuscript reference — RDFR-CI v1.4.1
 
-- **Manuscript:** information-4588318, fourth revision (10 October 2026)
+- **Manuscript:** information-4588318, third-round revision (10 October 2026)
 - **Software release:** RDFR-CI v1.4.1
 - **v1.4.1 Zenodo DOI:** 10.5281/zenodo.23277893
 - **New analyses:** Sections 3.15–3.17, 4.6, 4.8 and 4.9; Tables 16, 18 and D1–D6; Figure 7 (see `README.md`, "Revision-4 analyses").

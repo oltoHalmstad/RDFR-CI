@@ -8,7 +8,7 @@ Reference implementation, scenario library, evaluation harness, and manuscript-a
 
 ## What changed in v1.4.1
 
-v1.4.1 is the release for the fourth revision of the article (manuscript information-4588318). It adds the labeled-attack and consequence analyses listed under "Revision-4 analyses" below: the corrected HAI 21.03 evaluation, the replication on HAI 22.04 and 23.05, the BATADAL second-system evaluation under a pre-specified protocol, and the C-Town action-consequence simulation. The policy implementation (authority scale, gates, Equations (1)–(12)) is unchanged from v1.3.0/v1.4.0.
+v1.4.1 is the release for the third-round revision of the article (manuscript information-4588318). It adds the labeled-attack and consequence analyses listed under "Revision-4 analyses" below: the corrected HAI 21.03 evaluation, the replication on HAI 22.04 and 23.05, the BATADAL second-system evaluation under a pre-specified protocol, and the C-Town action-consequence simulation. The policy implementation (authority scale, gates, Equations (1)–(12)) is unchanged from v1.3.0/v1.4.0.
 
 ## What changed in v1.3.0
 
@@ -45,7 +45,7 @@ Code is MIT licensed. Dataset licenses/access terms remain with their original p
 
 ## Revision-4 analyses (HAI replication, BATADAL second system, C-Town simulation)
 
-These analyses support the fourth revision of the article (manuscript information-4588318). They are included in release v1.4.1.
+These analyses support the third-round revision of the article (manuscript information-4588318). They are included in release v1.4.1.
 
 ### What v1.4.1 adds
 

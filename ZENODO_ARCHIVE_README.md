@@ -1,6 +1,6 @@
 # RDFR-CI v1.4.1 Zenodo archive
 
-This package is the software and supplementary release supporting the fourth revision of the RDFR-CI article (DOI 10.5281/zenodo.23277893).
+This package is the software and supplementary release supporting the third-round revision of the RDFR-CI article (DOI 10.5281/zenodo.23277893).
 
 v1.4.1 adds the labeled-attack and consequence analyses of the revised article:
 

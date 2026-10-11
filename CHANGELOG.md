@@ -2,7 +2,7 @@
 
 ## v1.4.1 — 2026-10-10
 
-Release for the fourth revision of the article. Zenodo DOI: `10.5281/zenodo.23277893`.
+Release for the third-round revision of the article. Zenodo DOI: `10.5281/zenodo.23277893`.
 
 
 - Corrected HAI 21.03 evaluation (`experiments/hai_evaluation.py`):
